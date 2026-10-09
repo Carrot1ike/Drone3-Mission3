@@ -14,9 +14,11 @@ REPO = 'Carrot1ike/Drone3-Mission3'
 TAG = 'mission3-straight-20261009'
 BASE = '069aa317c81dd58b7633cbf178282cf9d1e39e24'
 OLD_TAG = '82944a22f9655019ee28bc967f2f845acde4240d'
+CLEAN_BASE = 'ed7d22dfd69de54f5b8bd90c78df62eb4fdc8e3f'
+CLEAN_TAG = '9c0d793d1a0a9bbc7f8332a974696ffb81bf5bbe'
 ASSETS = [
-    ('mission3-team-share-privacy-20261010.zip', 'f3d757d8fccbe0487caade5c27d9ea183894b8cafe68ef2597f5dbfa1f08e2ba', 'mission3-team-share-privacy-20261010.zip'),
-    ('mission3-straight-16-privacy-20261010.zip', '159c70fbc3ac31cbb4a4d2f4c9fd4a9fb9a40c472508e6acc135430dd5d21d2a', 'mission3-straight-16-privacy-20261010.zip'),
+    ('mission3-team-share-20261009.zip', 'f3d757d8fccbe0487caade5c27d9ea183894b8cafe68ef2597f5dbfa1f08e2ba', 'mission3-team-share-privacy-20261010.zip'),
+    ('mission3-straight-16-raw-20261009.zip', '159c70fbc3ac31cbb4a4d2f4c9fd4a9fb9a40c472508e6acc135430dd5d21d2a', 'mission3-straight-16-privacy-20261010.zip'),
 ]
 ROOT = re.compile(r'/home/[A-Za-z0-9_.-]+/(?:Desktop|Documents/ChatGPT)/Drone3')
 HOME_PATH = re.compile(r'/home/[A-Za-z0-9_.-]+')
@@ -86,6 +88,9 @@ def sanitize(path, data, archive=False):
     text = ROOT.sub('./Drone3' if archive else '.', text)
     text = HOME_PATH.sub('/workspace', text)
     if not archive:
+        if path in {'results/mission3/straight-20261009/raw-archive-manifest.json', 'scripts/export_mission3_team_share.py'}:
+            for original_name, _, export_name in ASSETS:
+                text = text.replace(export_name, original_name)
         if path == 'README.md':
             text = re.sub(r'^문서에 남은 .*절대 경로.*\n', '', text, flags=re.M)
             if 'privacy-sharing-20261010.md' not in text:
@@ -96,9 +101,11 @@ def sanitize(path, data, archive=False):
         if path == 'docs/mission3/entry-hold-35x12.md':
             text = re.sub(r'^사용자가10월9일09:00.*(?:\n|$)', '', text, flags=re.M)
         if path == 'docs/git-sharing.md':
+            text = text.replace('약 49.6 MB', '약 49.0 MB').replace('약 544.8 MB', '약 490.6 MB')
             text = text.replace('사용자는 새 미션3 저장소를 선택하고 자신의 계정 업로드를 승인했다. 대상은 ', '공유 대상은 ')
-        for old, _, new in ASSETS:
-            text = text.replace(old, new)
+        if path in {'README.md', 'docs/git-sharing.md', 'results/mission3/straight-20261009/release-assets.json'}:
+            for old, _, new in ASSETS:
+                text = text.replace(old, new)
     return text.encode()
 
 def check_numbers(before, after, suffix):
@@ -208,12 +215,13 @@ def git(*args, data=None, env=None):
         raise RuntimeError('Git operation failed: ' + args[0])
     return r.stdout
 
-def rewrite_history(assets, expected_head):
+def rewrite_history(assets, expected_head, expected_tag=None):
+    expected_tag = expected_tag or OLD_TAG
     assert git('rev-parse', 'HEAD').decode().strip() == expected_head
-    assert git('rev-parse', 'HEAD^').decode().strip() == BASE
-    assert git('rev-parse', 'refs/tags/' + TAG).decode().strip() == OLD_TAG
+    assert any(x in git('rev-list', expected_head).decode().splitlines() for x in [BASE, CLEAN_BASE])
+    assert git('rev-parse', 'refs/tags/' + TAG).decode().strip() == expected_tag
     commits = git('rev-list', '--reverse', expected_head).decode().splitlines()
-    assert len(commits) == 5
+    assert 5 <= len(commits) <= 6
     mapped, changed = {}, 0
     for commit in commits:
         meta = git('show', '-s', '--format=%P%x00%aI%x00%cI%x00%B', commit).decode().split('\0', 3)
@@ -264,40 +272,56 @@ def publish():
     assert os.environ.get('GITHUB_ACTIONS') == 'true', 'Publishing only in approved repository workflow'
     assert os.environ.get('GITHUB_REPOSITORY') == REPO
     observed = git('rev-parse', 'HEAD').decode().strip()
-    assert git('rev-parse', 'HEAD^').decode().strip() == BASE
+    assert git('rev-parse', 'HEAD^').decode().strip() in {BASE, CLEAN_BASE}
     assert subprocess.check_output(['gh', 'api', f'repos/{REPO}/git/ref/heads/main', '--jq', '.object.sha']).decode().strip() == observed
     work = Path(tempfile.mkdtemp(prefix='mission3-privacy-'))
     release = json.loads(subprocess.check_output(['gh', 'api', f'repos/{REPO}/releases/tags/{TAG}']))
-    assert len(release['assets']) == 2
+    assert len(release['assets']) in {2, 3, 4}
+    assert all(a['name'] in {n for old, _, new in ASSETS for n in [old, new]} for a in release['assets'])
     exports = []
-    for old, digest, new in ASSETS:
+    have_originals = any(a['name'] == ASSETS[0][0] for a in release['assets'])
+    expected_tag = OLD_TAG if have_originals else CLEAN_TAG
+    if not have_originals:
+        receipt = json.loads(Path('results/mission3/straight-20261009/release-assets.json').read_text())
+        exports = [{k: a[k] for k in ['filename','bytes','sha256','modified_files','excluded_libraries','unchanged_media_files']} for a in receipt['assets']]
+        for a in exports:
+            live = next(x for x in release['assets'] if x['name'] == a['filename'])
+            assert live['digest'] == 'sha256:' + a['sha256'] and live['size'] == a['bytes']
+    for old, digest, new in (ASSETS if have_originals else []):
         asset = next(a for a in release['assets'] if a['name'] == old)
         assert asset['digest'] == 'sha256:' + digest
         subprocess.run(['gh', 'release', 'download', TAG, '--repo', REPO, '--pattern', old, '--dir', str(work)], check=True)
         exports.append(export_archive(work / old, work / new))
-    mapped, changed = rewrite_history(exports, observed)
+    mapped, changed = rewrite_history(exports, observed, expected_tag)
     # New assets are uploaded and verified before any original attachment is removed.
     for a in exports:
-        subprocess.run(['gh', 'release', 'upload', TAG, str(work / a['filename']), '--repo', REPO], check=True)
+        staged = next((x for x in release['assets'] if x['name'] == a['filename']), None)
+        if staged is None:
+            subprocess.run(['gh', 'release', 'upload', TAG, str(work / a['filename']), '--repo', REPO], check=True)
+        else:
+            assert staged['digest'] == 'sha256:' + a['sha256'] and staged['size'] == a['bytes']
     new_release = json.loads(subprocess.check_output(['gh', 'api', f'repos/{REPO}/releases/tags/{TAG}']))
     for a in exports:
         uploaded = next(x for x in new_release['assets'] if x['name'] == a['filename'])
         assert uploaded['digest'] == 'sha256:' + a['sha256'] and uploaded['size'] == a['bytes']
     git('push', '--atomic', '--force-with-lease=refs/heads/main:' + observed,
-        '--force-with-lease=refs/tags/' + TAG + ':' + OLD_TAG, 'origin',
-        mapped[observed] + ':refs/heads/main', mapped[OLD_TAG] + ':refs/tags/' + TAG)
+        '--force-with-lease=refs/tags/' + TAG + ':' + expected_tag, 'origin',
+        mapped[observed] + ':refs/heads/main', mapped[expected_tag] + ':refs/tags/' + TAG)
     notes = work / 'release-notes.md'
-    notes.write_text((release.get('body') or '') + '\n\n## 2026-10-10 개인정보 정리\n\n'
+    body = (release.get('body') or '').split('\n\n## 2026-10-10 개인정보 정리')[0]
+    for old, _, new in ASSETS:
+        body = body.replace(old, new)
+    notes.write_text(body + '\n\n## 2026-10-10 개인정보 정리\n\n'
                      + '기존 첨부는 개인정보 제거 파생 ZIP으로 교체했습니다. PRIVACY_EXPORT.json을 확인하세요. '
                      + '영상·측정값·개발16회(조건부14/실패2)는 유지했습니다. 머신별 .so는 설치기로 재빌드합니다. '
                      + 'Git 이력이 변경됐으므로 기존 clone 대신 새 clone을 사용하세요.\n')
     subprocess.run(['gh', 'release', 'edit', TAG, '--repo', REPO, '--notes-file', str(notes)], check=True)
-    for old, _, _ in ASSETS:
+    for old, _, _ in (ASSETS if have_originals else []):
         subprocess.run(['gh', 'release', 'delete-asset', TAG, old, '--repo', REPO, '--yes'], check=True)
     final_release = json.loads(subprocess.check_output(['gh', 'api', f'repos/{REPO}/releases/tags/{TAG}']))
     assert sorted(a['name'] for a in final_release['assets']) == sorted(a['filename'] for a in exports)
     report = {'rewritten_commits': len(mapped), 'changed_historical_blobs': changed, 'head': mapped[observed],
-              'tag': mapped[OLD_TAG], 'assets': exports, 'old_asset_names_absent': True}
+              'tag': mapped[expected_tag], 'assets': exports, 'old_asset_names_absent': True}
     print(json.dumps(report, ensure_ascii=False, indent=2))
     summary = os.environ.get('GITHUB_STEP_SUMMARY')
     if summary:
