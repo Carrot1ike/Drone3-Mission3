@@ -1,5 +1,7 @@
 # Drone3-Mission3 작업 규칙
 
+- 팀원 설치는 scripts/setup_mission3.sh --shared-root <기존 팀 저장소>를 사용한다. 별도 .venv-mission3를 만들고 팀의 소스/가상환경을 수정하지 않는다. 실행 고정 버전은 requirements/mission3-lock.txt와 config/mission3-bootstrap.json이다.
+- 설치 재현은 같은 PC의 새 경로에서 검증했다. 실제 다른 PC/GPU 검증과 제조사 일치·실기 승인은 구분한다. docs/mission3/teammate-setup.md를 참고한다.
 - 자체 코드는 scripts/, 외부 체크아웃은 src/, 설정은 config/, 문서는 docs/, 공유 결과는 results/에 둔다.
 - 생성 로그·전체 원자료는 logs/와 artifacts/, 빌드는 build/, 가상환경은 프로젝트 내부에 둔다. 이 디렉터리들은 Git에서 제외한다.
 - 현재 기준은 README.md와 config/mission3-30x5-straight-v1.json 및 mission3-rpyt-30x5-straight-v1.json이다. 과거 날짜 설정과 혼합하지 않는다.

@@ -25,7 +25,7 @@ from urllib.parse import urlparse, unquote
 from zoneinfo import ZoneInfo
 
 ROOT=Path(__file__).resolve().parents[1]
-PYTHON=ROOT/'src/crazyflie-ros2-sil/.venv/bin/python'
+PYTHON=Path(sys.executable)  # 자식 비행/평가/렌더도 실행 중인 같은 환경을 사용합니다.
 CONFIG=ROOT/'config/mission3-30x5-straight-v1.json'
 PROFILE=ROOT/'config/mission3-rpyt-30x5-straight-v1.json'
 OUTPUT=ROOT/'artifacts/mission3/automation'
@@ -115,11 +115,15 @@ class BatchManager:
             files=[Path(__file__),ROOT/'scripts/run_mission3_physical.py',ROOT/'scripts/evaluate_mission3.py',
                    ROOT/'scripts/audit_mission3_limits.py',ROOT/'scripts/validate_mission3_camera_recording.py',
                    ROOT/'scripts/review_mission3_physical.py',ROOT/'scripts/yaw_core.py',ROOT/'scripts/aruco_pose.py',
+                   ROOT/'scripts/mission3_runtime.bash',ROOT/'scripts/check_mission3_environment.py',
+                   ROOT/'requirements/mission3-lock.txt',ROOT/'config/mission3-bootstrap.json',
                    ROOT/'scripts/mission3_rpyt_protocol.py',UI,ROOT/'scripts/run_mission3_automation.sh',
                    *sorted((ROOT/'scripts/mission3').glob('*.py')),
                    *sorted((ROOT/'scripts/mission3').glob('*_host.c'))]
             for folder in ('mission3-flight-controller','mission3-firmware-host','mission3-position-bridge'):
                 files.extend(sorted(p for p in (ROOT/'build'/folder).glob('*') if p.is_file()))
+            if (ROOT/'build/mission3-setup.json').is_file():
+                files.append(ROOT/'build/mission3-setup.json')
             files.extend([CONFIG,PROFILE,ROOT/'config/provided-hardware.json',ROOT/'config/mission3-contact-sensitivity.json'])
             identities={str(p):sha(p) for p in files}
             for p in files:
@@ -157,7 +161,7 @@ class BatchManager:
 
     def command(self,case,argv,logname,timeout=600):
         if self.cancel.is_set():return None
-        env={**os.environ,'PYTHONNOUSERSITE':'1','MUJOCO_GL':'egl','OPENBLAS_NUM_THREADS':'1',
+        env={**os.environ,'PYTHONNOUSERSITE':'1','MUJOCO_GL':os.environ.get('MUJOCO_GL','egl'),'OPENBLAS_NUM_THREADS':'1',
              'OMP_NUM_THREADS':'1','MKL_NUM_THREADS':'1','PYTHONPATH':str(ROOT/'scripts')}
         with (self.batch/case['case_id']/logname).open('xb') as log:
             with self.lock:

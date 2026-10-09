@@ -13,7 +13,10 @@ Drone3/
 │   ├── mission3/                       판단 관리자·하위 제어·추정·물리 모델·검사
 │   ├── mission3_automation.py           GUI와 독립 시험 병렬 실행
 │   ├── run_mission3_automation.sh       실행 진입점
+│   ├── setup_mission3.sh               기존 팀 설치 연결·미션3 전용 환경 생성
+│   ├── check_mission3_environment.sh   환경·렌더·영상 검사
 │   └── build_mission3_*.py              공식 펌웨어 호스트 라이브러리 빌드
+├── requirements/mission3-lock.txt      실행 패키지 고정 버전
 ├── config/                             현재 프로필·출처·버전 고정 정보
 ├── docs/
 │   ├── mission3/                       구조·센서 근거·최신 시험 설명·공유 PDF
@@ -27,9 +30,9 @@ Drone3/
 
 ## 저장소에서 제외하는 것
 
-`.gitignore`로 외부 소스 `src/`, `.venv`, 빌드 산출물 `build/`, 로그 `logs/`, 전체 실험 `artifacts/`, 영상, ZIP, 개인 인증 파일을 제외한다. 사용자 제공 규정 원본과 스케치도 공개 배포 범위가 확정되지 않아 로컬 보관한다. 만들어 둔 보고서와 직접 작성한 도면은 포함한다. 기존 원자료·영상 파일을 삭제하는 작업은 아니다.
+`.gitignore`로 외부 소스 `src/`, `.venv`와 `.venv-mission3`, 빌드 산출물 `build/`, 로그 `logs/`, 전체 실험 `artifacts/`, 영상, ZIP, 개인 인증 파일을 제외한다. 사용자 제공 규정 원본과 스케치도 공개 배포 범위가 확정되지 않아 로컬 보관한다. 만들어 둔 보고서와 직접 작성한 도면은 포함한다. 기존 원자료·영상 파일을 삭제하는 작업은 아니다.
 
-외부 의존성은 저장소 URL·commit·필요한 하위 소스 경로로 기록한다. `config/mission3-git-dependencies.json`은 현재 체크아웃과 패키지 버전의 관측 기록이며 설치 완료 인증이나 전체 환경 자동 복원 도구가 아니다. 기존 루트 `requirements.lock.txt`는 과거 직접 CFLib 환경이고, 최신 미션3의 MuJoCo 3.13.0 환경과 구분한다. 아직 새 PC에서 clone부터 실행까지 검증한 자동 설치 절차는 없다.
+실행 설치는 [팀원 안내](mission3/teammate-setup.md)를 따른다. `requirements/mission3-lock.txt`는 미션3 고정 패키지 버전, `config/mission3-bootstrap.json`은 제조사/CMSIS 소스 고정 커밋이다. 설치기는 기존 팀 환경을 읽고 `.venv-mission3`와 호스트 C 라이브러리를 프로젝트 안에 생성한다. `config/mission3-git-dependencies.json`은 초기 관측 이력으로 유지하며, 과거 루트 `requirements.lock.txt`를 이번 설치에 사용하지 않는다. 같은 PC의 새 경로·새 환경에서 설치·직선1조건·영상 생성과 제공을 검증했다. [재현 범위와 근거](mission3/teammate-reproduction-20261009.md)를 참고한다.
 
 ## 영상·원자료 공유
 
@@ -48,8 +51,8 @@ GitHub는 일반 Git 파일 중 100 MiB를 초과하는 파일을 차단하며 �
 
 공유 대상은 [Carrot1ike/Drone3-Mission3](https://github.com/Carrot1ike/Drone3-Mission3)이며 비공개다. 팀장이 제공한 crazyflie-ros2-sil 저장소를 변경하는 작업은 하지 않았다.
 
-GitHub에 게시한 코드·문서·결과는 약7MB이고 `src/` 및 126GB 규모의 전체 실험 `artifacts/`를 제외했다. 파일별 Git blob SHA와 실행 권한을 원격 tree에서 로컬 내보내기 manifest와 대조했다. 새 비행은 수행하지 않았다.
+최초 GitHub 게시의 코드·문서·결과는 약7MB이고 `src/` 및 당시126GB 규모의 전체 실험 `artifacts/`를 제외했다. 파일별 Git blob SHA와 실행 권한을 원격 tree에서 로컬 내보내기 manifest와 대조했다. 최초 게시에는 새 비행이 없었다. 후속 팀원 실행 검증은 직선1조건을 별도 배치로 재현했으며, 기존16회 성능 분모에 추가하지 않는다.
 
 로컬 원프로젝트는 기존 경로와 세션 기록을 유지한다. 별도 내보내기 디렉터리는 `artifacts/git-upload-20261009/`이고 최신 내용만 보이는 README와 세션 예약을 제외한 지속적인 AGENTS 규칙을 사용한다. 과거 작업 로그, 사용자 제공 원본 규정과 스케치는 게시하지 않았다. 최신 문서의 상대 링크는 게시 파일에 맞게 확인한다.
 
-새 PC에서 clone 후 자동 설치·실행 검증은 후속 작업이며 이번 업로드 완료와 구분한다. 외부 소스의 commit 기록만으로 로컬 패치·시스템 패키지까지 완전히 복원할 수 있다는 주장은 하지 않는다.
+같은 PC의 별도 체크아웃·빈 의존성 경로에서 검증한 결과이며 실제 다른 PC/그래픽 드라이버에 대한 확인은 팀원 실행으로 남아 있다. 실행 근거 JSON은 `results/mission3/setup-reproduction-20261009/`에 둔다. 기존 Release ZIP은 원16회 배포 자료로 보존하므로 최신 설치 스크립트는 저장소 `main`의 코드를 받는다. 외부 소스의 commit 기록만으로 시스템 패키지와 그래픽 드라이버까지 복원한다고 주장하지 않는다.

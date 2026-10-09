@@ -1,5 +1,6 @@
 # 로컬 의존성·빌드·전체 실험 원자료 (공유 결과는 results/에 선별)
 .venv/
+.venv-mission3/
 /src/
 /build/
 /logs/

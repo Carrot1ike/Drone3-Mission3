@@ -10,6 +10,7 @@ Crazyflie 2.1 + AI-deck + Flow deck를 대상으로, PC에서 ArUco 인식과 �
 
 | 먼저 볼 자료 | 내용 |
 |---|---|
+| [팀원 PC 설치·실행](docs/mission3/teammate-setup.md) | 팀장 저장소를 설치한 PC에서 미션3 재현 |
 | [팀 공유 보고서 PDF](docs/mission3/mission3-team-share-20261009.pdf) | 전체 제어 구조·환경·최신 16회 결과·검증 한계 |
 | [상위 판단과 하위 제어 구조](docs/mission3/hierarchical-control-20261009.md) | `MissionSupervisor`와 단계 제어 모듈 |
 | [직선 경기장·자동 실행 안내](docs/mission3/straight-arena-automation-20261009.md) | 배치·차량 출발·GUI·병렬 시험 |
@@ -28,9 +29,12 @@ Crazyflie 2.1 + AI-deck + Flow deck를 대상으로, PC에서 ArUco 인식과 �
 
 ### 실행 진입점
 
-프로젝트 루트에서, 기존 의존성과 호스트 C 라이브러리 빌드가 준비된 환경에 한해 실행합니다.
+팀장 저장소 설치를 마친 Linux/Python3.10 환경에서, 미션3 코드를 받은 폴더에서 실행합니다.
 
 ```bash
+# 처음 한 번: 경로를 팀원 PC의 팀장 저장소 위치로 바꾸세요.
+bash scripts/setup_mission3.sh --shared-root /실제/설치한/crazyflie-ros2-sil
+
 # 로컬 GUI: http://127.0.0.1:8765
 bash scripts/run_mission3_automation.sh
 
@@ -40,12 +44,12 @@ bash scripts/run_mission3_automation.sh --batch --workers 4 --render-video
 
 이 명령은 새 시험을 시작합니다. 기존 결과 확인은 위 보고서와 결과 디렉터리를 먼저 사용합니다.
 외부 체크아웃 `src/`, 가상환경, `build/`, 전체 원로그와 영상은 Git에 포함하지 않습니다.
-현재 의존성은 [관측 버전 기록](config/mission3-git-dependencies.json)에 적었습니다.
-새 PC에서 clone부터 설치까지 검증한 자동 설치 절차는 아직 없으며, 루트 `requirements.lock.txt`는 과거 환경입니다.
+실행 의존성은 [미션3 고정 버전](requirements/mission3-lock.txt)과 [외부 소스 고정 설정](config/mission3-bootstrap.json)에 적었습니다. 설치기는 기존 팀 환경을 읽고 별도 `.venv-mission3`와 C 빌드를 만듭니다.
+같은 PC의 새 경로·빈 의존성 상태에서 설치→검사246개→직선1조건→영상·화면 제공까지 확인했습니다. [검증 범위와 기록](docs/mission3/teammate-reproduction-20261009.md)을 참고하세요. 실제 다른 PC/GPU에서의 실행은 팀원 확인이 필요합니다. 아래 루트 `requirements.lock.txt`는 과거 환경입니다.
 
-## 전체 영상과 원자료 다운로드
+## GitHub 공유 저장소
 
-[미션3 직선 시험 Release](https://github.com/Carrot1ike/Drone3-Mission3/releases/tag/mission3-straight-20261009)에서 공유용 ZIP(약50MB) 또는 전체 원자료 ZIP(약545MB)을 다운로드할 수 있습니다. 공유용 ZIP을 풀고 `videos.html`을 열면16조건의 제3자·기체 영상을 선택할 수 있습니다.
+[Carrot1ike/Drone3-Mission3](https://github.com/Carrot1ike/Drone3-Mission3)에 비공개로 코드·문서·최신 결과를 게시했습니다. [전체 영상과 원자료 Release](https://github.com/Carrot1ike/Drone3-Mission3/releases/tag/mission3-straight-20261009)에서 공유 ZIP과16회 원자료 ZIP을 받을 수 있습니다. 로컬 세션 기록과 사용자 제공 원본은 게시하지 않았습니다.
 
 ## 과거 자료
 

@@ -1,0 +1,9 @@
+{
+  "python_minor": "3.10",
+  "team_repository": "https://github.com/unLIMited72/crazyflie-ros2-sil.git",
+  "observed_team_commit": "7f2f5b86d9d802865508625f6b95ad214169e188",
+  "firmware_repository": "https://github.com/bitcraze/crazyflie-firmware.git",
+  "firmware_commit": "f6e0f0a3b526861328caf3296a7ecf00bb915d39",
+  "cmsis_commit": "a65b7c9a3e6502127fdb80eb288d8cbdf251a6f4",
+  "scope": "팀 설치의 CMSIS와 Python 3.10을 읽어 미션3 전용 환경/호스트 라이브러리를 로컬에 구성. ROS 실행 검증과 별개."
+}
