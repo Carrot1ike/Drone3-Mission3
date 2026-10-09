@@ -24,7 +24,7 @@
 - `evidence/d*-r01/`: 원평가, 명령 포화 검사, 픽셀 일치 검사, 실행 설정·manifest의 변경 없는 사본.
 - [사본 SHA](source-copy-manifest.json): 사본 116개의 원경로·크기·SHA·byte exact 확인.
 - [원자료 전체 SHA](raw-archive-manifest.json): 원배치 2,140파일의 경로·SHA.
-- [Release 첨부 안내](release-assets.json): 공유용/전체 원자료 ZIP 크기·SHA. 아직 업로드하지 않아 URL은 null.
+- [Release 첨부 안내](release-assets.json): 공유용/전체 원자료 ZIP 크기·SHA. 게시된 Release의 실제 URL과 크기·SHA 검증 결과를 포함한다.
 - [카메라 시각 범위](camera-time-ranges.json): 녹화 시작·종료 시각과 프레임 공백.
 
 32개 영상은 공유 ZIP에 있다. 제3자 영상은 1× 재생이다. 카메라 H.264 미리보기는 녹화 프레임을 20FPS로 묶었으므로 전체 시험 시간과 일치하지 않을 수 있다. 원 FFV1과 `camera_frames.jsonl` 시각 정보는 전체 원자료 ZIP에서 확인한다.

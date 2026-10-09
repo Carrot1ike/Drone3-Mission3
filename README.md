@@ -41,7 +41,11 @@ bash scripts/run_mission3_automation.sh --batch --workers 4 --render-video
 이 명령은 새 시험을 시작합니다. 기존 결과 확인은 위 보고서와 결과 디렉터리를 먼저 사용합니다.
 외부 체크아웃 `src/`, 가상환경, `build/`, 전체 원로그와 영상은 Git에 포함하지 않습니다.
 현재 의존성은 [관측 버전 기록](config/mission3-git-dependencies.json)에 적었습니다.
-새 PC에서 clone부터 설치까지 검증한 자동 설치 절차는 아직 없으며, 아래의 루트 `requirements.lock.txt`는 과거 환경입니다.
+새 PC에서 clone부터 설치까지 검증한 자동 설치 절차는 아직 없으며, 루트 `requirements.lock.txt`는 과거 환경입니다.
+
+## 전체 영상과 원자료 다운로드
+
+[미션3 직선 시험 Release](https://github.com/Carrot1ike/Drone3-Mission3/releases/tag/mission3-straight-20261009)에서 공유용 ZIP(약50MB) 또는 전체 원자료 ZIP(약545MB)을 다운로드할 수 있습니다. 공유용 ZIP을 풀고 `videos.html`을 열면16조건의 제3자·기체 영상을 선택할 수 있습니다.
 
 ## 과거 자료
 

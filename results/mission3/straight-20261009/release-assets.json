@@ -1,21 +1,25 @@
 {
-  "scope": "Proposed GitHub Release assets; no remote upload performed",
+  "scope": "Published assets verified against GitHub-reported sizes and SHA256 digests",
   "assets": [
     {
       "filename": "mission3-team-share-privacy-20261010.zip",
       "bytes": 49618686,
       "sha256": "f3d757d8fccbe0487caade5c27d9ea183894b8cafe68ef2597f5dbfa1f08e2ba",
-      "download_url": null,
-      "upload_state": "not_uploaded",
-      "local_original": "artifacts/mission3/mission3-team-share-privacy-20261010.zip"
+      "download_url": "https://github.com/Carrot1ike/Drone3-Mission3/releases/download/mission3-straight-20261009/mission3-team-share-privacy-20261010.zip",
+      "upload_state": "uploaded",
+      "local_original": "artifacts/mission3/mission3-team-share-privacy-20261010.zip",
+      "release_asset_id": 624862797
     },
     {
       "filename": "mission3-straight-16-privacy-20261010.zip",
       "bytes": 544757354,
       "sha256": "159c70fbc3ac31cbb4a4d2f4c9fd4a9fb9a40c472508e6acc135430dd5d21d2a",
-      "download_url": null,
-      "upload_state": "not_uploaded",
-      "local_original": "artifacts/mission3/mission3-straight-16-privacy-20261010.zip"
+      "download_url": "https://github.com/Carrot1ike/Drone3-Mission3/releases/download/mission3-straight-20261009/mission3-straight-16-privacy-20261010.zip",
+      "upload_state": "uploaded",
+      "local_original": "artifacts/mission3/mission3-straight-16-privacy-20261010.zip",
+      "release_asset_id": 624863052
     }
-  ]
+  ],
+  "release_url": "https://github.com/Carrot1ike/Drone3-Mission3/releases/tag/mission3-straight-20261009",
+  "published_at": "2026-10-09T12:08:23Z"
 }
