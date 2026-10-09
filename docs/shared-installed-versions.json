@@ -1,0 +1,150 @@
+{
+  "checked_at_kst": "2026-10-04T12:06:38.914641+09:00",
+  "repository": "https://github.com/unLIMited72/crazyflie-ros2-sil",
+  "commit": "7f2f5b86d9d802865508625f6b95ad214169e188",
+  "root": "./src/crazyflie-ros2-sil",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "python_executable": "./src/crazyflie-ros2-sil/.venv/bin/python",
+  "system_site_packages": true,
+  "locked_python_packages": [
+    {
+      "package": "mujoco",
+      "expected": "==3.13.0",
+      "actual": "3.13.0"
+    },
+    {
+      "package": "numpy",
+      "expected": "==2.2.6",
+      "actual": "2.2.6"
+    },
+    {
+      "package": "scipy",
+      "expected": "==1.15.3",
+      "actual": "1.15.3"
+    },
+    {
+      "package": "tomli",
+      "expected": "==2.4.1",
+      "actual": "2.4.1"
+    },
+    {
+      "package": "Jinja2",
+      "expected": "==3.1.6",
+      "actual": "3.1.6"
+    },
+    {
+      "package": "MarkupSafe",
+      "expected": "==3.0.3",
+      "actual": "3.0.3"
+    },
+    {
+      "package": "PyYAML",
+      "expected": "==6.0.3",
+      "actual": "6.0.3"
+    },
+    {
+      "package": "transforms3d",
+      "expected": "==0.4.2",
+      "actual": "0.4.2"
+    },
+    {
+      "package": "pyusb",
+      "expected": "==1.3.1",
+      "actual": "1.3.1"
+    },
+    {
+      "package": "libusb-package",
+      "expected": "==1.0.30.0",
+      "actual": "1.0.30.0"
+    },
+    {
+      "package": "packaging",
+      "expected": "==25.0",
+      "actual": "25.0"
+    },
+    {
+      "package": "absl-py",
+      "expected": "==2.5.0",
+      "actual": "2.5.0"
+    },
+    {
+      "package": "etils",
+      "expected": "==1.13.0",
+      "actual": "1.13.0"
+    },
+    {
+      "package": "glfw",
+      "expected": "==2.10.2",
+      "actual": "2.10.2"
+    },
+    {
+      "package": "PyOpenGL",
+      "expected": "==3.1.10",
+      "actual": "3.1.10"
+    },
+    {
+      "package": "fsspec",
+      "expected": "==2026.9.0",
+      "actual": "2026.9.0"
+    },
+    {
+      "package": "importlib_resources",
+      "expected": "==7.1.0",
+      "actual": "7.1.0"
+    },
+    {
+      "package": "typing_extensions",
+      "expected": "==4.15.0",
+      "actual": "4.15.0"
+    },
+    {
+      "package": "zipp",
+      "expected": "==1.0.0",
+      "actual": "1.0.0"
+    },
+    {
+      "package": "pip",
+      "expected": "==26.2.1",
+      "actual": "26.2.1"
+    },
+    {
+      "package": "setuptools",
+      "expected": "==79.0.1",
+      "actual": "79.0.1"
+    },
+    {
+      "package": "wheel",
+      "expected": "==0.48.0",
+      "actual": "0.48.0"
+    },
+    {
+      "package": "setuptools-scm",
+      "expected": "==8.3.1",
+      "actual": "8.3.1"
+    }
+  ],
+  "cflib": "0.1.33.post1.dev9+g3c1cb0d02",
+  "rclpy": "3.3.22",
+  "system_packages": {
+    "python3-colcon-common-extensions": "0.3.0-100",
+    "python3-rosdep": "0.27.0-1",
+    "ros-humble-desktop": "0.10.0-1jammy.20260908.101832",
+    "ros-humble-motion-capture-tracking-interfaces": "1.0.9-1jammy.20260907.211402",
+    "ros-humble-rmw-fastrtps-cpp": "6.2.10-1jammy.20260907.210327",
+    "ros-humble-tf-transformations": "1.1.1-1jammy.20260226.033650"
+  },
+  "nvidia_gpu": "NVIDIA GeForce RTX 4090 Laptop GPU",
+  "nvidia_driver": "580.178.04",
+  "domain": "25",
+  "rmw": "rmw_fastrtps_cpp",
+  "model": "cf2x_P250",
+  "flowdeck": true,
+  "local_python_supplement": {
+    "cffi": "1.17.1",
+    "pycparser": "2.22",
+    "opencv-python-headless": "4.14.0.94",
+    "reason": "Inherited Ubuntu PyNaCl requires cffi; local ArUco extension fixes system OpenCV/NumPy2 ABI conflict. Team locks unchanged.",
+    "vision_verified_at_kst": "2026-10-04",
+    "vision_verification": "docs/yaw-first-simulation.md"
+  }
+}

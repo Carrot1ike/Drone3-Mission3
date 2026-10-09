@@ -1,0 +1,15 @@
+flowchart TD
+    car["차량: 임무 시작부터 독립적으로 0.3m/s 직진\n인식 성공 여부와 무관하게 계속 이동"] --> image["고정 mono8 320×320 카메라 영상"]
+    wait["① WAIT\n드론 위치·높이·시선 고정\n초기 시선–차량 뒤쪽 선 작은 각 70°"] --> image
+    image --> detect{"지나가는 차량의\n유효한 ArUco 발견?"}
+    detect -->|"미발견, 35초 이내"| wait
+    detect -->|"발견"| acquire["② ACQUIRE\n영상 마커 중심을 추적\n차량 속도 FF로 전후 거리 유지"]
+    acquire --> lineup["③ LINEUP\n마커를 계속 바라보며 차량 뒤쪽으로 이동\n후방 거리·횡오차·상대속도·yaw 정렬"]
+    lineup -->|"모든 조건 1초 유지"| approach["일직선 접근\nFF + 위치·상대속도 피드백"]
+    approach --> track["차량 추종 안정 2초 확인"]
+    track --> descend["④ DESCEND\n관측 조건을 만족할 때 하강\n부족하면 하강 정지"]
+    descend --> terminal["SETTLE → COMPLETE\n가상 광학점 근접 안정 조건\n물리 접촉 착륙은 후속 검증"]
+    detect -->|"35초 미발견"| abort["ABORT"]
+    acquire -. "발견 이후 관측 2초 손실" .-> abort
+    lineup -. "발견 이후 관측 2초 손실" .-> abort
+    descend -. "발견 이후 관측 2초 손실" .-> abort

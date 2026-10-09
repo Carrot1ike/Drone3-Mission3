@@ -1,0 +1,61 @@
+%% 미션3 단계 구조와 공통 인계·결과·중단 인터페이스 (독립 검토자 설계안, 2026-10-08)
+%% 설계안이다. 구현·시험·착륙 성공의 증거가 아니다. 설명과 수치 근거: docs/mission3/control-review.md
+%% 현재 코드(scripts/mission3/controller.py)는 점선으로 표시한 GEOMETRY_READY에서 끝난다.
+%% COARSE_ACQUIRE는 메인이 추가 중인 코드가 있으며 독립 리뷰 대기(pending review)다.
+flowchart TD
+    HIN["HANDOFF_IN<br/>공통 인계 계약 검사<br/>진입 ID · 초기 위치/방향과 공분산 · 센서·링크 상태 · 남은 시간<br/>미션2 연속 추정 인계 없음: 진입 사전정보만 사용"]
+    WAIT["P1 WAIT_FIXED_GAZE 15초<br/>높이 1m 유지, yaw·병진 명령 0<br/>진입점-트랙 10.5m 이상이라 검출은 기하적으로 기대하지 않음"]
+    TRANSIT["P2 TRANSIT<br/>정지 지도 사전정보 + IMU/Flow 추측항법<br/>목표: 진입점별 가까운 직선 시작점 하류의 감시점"]
+    WATCH["P3 WATCH<br/>차량 진행 방향을 바라보며 대기<br/>후방 마커는 차량이 지나간 뒤 전방에 나타남<br/>횡오프셋은 자기위치 오차를 포함해 검출 창 안에 둠"]
+    COARSE["P4a COARSE_ACQUIRE<br/>마커 ID + 방위 일치만 사용<br/>탐색 운동만 허용: pose FF 없음, 하강 불가<br/>코드 리뷰 대기"]
+    ACQ["P4b ACQUIRE<br/>pose 검사 통과한 영상 ArUco<br/>차량 기준 상대 자세·속도 초기화"]
+    LINE["P5 LINEUP<br/>차량 뒤 standoff · 마커 가시 높이<br/>FF = 영상으로 추정한 차량 속도"]
+    STR{"P6 STRAIGHT_GATE<br/>지도 기반 남은 직선 길이<br/>AND 마커 각속도 직선 판정<br/>AND 판정 지연·추측항법 오차 여유"}
+    LAST["P7 LAST_FIX_APPROACH<br/>마지막 신뢰 영상: 광축 깊이 0.30m 이상<br/>카메라가 패드 중심 뒤 0.05m 이상"]
+    BLIND["P8 BLIND_TERMINAL<br/>상대 추측항법: IMU + 패드 위 Flow/ToF<br/>시간·이동거리 상한, 표면 혼합이면 금지"]
+    CC["P9 CONTACT_CANDIDATE<br/>ToF 정체 + 상대 수직속도 0<br/>하강 명령은 계속 유지"]
+    RAMP["P10 THRUST_RAMP<br/>단계적 추력 감소<br/>가속도계로 지지력 확인, 자유낙하 징후면 재상승"]
+    OFF["P11 MOTOR_OFF<br/>stop 명령, 모터 명령 0 확인"]
+    HOLD["P12 HOLD_3S<br/>모터 off 3초 유지, 온보드 근거 기록"]
+    ROUT["RESULT_OUT<br/>LANDED_PENDING_REVIEW<br/>성공 판정은 독립 평가기와 리뷰만 수행"]
+    BACK["BACKOFF_CLIMB<br/>차량 속도 FF 유지, 차량 기준 뒤·위로 이동<br/>영상 깊이 0.30m 이상 회복"]
+    ABORT["ABORT_OUT<br/>중단 사유 코드 + 단계별 안전 동작<br/>실패 분모에 보존"]
+    GEO["GEOMETRY_READY<br/>현재 광학점 코드 종점<br/>상판 위 약 8cm 기하 근접, 착륙 아님"]
+
+    HIN -->|"계약 통과"| WAIT
+    HIN -->|"필수 항목 누락"| ABORT
+    WAIT -->|"15초 무검출"| TRANSIT
+    WAIT -->|"ID 검출"| COARSE
+    TRANSIT -->|"감시점 도달"| WATCH
+    TRANSIT -->|"ID 검출"| COARSE
+    TRANSIT -->|"추정 경계·그물 여유 위반"| ABORT
+    WATCH -->|"ID 검출"| COARSE
+    WATCH -->|"시간 예산 소진"| ABORT
+    COARSE -->|"pose 검사 통과"| ACQ
+    COARSE -->|"방위 불일치 · 소실"| WATCH
+    ACQ -->|"상대 상태 수렴"| LINE
+    LINE --> STR
+    STR -->|"곡선 또는 남은 직선 부족: 추종 유지"| LINE
+    STR -->|"조건 유지"| LAST
+    LAST -->|"마지막 신뢰 영상 확보"| BLIND
+    LAST -->|"게이트 위반"| BACK
+    BLIND -->|"ToF·IMU·Flow 일치"| CC
+    BLIND -->|"상한 초과 · 표면 모호 · 곡선 감지"| BACK
+    CC --> RAMP
+    RAMP -->|"지지 확인"| OFF
+    RAMP -->|"지지 불확실"| BACK
+    OFF --> HOLD
+    HOLD --> ROUT
+    BACK -->|"재획득"| LINE
+    BACK -->|"재획득 실패 · 시간 예산"| ABORT
+    LINE -.->|"발견 후 영상 손실 한도 초과"| ABORT
+    STR -.->|"현재 코드: TRACK → DESCEND로 직행"| GEO
+
+    classDef design fill:#eaf2fc,stroke:#4a6b8a,color:#183047
+    classDef pending fill:#fff5e2,stroke:#a07020,color:#4a3510
+    classDef stop fill:#fdecea,stroke:#a33,color:#5a1a1a
+    classDef current fill:#f2f2f2,stroke:#888,stroke-dasharray:4 3,color:#444
+    class HIN,WAIT,TRANSIT,WATCH,ACQ,LINE,STR,LAST,BLIND,CC,RAMP,OFF,HOLD,ROUT,BACK design
+    class COARSE pending
+    class ABORT stop
+    class GEO current

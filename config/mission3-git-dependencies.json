@@ -1,0 +1,63 @@
+{
+  "observed_kst": "2026-10-09T20:54:21.523495+09:00",
+  "scope": "Observed local dependencies, not an installation lock or fresh-clone verification",
+  "repositories": [
+    {
+      "local_path": "src/crazyflie-ros2-sil",
+      "url": "https://github.com/unLIMited72/crazyflie-ros2-sil.git",
+      "commit": "7f2f5b86d9d802865508625f6b95ad214169e188",
+      "note": "Team integration baseline; recursive sources needed for ROS baseline",
+      "tracked_status": []
+    },
+    {
+      "local_path": "src/bitcraze-mission3-firmware",
+      "url": "https://github.com/bitcraze/crazyflie-firmware.git",
+      "commit": "f6e0f0a3b526861328caf3296a7ecf00bb915d39",
+      "note": "Unmodified manufacturer C used in host libraries",
+      "tracked_status": []
+    },
+    {
+      "local_path": "src/crazyflie-ros2-sil/crazyflie-firmware",
+      "url": "https://github.com/llanesc/crazyflie-firmware.git",
+      "commit": "aa6571dc465f06f7d1f9aaf7b0b861fbcd1b3d67",
+      "note": "Nested team firmware; tools/crazyflie-simulation has local uncommitted changes at the same gitlink commit; shared integration reproduction needs documented local patches",
+      "tracked_status": [
+        "M tools/crazyflie-simulation"
+      ]
+    },
+    {
+      "local_path": "src/crazyflie-ros2-sil/crazyflie-firmware/vendor/CMSIS",
+      "url": "https://github.com/ARM-software/CMSIS_5.git",
+      "commit": "a65b7c9a3e6502127fdb80eb288d8cbdf251a6f4",
+      "note": "Required by all three Mission3 host-library builders",
+      "tracked_status": []
+    }
+  ],
+  "python_runtime": {
+    "python": "3.10.12",
+    "packages": {
+      "mujoco": "3.13.0",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "opencv-python-headless": "4.14.0.94",
+      "Pillow": "9.0.1",
+      "Jinja2": "3.1.6",
+      "tomli": "2.4.1",
+      "PyYAML": "6.0.3",
+      "matplotlib": "3.10.9",
+      "cffi": "1.17.1",
+      "pycparser": "2.22"
+    }
+  },
+  "environment": "Ubuntu22.04; shared baseline .venv with system site packages; root requirements.lock.txt is a different historical environment",
+  "host_library_builders": [
+    "scripts/build_mission3_firmware_host.py",
+    "scripts/build_mission3_flight_controller.py",
+    "scripts/build_mission3_position_bridge.py"
+  ],
+  "unknowns": [
+    "Fresh clone installation has not been tested",
+    "System packages and all transitive dependencies are not enumerated here",
+    "Published camera intrinsics/mounting and physical dynamics remain conditional"
+  ]
+}

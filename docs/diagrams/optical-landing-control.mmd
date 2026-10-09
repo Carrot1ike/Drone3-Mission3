@@ -1,0 +1,18 @@
+flowchart LR
+    camera["고정 mono8 320×320 영상"] --> gate["입력/마커 크기/화면 경계 검사"]
+    gate --> pose["IPPE 후보 + 가상 roll/pitch=0 제약\n카메라 광학점 상대 위치·heading"]
+    pose --> filter["시각·상대 위치/속도 필터\n현재 예측 시각과 영상 시각 구분"]
+    filter --> fsm["현재 기본: WAIT → ACQUIRE → LINEUP\n→ APPROACH → TRACK → DESCEND → SETTLE"]
+    filter --> feedback["상대 위치·속도 오차 피드백"]
+    speed["시험 차량 설정값 0.3m/s"] --> ff["수평 속도 피드포워드"]
+    fsm --> ff
+    fsm --> feedback
+    ff --> sum["FF + 피드백\n속도·가속도 제한"]
+    feedback --> sum
+    sum --> command["광학점 속도·yaw rate 명령\nROS: /drone3/optical/cmd_velocity"]
+    command --> plant["명령 적분하는 이상적 광학점\n물리적 기체·접촉 모델 없음"]
+    plant --> camera
+    plant -. "평가 파일만" .-> evaluation["종료 후 오차·단계·손실 평가"]
+    fsm --> loss["초기 미발견: 위치·시선 고정, 35초 대기 제한\n발견 후 손실: 하강 금지/명령 정지\n2초 손실: ABORT"]
+    loss --> command
+    mounting["제조사 근거의 기체 장착/보정\n제공 기체 모델 확정: 미완료"] -. "후속 실기체 명령 변환 조건" .-> future["Crazyflie Hover/Firmware\n이 구현에서는 명령 발행 없음"]

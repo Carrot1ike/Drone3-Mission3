@@ -1,0 +1,52 @@
+flowchart TB
+    subgraph INPUT["관측 입력"]
+        CAM["AI-deck 기본 장착 카메라"]
+        CONFIG["카메라 보정값 · 마커 크기<br/>마커 → 착륙점의 고정 변환"]
+    end
+
+    subgraph PC["PC · 상위 착륙 제어기 (설계 대상)"]
+        VISION["ArUco 검출 · 상대 자세 추정"]
+        EST["좌표 변환 · 지연 보상 · 상태 추정<br/>착륙점 상대 위치·속도·방향 · 관측 신뢰도"]
+        MISSION["단계 관리<br/>인식 → 정렬 → 접근 → 속도 맞추기 → 하강 → 접촉"]
+        REF["단계별 목표<br/>접근 위치 · 착륙점 · 상대 높이 · 방향"]
+        CTRL["피드포워드 + 피드백<br/>차량 운동 예측 + 위치·속도·방향 오차 보정"]
+        GATE["좌표계·명령 유효성 확인 · 목표 제한<br/>관측 손실: 하강 보류 · 재획득 또는 중단"]
+        LINK["CFLib · 목표값을 계속 갱신<br/>세계 속도 API는 일관된 세계 상태 추정이 확보된 경우"]
+    end
+
+    subgraph CF["Crazyflie 2.1 · 기존 기체 펌웨어"]
+        SENSORS["IMU · Flow deck 광류 · ToF 거리"]
+        EKF["기체 상태 추정기"]
+        INNER["설정된 내부 제어기<br/>속도·자세·각속도 제어 · 모터 출력"]
+        MOTORS["모터 · 기체 운동"]
+    end
+
+    CAR["이동 차량과 착륙 목표<br/>30 × 30 cm 착륙장 · 0.3 m/s 등속 직진<br/>차량 앞쪽 수직 마커가 착륙장을 바라봄"]
+
+    CAM -->|"WiFi 영상"| VISION
+    CONFIG --> VISION
+    CONFIG --> EST
+    VISION --> EST
+    EKF -->|"CFLib 상태 로그"| EST
+    EST --> MISSION
+    MISSION --> REF
+    REF --> CTRL
+    EST -->|"측정·추정 피드백"| CTRL
+    CTRL --> GATE
+    EST -->|"측정 나이 · 품질 · 좌표 기준"| GATE
+    GATE --> LINK
+    LINK -->|"실기체: Crazyradio / CRTP<br/>CrazySim: UDP"| INNER
+    SENSORS --> EKF
+    EKF -->|"내부 피드백"| INNER
+    INNER --> MOTORS
+    MOTORS -->|"움직임에 따른 영상 변화"| CAM
+    MOTORS -->|"움직임에 따른 센서 변화"| SENSORS
+    CAR -->|"ArUco 관측 대상"| CAM
+    CAR -.->|"Flow·ToF가 보는 표면이 바닥에서 상판으로 바뀜"| SENSORS
+
+    classDef pc fill:#e7effa,stroke:#426991,color:#17314f;
+    classDef onboard fill:#e8f2ec,stroke:#507864,color:#234936;
+    classDef config fill:#fff4df,stroke:#a18145,color:#654a1c;
+    class VISION,EST,MISSION,REF,CTRL,GATE,LINK pc;
+    class SENSORS,EKF,INNER,MOTORS onboard;
+    class CONFIG,CAR config;

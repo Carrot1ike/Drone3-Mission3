@@ -1,0 +1,6 @@
+# Ubuntu system-site PyNaCl metadata requires cffi. These packages supplement
+# the local OS environment; the team's requirements/requirements-lock.txt stays unchanged.
+cffi==1.17.1
+pycparser==2.22
+# ArUco + NumPy 2 compatible local vision extension; no upstream lock edits.
+opencv-python-headless==4.14.0.94

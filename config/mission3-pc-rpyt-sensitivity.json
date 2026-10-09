@@ -1,0 +1,216 @@
+{
+  "scope": "conditional rigid-body flight with official software PID and motor curve; manufacturer-matched assembled aircraft is unverified",
+  "manufacturer_matched": false,
+  "controller_software": {
+    "terminal_max_prediction_s": 12.0,
+    "lower_align_world_height_m": 0.4,
+    "geometry_terminal_optical_height_m": 0.11,
+    "terminal_inertial_handoff_enabled": true,
+    "terminal_inertial_handoff_max_age_s": 3.0
+  },
+  "aircraft_contact_case": {
+    "foot_family": "mesh31",
+    "inertia_scale": 1.0,
+    "mass_kg": 0.035,
+    "com_height_m": 0.0145,
+    "friction_sliding": 0.6
+  },
+  "motor": {
+    "static_curve_source_class": "official_software_model",
+    "response_time_constant_s": 0.02,
+    "response_source_class": "sensitivity_assumption",
+    "force_gain": 1.0,
+    "supply_voltage_V": 4.2,
+    "yaw_torque_signs": [
+      -1,
+      1,
+      -1,
+      1
+    ]
+  },
+  "aerodynamics": {
+    "linear_drag_N_per_m_s": 0.0,
+    "rotational_drag_Nm_per_rad_s": 0.0,
+    "ground_effect": "not modeled",
+    "source_class": "sensitivity_assumption"
+  },
+  "mounts": {
+    "camera_position_body_m": [
+      0.02,
+      0.0,
+      0.015
+    ],
+    "camera_rpy_offset_deg": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "flow_position_body_m": [
+      0.0,
+      0.0,
+      -0.005
+    ],
+    "imu_position_body_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "source_class": "sensitivity_assumption",
+    "actual_manufacturer_transform": null
+  },
+  "sensor": {
+    "flow_half_angle_deg": 21.0,
+    "tof_half_angle_deg": 7.5,
+    "patch_grid_side": 5,
+    "tof_selection": "nearest_positive_return",
+    "flow_mixed_surface_policy": "area weighted angular flow",
+    "tof_noise_std_m": 0.004,
+    "gyro_noise_std_deg_s": 0.08,
+    "gyro_bias_deg_s": [
+      0.0,
+      0.0,
+      0.03
+    ],
+    "accel_noise_std_m_s2": 0.02,
+    "flow_velocity_noise_std_m_s": 0.008,
+    "source_class": "sensitivity_assumption",
+    "actual_deck_fov": null,
+    "flow_component_min_working_range_m": 0.08,
+    "tof_component_min_accurate_distance_m": 0.04,
+    "component_envelope_policy": "conservative disabling of metric fusion outside published component range; actual deck quality response unresolved",
+    "texture_quality_sensitivity": {
+      "virtual_resolution_px": 64,
+      "virtual_fov_deg": 42.0,
+      "min_intensity_std": 2.0,
+      "min_gradient_eigenvalue": 0.25,
+      "min_correlation_response": 0.2,
+      "max_shift_fraction": 0.2,
+      "source_class": "generic virtual image-correlation sensitivity, not PMW3901 hardware response"
+    }
+  },
+  "simulation": {
+    "timestep_s": 0.001,
+    "lower_controller_hz": 1000,
+    "gravity_m_s2": 9.81,
+    "firmware_prediction_hz": 100,
+    "flow_hz": 100,
+    "tof_hz": 40,
+    "process_noise_hz": 1000
+  },
+  "contact_observer": {
+    "assumed_mass_kg": 0.035,
+    "assumed_motor_response_s": 0.02,
+    "filter_window_s": 0.15,
+    "support_residual_min_m_s2": 1.2,
+    "supported_accel_tolerance_m_s2": 1.5,
+    "gyro_limit_rad_s": 0.3,
+    "tilt_limit_deg": 10.0,
+    "support_confirm_s": 0.25,
+    "hold_bad_grace_s": 0.25,
+    "probe_start_body_height_above_pad_m": 0.025,
+    "probe_multiplier_min": 0.65,
+    "probe_ramp_s": 1.0,
+    "descent_speed_m_s": 0.025,
+    "source_class": "software sensitivity assumptions; actual mass, rotor model and IMU calibration unresolved",
+    "require_freeflight_calibration": true,
+    "calibration_window_s": 2.0,
+    "calibration_min_span_s": 1.0,
+    "calibration_max_residual_rms_m_s2": 0.3,
+    "probe_motor_accel_max_m_s2": 7.3,
+    "inertial_bridge_max_prediction_s": 6.0,
+    "inertial_bridge_scope": "optional calibrated IMU/model support path after predicted near-pad alignment; conditional bounded6s, no measured hardware error guarantee"
+  },
+  "observer_software": {
+    "motion_uncertainty": {
+      "initial_velocity_std_m_s": 0.03,
+      "initial_gyro_bias_std_deg_s": 0.05,
+      "initial_accel_bias_std_m_s2": 0.005,
+      "accel_sample_std_m_s2": 0.02,
+      "gyro_sample_std_deg_s": 0.08,
+      "gyro_bias_walk_deg_s_sqrt_s": 0.001,
+      "accel_bias_walk_m_s2_sqrt_s": 0.0001,
+      "floor_flow_velocity_std_m_s": 0.02,
+      "source_class": "conditional error budget assumptions; no calibrated confidence probability"
+    },
+    "straight_gyro_bias_observer": {
+      "confirm_s": 1.5,
+      "integral_gain_per_s2": 0.002,
+      "bias_limit_deg_s": 0.2,
+      "source_class": "conditional known-map/marker software yaw bias observer; no live vehicle heading datum"
+    }
+  },
+  "synthetic_lens": {
+    "K": [
+      [
+        182.6897594648856,
+        0.0,
+        160.0
+      ],
+      [
+        0.0,
+        182.6897594648856,
+        160.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "distortion": [
+      -0.08561321102835054,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "horizontal_fov_deg": 87.0,
+    "vertical_fov_deg": 87.0,
+    "diagonal_fov_deg": 115.0,
+    "source_class": "sensitivity candidate derived from published angular boundary values; not measured lens K/D"
+  },
+  "observer_optics_sensitivity": {
+    "K": [
+      [
+        182.6897594648856,
+        0.0,
+        160.0
+      ],
+      [
+        0.0,
+        182.6897594648856,
+        160.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "distortion": [
+      -0.08561321102835054,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "horizontal_fov_deg": 87.0,
+    "vertical_fov_deg": 87.0,
+    "diagonal_fov_deg": 115.0,
+    "source_class": "sensitivity candidate derived from published angular boundary values; not measured lens K/D"
+  },
+  "control_architecture": {
+    "mode": "pc_velocity_rpyt",
+    "onboard_estimator": "official_full_flow_tof",
+    "pc_velocity_pid_hz": 100,
+    "rpyt_packet_hz": 100,
+    "pc_contact_imu_hz": 100,
+    "command_pwm_telemetry_hz": 100,
+    "command_pwm_telemetry_delay_s": 0.0,
+    "legacy_collective_cap": 60000,
+    "source_class": "software architecture with sensitivity timing/limits; actual radio/PC timing unverified",
+    "hardware_link": false,
+    "onboard_full_state_used_for": "attitude only; PC surface observer supplies outer position/velocity",
+    "supervisor_rtOS_link_timeout": "not reproduced; actual RPYT decoder and attitude/rate PID code only"
+  }
+}

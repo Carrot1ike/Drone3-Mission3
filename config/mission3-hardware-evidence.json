@@ -1,0 +1,1219 @@
+{
+  "schema": "drone3.mission3.hardware_evidence.v1",
+  "checked_at_kst": "2026-10-08",
+  "doc": "docs/mission3/hardware-sensor-evidence.md",
+  "scope": {
+    "aircraft": "Crazyflie 2.1 (stock, hardware rev B1 per datasheet)",
+    "ai_deck_conditional": "AI-deck 1.1 (HM01B0 mono, rev C1)",
+    "flow_deck_conditional": "Flow deck v2 (rev C)",
+    "allocation_confirmed": false
+  },
+  "legend": {
+    "P": "manufacturer published fact",
+    "C": "manufacturer code/config constant, not a measured spec",
+    "D": "derived from P/C",
+    "S": "sensitivity condition, not a spec",
+    "U": "unverified or unresolved"
+  },
+  "policy": {
+    "provided_hardware_json_nulls_preserved": true,
+    "third_party_dynamics_imported": false,
+    "parameter_sensitivity_is_not_spec_success": true,
+    "external_repos_modified": false
+  },
+  "scenario_user_confirmed": {
+    "pad_side_m": 0.2,
+    "pad_top_height_m": 0.3,
+    "board_side_m": 0.2,
+    "code_side_m": 0.15,
+    "code_centered_on_board": true,
+    "board_bottom_height_m": 0.3,
+    "board_top_height_m": 0.5,
+    "pad_front_edge_to_marker_plane_m": 0.15,
+    "pad_center_to_marker_plane_m": 0.25,
+    "print_faces": "rear (toward pad)",
+    "cart_speed_m_s": 0.25,
+    "straight_m": 20,
+    "semicircle_diameter_m": 7.5,
+    "supersedes": "AGENTS historical 0.30 m pad / 0.3 m/s"
+  },
+  "sources": [
+    {
+      "id": "hw",
+      "repo": "https://github.com/bitcraze/hardware",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "product_dirs_last_change": "3ad4739ca4a81ab7ea108f635184c5db776a39c5",
+      "paths": [
+        "src/products/crazyflie-2_1/datasheet/index.md",
+        "src/products/crazyflie-2_1/datasheet/crazyflie_2_1-measurements.png",
+        "src/products/crazyflie-2_1_plus/datasheet/index.md",
+        "src/products/ai-deck-1_1/datasheet/index.md",
+        "src/products/ai-deck-1_1/datasheet/ai-deck-mechanics.png",
+        "src/products/ai-deck-mono-camera/datasheet/index.md",
+        "src/products/ai-deck-mono-camera/datasheet/ai-deck-mono-camera-mechanics.png",
+        "src/products/flow-deck-2/datasheet/index.md"
+      ]
+    },
+    {
+      "id": "fw",
+      "repo": "https://github.com/bitcraze/crazyflie-firmware",
+      "commit": "f6e0f0a3b526861328caf3296a7ecf00bb915d39",
+      "commit_date": "2026-10-02",
+      "mm_flow_last_change": "b5d21e6940afcc6f010c6692cae61dbda62a1e90"
+    },
+    {
+      "id": "gap8",
+      "repo": "https://github.com/bitcraze/aideck-gap8-examples",
+      "commit": "d39d2ec5001f94bf774dbd1187ae4cf869a3094d",
+      "streamer_last_feature_change": "2953bb2c072d16a920c93b7485d5dee2131e6796"
+    },
+    {
+      "id": "sim",
+      "repo": "https://github.com/bitcraze/crazyflie-simulation",
+      "commit": "7e93752dbc803af2488c1db46bb79b3da55f5d8c",
+      "license": "MIT"
+    },
+    {
+      "id": "mech",
+      "repo": "https://github.com/bitcraze/bitcraze-mechanics",
+      "commit": "c70aa74368e713734ddebbf14238fd6c3c2079c6",
+      "license": "CC BY-NC-SA 3.0"
+    },
+    {
+      "id": "esp",
+      "repo": "https://github.com/bitcraze/aideck-esp-firmware",
+      "commit": "58f15fa5e14ec888f9ee965b6236aaf6d5c9e269"
+    },
+    {
+      "id": "gap_sdk",
+      "repo": "https://github.com/GreenWaves-Technologies/gap_sdk",
+      "commit": "a23026507efe57410b98c5945544cff3150eb996",
+      "note": "chip-vendor SDK, not Bitcraze; Bitcraze docker SDK version unverified"
+    },
+    {
+      "id": "local_fw_fork",
+      "repo": "https://github.com/llanesc/crazyflie-firmware",
+      "commit": "aa6571dc465f06f7d1f9aaf7b0b861fbcd1b3d67",
+      "third_party": true
+    },
+    {
+      "id": "local_sim_fork",
+      "repo": "https://github.com/llanesc/crazyflie-simulation",
+      "commit": "89d8cf79fb722bf4bd7e363ade7d90d6c45d6d5d",
+      "third_party": true,
+      "note": "llanesc default HEAD 9fc77d2967be7f1aad0c2af608d729433e2880b7 is 24 commits behind; no newer compute_flow",
+      "local_files_unmodified": [
+        "simulator_files/mujoco/crazysim.py"
+      ],
+      "sha256_crazysim_py": "4d7319adc051cc0572369275b3ab6db4a33ec53ed7bb765bed8f249eecaa33fe"
+    },
+    {
+      "id": "web_flow_tutorial",
+      "url": "https://www.bitcraze.io/documentation/tutorials/getting-started-with-flow-deck/",
+      "fetched_kst": "2026-10-08"
+    },
+    {
+      "id": "web_flow_product",
+      "url": "https://www.bitcraze.io/products/flow-deck-v2/",
+      "fetched_kst": "2026-10-08"
+    },
+    {
+      "id": "st_vl53l1x_rev8",
+      "url": "https://www.st.com/resource/en/datasheet/vl53l1x.pdf",
+      "manufacturer": "STMicroelectronics",
+      "document": "VL53L1X DS12385",
+      "revision": "Rev 8",
+      "date": "August 2024",
+      "section": "7.3",
+      "printed_page": 21,
+      "class": "P",
+      "scope": "component minimum ranging distance; not installed Bitcraze deck accuracy",
+      "minimum_ensured_ranging_distance_m": 0.04,
+      "below_minimum": {
+        "target_detection_possible": true,
+        "measurement_accurate": false
+      },
+      "verified_by": "official web PDF text §7.3, retrieved 2026-10-08",
+      "pdf_sha256": null,
+      "local_copy_limitation": "official web text verified; direct byte fetch timeout/HTTP2 errors; no invented file hash"
+    },
+    {
+      "id": "pixart_pmw3901_newlens_v1_40",
+      "url": "https://wiki.bitcraze.io/_media/projects:crazyflie2:expansionboards:pot0189-pmw3901mb-txqt-ds-r1.40-280119.pdf",
+      "manufacturer": "PixArt Imaging Inc.",
+      "document": "PMW3901MB-TXQT Product Datasheet",
+      "revision": "Version 1.40",
+      "date": "2019-01-28",
+      "lens": "L214-ZSZ",
+      "lens_generation": "new",
+      "package_identity_source": "page 1 ordering information",
+      "printed_page": 3,
+      "pdf_page_one_based": 3,
+      "section": "2.2 Table 3",
+      "minimum_working_range_m": 0.08,
+      "effective_viewing_angle_typical_deg": 42,
+      "effective_viewing_angle_axis": "not identified by this table; no installed-deck FoV assertion",
+      "class": "P",
+      "scope": "component+lens recommended operating envelope only",
+      "pdf_sha256": "751ad896822a1376f9fa13c94d84057eb6f65cb10b5438c1d26d0f65a1d136cb",
+      "snapshot": "artifacts/mission3/independent-review/20261008-component-sensor-envelope/pixart-pmw3901mb-txqt-r1.40-newlens.pdf",
+      "verification": "native PDF text + visually verified Min/Typ columns; Bitcraze official wiki-hosted manufacturer datasheet"
+    },
+    {
+      "id": "pixart_pmw3901_oldlens_v1_00",
+      "url": "https://wiki.bitcraze.io/_media/projects:crazyflie2:expansionboards:pot0189-pmw3901mb-txqt-ds-r1.00-200317_20170331160807_public.pdf",
+      "manufacturer": "PixArt Imaging Inc.",
+      "document": "PMW3901MB-TXQT Product Datasheet",
+      "revision": "Version 1.00",
+      "date": "2017-03-20",
+      "lens": "LN03-ZSZ",
+      "lens_generation": "old",
+      "package_identity_source": "page 1 ordering information",
+      "printed_page": 8,
+      "pdf_page_one_based": 3,
+      "section": "2.2 Table 3",
+      "minimum_working_range_m": 0.08,
+      "effective_viewing_angle_typical_deg": 42,
+      "effective_viewing_angle_axis": "not identified by this table; no installed-deck FoV assertion",
+      "class": "P",
+      "scope": "component+lens recommended operating envelope only",
+      "pdf_sha256": "80a9a362beb61dd2bdc052ed2fd94e55bed95b7979ab7e21feff72e0975ed408",
+      "snapshot": "artifacts/mission3/independent-review/20261008-component-sensor-envelope/pixart-pmw3901mb-txqt-r1.00-oldlens.pdf",
+      "verification": "native PDF text + visually verified Min/Typ columns; Bitcraze official wiki-hosted manufacturer datasheet"
+    }
+  ],
+  "aircraft": {
+    "published": {
+      "takeoff_mass_kg": {
+        "v": 0.029,
+        "src": "hw crazyflie-2_1 index.md L92"
+      },
+      "size_mm": {
+        "v": [
+          92,
+          92,
+          29
+        ],
+        "note": "motor-to-motor incl. motor mount feet",
+        "src": "L93"
+      },
+      "pcb_drawing_mm": {
+        "diagonal": 80,
+        "span": 56.65,
+        "header_spacing": 30,
+        "reference_features": "U"
+      },
+      "propellers": "propeller-pack (2.1); 2.1+ uses 47-17 + upgraded battery",
+      "max_recommended_payload_g": 15
+    },
+    "firmware_constants": {
+      "src": "fw src/platform/interface/platform_defaults_cf2.h",
+      "ARM_LENGTH_m": 0.046,
+      "CF_MASS_kg": 0.029,
+      "CF_MASS_upgrade_kit_kg": 0.0325,
+      "kconfig_default": "CRAZYFLIE_21_PLUS (Kconfig L99)",
+      "legacy_propellers": {
+        "lines": "L84-91",
+        "VMOTOR2THRUST": [
+          -0.014830744918356092,
+          0.04724465241828281,
+          -0.01847364358025878,
+          0.005960923942142
+        ],
+        "THRUST_MIN_N": 0.012817578393224994,
+        "THRUST_MAX_N": 0.12,
+        "THRUST_MAX_meaning": "battery-consistency cap, not physical max",
+        "THRUST2TORQUE_m": 0.007350862856566459
+      },
+      "plus_propellers": {
+        "VMOTOR2THRUST": [
+          -0.02476537915958403,
+          0.06523793527519485,
+          -0.026792504967750107,
+          0.006776789303971145
+        ],
+        "THRUST_MAX_N": 0.12,
+        "THRUST2TORQUE_m": 0.0069928948992470565
+      },
+      "basis": "Bitcraze thrust-stand measurement (docs/functional-areas/battery_compensation.md); error bounds unpublished",
+      "local_fork": {
+        "CF_MASS_kg": 0.027,
+        "thrust_tables": false
+      }
+    },
+    "stock_2_1_maps_to_legacy_propellers": {
+      "class": "D",
+      "basis": "datasheet propeller links + firmware option names"
+    },
+    "inertia": {
+      "manufacturer_value": null,
+      "class": "U",
+      "firmware_J_kg_m2": [
+        1.657171e-05,
+        1.6655602e-05,
+        2.9261652e-05
+      ],
+      "firmware_J_origin": "controller_lee.c L49-53 cites Foerster 2015 ETH thesis on Crazyflie 2.0 (third party)",
+      "use": false
+    },
+    "simulator_settings_not_specs": {
+      "gazebo": {
+        "mass_kg": 0.025,
+        "inertia": "same as firmware J plus off-diagonals",
+        "src": "sim simulator_files/gazebo/crazyflie/model.sdf L17-27"
+      },
+      "webots": {
+        "mass_kg": 0.05,
+        "camera_fov_rad": 0.87,
+        "camera_px": [
+          324,
+          324
+        ],
+        "camera_translation_m": [
+          0.03,
+          0,
+          0.01
+        ],
+        "src": "sim simulator_files/webots/protos/Crazyflie.proto L83-87,L223"
+      },
+      "conflict_with_datasheet": true
+    },
+    "geometry_sources": {
+      "mesh": "sim meshes/collada_files/cf2_assembly.dae, meshes/stl_files/* (no decks, low-poly)",
+      "mesh_assembly_positions_m": {
+        "propeller": [
+          0.031,
+          0.031,
+          0.022
+        ],
+        "motor_mount": [
+          0.031,
+          0.031,
+          0.014
+        ],
+        "body_origin_z": 0.015,
+        "battery_holder_z": 0.025,
+        "battery_z": 0.02,
+        "pin_headers": [
+          0,
+          0.011,
+          0.014
+        ],
+        "mirrored": true,
+        "src": "sim docs/functional_areas/meshes.md"
+      },
+      "mesh_vs_pcb_conflict": "0.031 m offset implies 87.7 mm motor diagonal vs PCB 80.000 mm vs ARM_LENGTH 46 mm (U)",
+      "motor_mounts_stl": "mech motor-mounts/CF21_MotorMounts_7mm/CF21_MotorMounts.stl",
+      "not_applicable": [
+        "mech propellers/BCP47-17* (2.1+)",
+        "mech models/cf2_model.skp (2016 community CF2 rev B)",
+        "mech models/Crazyflie_control_board-PCB_Edges.dxf (2013, Crazyflie 1 era)"
+      ]
+    },
+    "derived": {
+      "component_mass_sum_kg": 0.035,
+      "hover_thrust_per_motor_N": {
+        "m_0_029": 0.0711,
+        "m_0_035": 0.0858
+      },
+      "fraction_of_THRUST_MAX": {
+        "m_0_029": 0.593,
+        "m_0_035": 0.715
+      },
+      "legacy_motor_voltage_V": {
+        "m_0_029": 2.343,
+        "m_0_035": 2.571
+      }
+    },
+    "unresolved": [
+      "assembled mass and CoM",
+      "inertia",
+      "motor response",
+      "aerodynamic drag",
+      "contact stiffness/friction/foot compliance"
+    ]
+  },
+  "decks": {
+    "ai_deck_1_1": {
+      "mass_kg": 0.0044,
+      "size_mm": [
+        30,
+        52,
+        8
+      ],
+      "pcb_drawing_mm": [
+        28.6,
+        45.4
+      ],
+      "camera_holder_screw_spacing_mm": 12,
+      "mount": "over or under",
+      "pin_headers_mm": "15-4-6",
+      "hw_rev": "C1"
+    },
+    "flow_deck_v2": {
+      "mass_kg": 0.0016,
+      "size_mm": [
+        21,
+        28,
+        4
+      ],
+      "pcb_drawing_mm": [
+        27.94,
+        21.079
+      ],
+      "mount": "under",
+      "hw_rev": "C"
+    }
+  },
+  "camera": {
+    "published": {
+      "sensor": "HM01B0-MNA",
+      "active_px": [
+        324,
+        324
+      ],
+      "effective_px": [
+        320,
+        320
+      ],
+      "pixel_um": 3.6,
+      "image_diagonal_mm": 1.63,
+      "shutter": "electronic rolling",
+      "output_bits": [
+        6,
+        8
+      ],
+      "focus_distance_m": 0.35,
+      "depth_of_field_m": [
+        0.3,
+        "infinite"
+      ],
+      "fov_deg": {
+        "h": 87,
+        "v": 87,
+        "d": 115
+      },
+      "fps": {
+        "window_324x244_max": 60,
+        "binning_2x2_max": 120
+      },
+      "flip_mirror_readout": true,
+      "full_datasheet": "contact Himax (unpublished)"
+    },
+    "module_drawing_mm": {
+      "module_height": [
+        5.32,
+        0.3
+      ],
+      "lens_top_to_steel_plate_bottom": [
+        3.27,
+        0.15
+      ],
+      "holder_square": [
+        5,
+        0.1
+      ],
+      "connector_to_lens_center": 10,
+      "total_length": 14.75,
+      "op_fov_deg": 115,
+      "me_fov_deg": 125,
+      "note": "module-only; not holder/deck/body position"
+    },
+    "mounting_evidence": {
+      "official_quantitative_mount_cad": {
+        "found_in_search_scope": false,
+        "absence_confirmed": false,
+        "search_scope": [
+          "bitcraze/hardware @8207400d",
+          "bitcraze/bitcraze-mechanics @c70aa743",
+          "bitcraze/crazyflie-simulation @7e93752d",
+          "bitcraze/aideck-gap8-examples @d39d2ec5",
+          "Bitcraze datasheets and docs listed in sources"
+        ]
+      },
+      "qualitative": "lens in black holder screwed at deck FRONT 12.000 mm holes, looking outward in deck plane",
+      "sources": [
+        "hw ai-deck-1_1 datasheet ai-deck-side-585px.jpg",
+        "gap8 docs/guides/camera-replace.md images 1-8"
+      ],
+      "R_BC": null,
+      "t_BC": null
+    },
+    "derived": {
+      "fov_matches_320_effective": "320*3.6um*sqrt2=1.629 mm == 1.63 mm",
+      "nominal_pinhole_f_px": 168.6,
+      "pinhole_diag_fov_deg": 106.6,
+      "pinhole_consistent_with_published_115deg": false
+    },
+    "streamer": {
+      "src": "gap8 examples/other/wifi-img-streamer",
+      "resolutions": {
+        "qvga": [
+          324,
+          244
+        ],
+        "qqvga": [
+          162,
+          122
+        ],
+        "native": [
+          324,
+          324
+        ]
+      },
+      "default": "qvga raw start-stop",
+      "native_supports_60fps": false,
+      "mode_320x320": null,
+      "header_struct": "<BHHBBI magic=0xBC,width,height,depth=1,type(0 raw,1 jpeg),size (cpx_stream.c L30-38)",
+      "capture_timestamp_in_header": false,
+      "orientation_register": {
+        "addr": "0x0101",
+        "value": 3,
+        "bit_meaning": "U"
+      },
+      "profiling_fields": [
+        "q_ms",
+        "enc_ms",
+        "bytes",
+        "tx_ms",
+        "frame_ms",
+        "wait_ms",
+        "drops"
+      ],
+      "profiling_covers_wifi_and_pc": false,
+      "cpx_payload_B": 1020,
+      "packets_per_frame": {
+        "native": 103,
+        "qvga": 78
+      },
+      "frame_bytes": {
+        "native": 104976,
+        "qvga": 79056,
+        "effective_320": 102400
+      },
+      "published_measured_fps": null,
+      "published_latency_s": null,
+      "onboard_320_crop_feasible_via_cpi_roi_slice": "U (gap_sdk himax.c rowlen 320+4; not in official example; effective window offset unpublished)",
+      "mode_320x320_scope": "build options of official wifi-img-streamer at d39d2ec5"
+    },
+    "unresolved": [
+      "intrinsics/distortion",
+      "lens focal length and f-number",
+      "R_BC/t_BC",
+      "deck over/under allocation",
+      "effective 320 window offset",
+      "stream fps/latency"
+    ],
+    "window_and_distortion_test_policy": {
+      "effective_window_offset": null,
+      "sim_rendering": "render 320x320 directly; FOV defined on 320 effective (D from 1.63 mm diagonal)",
+      "hardware_adapter_candidate": {
+        "rule": "centered 2 px trim of native 324x324",
+        "status": "assumption, needs user/main decision",
+        "principal_point_sweep_px": 2,
+        "orientation_cases": [
+          "as-is",
+          "rotated 180 deg"
+        ],
+        "resize_allowed": false
+      },
+      "fov_consistency": {
+        "pinhole_f_px": 168.6,
+        "pinhole_diag_deg": 106.6,
+        "equidistant_f_px": 210.7,
+        "equidistant_diag_deg": 123,
+        "published_diag_deg": 115
+      },
+      "one_parameter_brown_fit": {
+        "fx_fy_px": 182.7,
+        "k1": -0.0856,
+        "convention": "OpenCV normalized radial x_d = x_u(1+k1 r^2)",
+        "monotonic_to_deg": 63.1,
+        "class": "D under single-parameter assumption; use as S candidate, not calibration"
+      },
+      "test_models": {
+        "M0": "pinhole 168.6 px (current baseline)",
+        "M1": "Brown fx=fy=182.7, k1=-0.0856",
+        "M2": "equidistant 210.7 px (bracket)"
+      },
+      "combos_renderer_estimator": [
+        "M0/M0",
+        "M1/M0",
+        "M1/M1"
+      ],
+      "report": [
+        "detection rate",
+        "pose bias"
+      ],
+      "distortion_rendering": "render wider pinhole then remap to synthetic 320x320 sensor image (sensor-model generation, not input resize)",
+      "pass_rule": "landing decisions robust across M0-M1; replace with hardware checkerboard calibration"
+    }
+  },
+  "geometry_conditional": {
+    "frame": "origin pad-top center; x toward marker; z up; marker plane x=0.25 m; code corners y=+-0.075, z=0.025/0.175 m",
+    "camera_model": "nominal ideal pinhole f=168.6 px, principal point 160,160, no distortion (D/S)",
+    "variables_are_sensitivity_not_estimates": [
+      "x_f",
+      "z_cam",
+      "theta_down"
+    ],
+    "pad_center_theta0": [
+      {
+        "x_f_m": 0,
+        "depth_m": 0.25,
+        "code_height_px": 101.2,
+        "z_cam_max_all_corners_m": 0.262,
+        "depth_ge_dof_min": false
+      },
+      {
+        "x_f_m": 0.02,
+        "depth_m": 0.23,
+        "code_height_px": 110,
+        "z_cam_max_all_corners_m": 0.243,
+        "depth_ge_dof_min": false
+      },
+      {
+        "x_f_m": 0.04,
+        "depth_m": 0.21,
+        "code_height_px": 120.4,
+        "z_cam_max_all_corners_m": 0.224,
+        "depth_ge_dof_min": false
+      }
+    ],
+    "z_cam_window_d0_25_m": {
+      "theta_down_m10": [
+        -0.163,
+        0.19
+      ],
+      "theta_down_m5": [
+        -0.108,
+        0.224
+      ],
+      "theta_down_0": [
+        -0.062,
+        0.262
+      ],
+      "theta_down_p5": [
+        -0.024,
+        0.308
+      ],
+      "theta_down_p10": [
+        0.01,
+        0.363
+      ]
+    },
+    "center_range_x_f0_m": [
+      0.25,
+      0.29
+    ],
+    "dof_uses_axis_depth": true,
+    "vertical_descent_keeps_depth_constant_theta0": true,
+    "envelope_92mm_on_pad": {
+      "body_center_max_offset_m": 0.054,
+      "rearmost_body_center_to_marker_plane_m": 0.304,
+      "x_f_max_for_depth_0_30_m": 0.004
+    },
+    "diopters": {
+      "focus_0_35": 2.857,
+      "dof_near_0_30": 3.333,
+      "d_0_25": 4,
+      "d_0_21": 4.762
+    },
+    "dof_thin_lens_inconsistency": "far limit infinite at 0.35 m focus implies near limit <=0.175 m in hyperfocal model; published 0.30 m => blur criterion unknown; no extrapolation",
+    "strict_focus_note": "0.30 m pass line is a policy choice; report blur sensitivity separately",
+    "strict_focus_gate_review": {
+      "current_code": "scripts/mission3/scene.py L132-141 image(strict_focus): Euclidean optical-point to marker-center distance < published_depth_of_field_near_m (0.30) -> reject (main-owned; not modified)",
+      "relation": "axis depth <= Euclidean range for any point; Euclidean gate is looser than depth gate",
+      "example": {
+        "x_f_m": 0,
+        "z_cam_m": 0.3,
+        "center_range_m": 0.32,
+        "center_axis_depth_m": 0.25,
+        "euclidean_gate": "pass",
+        "depth_gate": "reject"
+      },
+      "board_plane_distance": "equals axis depth only when optical axis is perpendicular to board (theta 0, yaw aligned); tilted object plane -> per-point depth, minimum at a corner",
+      "official_dof_definition": {
+        "published": "Focus distance 35 cm; Depth of Field 30 cm ~ infinite",
+        "reference_point": null,
+        "blur_criterion": null,
+        "reference_ambiguity_scale_mm": 5.32
+      },
+      "policy": [
+        "strict metric: minimum axis depth over 4 code corners >= 0.30 m (conservative policy choice); also log center depth, center range, board-plane distance; optional board/quiet-zone corner variant",
+        "gate pass != sharp; reject != undetectable; meaning = exclude observations outside published DOF",
+        "blur sensitivity separately with PSF sweep (S), never labeled manufacturer optics",
+        "report gated fraction per phase; final descent over pad center expected fully gated at theta 0"
+      ]
+    }
+  },
+  "flow_tof": {
+    "published": {
+      "tof_max_m": 4,
+      "tof_accuracy": "few mm, surface/light dependent",
+      "flow_surface": "works best on matt surfaces; hard over blank surface; assumes flat floor",
+      "tof_cone": "closest detection in cone",
+      "hover_assist_height_m": [
+        0.2,
+        3
+      ],
+      "hover_assist_is_sensor_spec": false,
+      "tof_accuracy_scope": "Bitcraze product qualitative statement; not a guarantee below component minimum ensured 0.04m or for uncalibrated installed deck"
+    },
+    "replay_sources_official_fw": [
+      {
+        "path": "src/deck/drivers/src/flowdeck_v1v2.c",
+        "lines": "L45 OULIER_LIMIT 100; L73 useAdaptiveStd=false; L77 flowStdFixed=2.0; L88 vTaskDelay(10); L94-95 accpx=-deltaY, accpy=-deltaX; L105 adaptive std; L121 dt; L157 motion==0xB0 gate"
+      },
+      {
+        "path": "src/drivers/src/pmw3901.c",
+        "note": "motion burst read"
+      },
+      {
+        "path": "src/drivers/interface/pmw3901.h",
+        "lines": "L33-57 motionBurst_t motion,deltaX,deltaY,squal,shutter"
+      },
+      {
+        "path": "src/deck/drivers/src/zranger2.c",
+        "lines": "L48-51 std points; L54 RANGE_OUTLIER_LIMIT 5000; L103 expCoeff; L124 MEDIUM; L125 budget 25000 us; L132 25 ms; L140-143 enqueue"
+      },
+      {
+        "path": "src/drivers/src/vl53l1x.c"
+      },
+      {
+        "path": "src/modules/src/range.c",
+        "lines": "L51-56 rangeEnqueueDownRangeInEstimator -> estimatorEnqueueTOF"
+      },
+      {
+        "path": "src/modules/interface/stabilizer_types.h",
+        "lines": "L291-303 flowMeasurement_t; L307-311 tofMeasurement_t"
+      },
+      {
+        "path": "src/modules/src/estimator/estimator_kalman.c",
+        "lines": "L119 PREDICT_RATE 100 Hz; L248 predict; L259 process noise; L335-336 ToF; L341-342 Flow with gyroLatest; L352 gyroLatest (deg/s)"
+      },
+      {
+        "path": "src/modules/src/kalman_core/mm_flow.c",
+        "lines": "L31 FLOW_RESOLUTION 0.10; L39 flowdeckPos; L47 Npix 35; L48 thetapix 0.71674; L65 z clamp 0.1"
+      },
+      {
+        "path": "src/modules/src/kalman_core/mm_tof.c",
+        "lines": "L35 R22>0.1 gate; L36 acos(R22)-7.5deg; L40 Z/cos(angle)"
+      },
+      {
+        "path": "src/modules/src/kalman_core/kalman_core.c"
+      },
+      {
+        "path": "src/modules/interface/kalman_core/kalman_core.h",
+        "lines": "L159 kalmanCoreDefaultParams; L174 kalmanCorePredict(this, params, acc, gyro, nowMs, quadIsFlying)"
+      },
+      {
+        "path": "src/modules/interface/kalman_core/kalman_core_params_defaults.h"
+      },
+      {
+        "path": "src/platform/interface/platform_defaults.h",
+        "lines": "L239-247 FLOWDECK_POS_* default 0; L249-258 DRAG_B_* default 0"
+      },
+      {
+        "path": "bindings/setup.py",
+        "lines": "L51-57 kalman_core.c, mm_tof.c, mm_flow.c compiled into cffirmware"
+      },
+      {
+        "path": "bindings/cffirmware.i",
+        "lines": "L26-51 includes kalman_core.h, mm_tof.h, mm_flow.h"
+      },
+      {
+        "path": "bindings/util/estimator_kalman_emulator.py",
+        "note": "1 kHz loop, 100 Hz predict template (169 lines); no Flow/ToF branches"
+      }
+    ],
+    "local_fork_bindings": {
+      "mm_flow_included": false,
+      "mm_tof_included": false,
+      "kalmanCorePredict_has_params_arg": false,
+      "recommendation": "use official f6e0f0a3 bindings for replay"
+    },
+    "firmware_code_values": {
+      "Npix": 35,
+      "thetapix_rad": 0.71674,
+      "flow_fov_comment_deg": 42,
+      "flow_fov_comment_basis": "guessed from raw data register",
+      "FLOW_RESOLUTION": 0.1,
+      "fw_raw_dpixel_per_rad": 488.32,
+      "z_clamp_m": 0.1,
+      "flow_rate_hz": 100,
+      "flow_std_fixed": 2,
+      "flow_outlier_abs_count": 100,
+      "flow_gate": "motion==0xB0",
+      "flowdeck_pos_cf2_m": [
+        0,
+        0,
+        0
+      ],
+      "tof_rate_hz": 40,
+      "tof_budget_us": 25000,
+      "tof_mode": "MEDIUM",
+      "tof_outlier_mm": 5000,
+      "tof_std_model": "0.0025*(1+exp(2.9214*(d-2.5))) m",
+      "tof_tilt_gate_R22": 0.1,
+      "tof_cone_half_angle_in_tilt_correction_deg": 7.5,
+      "flow_tof_models_same_as_local_fork_for_cf2": true,
+      "full_ekf_diff_audited": false
+    },
+    "virtual_sensor_limits": [
+      {
+        "item": "tof_rate",
+        "value": "40 Hz",
+        "class": "C"
+      },
+      {
+        "item": "tof_max",
+        "value": "4 m published; firmware gate 5 m",
+        "class": "P/C",
+        "replay": "no measurement beyond 4 m"
+      },
+      {
+        "item": "tof_min",
+        "value": null,
+        "class": "U",
+        "replay": "raw detection and metric accuracy must be separate; guard metric fusion below 0.04m per user policy",
+        "scope": "actual allocated Bitcraze deck remains U",
+        "component_minimum_ensured_m": 0.04,
+        "component_source": "st_vl53l1x_rev8"
+      },
+      {
+        "item": "tof_cone",
+        "value": "closest return; 7.5 deg half-angle in firmware tilt correction; real FoV unknown",
+        "class": "P/C/U",
+        "replay": "default 7.5 deg closest-hit cone, angle as S"
+      },
+      {
+        "item": "tof_tilt_gate",
+        "value": "R22<=0.1 ignored",
+        "class": "C"
+      },
+      {
+        "item": "flow_rate_dt",
+        "value": "100 Hz, measured dt",
+        "class": "C"
+      },
+      {
+        "item": "flow_outlier",
+        "value": "|count|>=100 dropped -> |N|<10 -> |v/z|<20.5 1/s at dt 0.01",
+        "class": "C/D",
+        "replay": "rarely binding here (0.25 m/s at z 0.1 m -> 2.5 1/s)"
+      },
+      {
+        "item": "flow_gate",
+        "value": "motion==0xB0",
+        "class": "C",
+        "replay": "texture-quality dropout model; specify pad/floor texture as experiment setting"
+      },
+      {
+        "item": "flow_std",
+        "value": 2,
+        "class": "C"
+      },
+      {
+        "item": "flow_low_height",
+        "value": "EKF z clamp 0.1m C; actual allocated deck lens/min-height U; verified PixArt LN03/L214 component minimum 0.08m P in component_operating_envelope",
+        "class": "C/U",
+        "replay": "guard Flow velocity evidence below 0.08m sensor-to-surface distance per user policy; retain S/U installed deck profile"
+      },
+      {
+        "item": "observed_surface",
+        "value": "relative motion to surface hit",
+        "class": "P->D",
+        "replay": "v_rel = v_sensor - v_surface"
+      },
+      {
+        "item": "axes",
+        "value": "accpx=-deltaY, accpy=-deltaX at chip level",
+        "class": "C"
+      }
+    ],
+    "replay_modes_recommended": {
+      "consistency": "generate from firmware equation (488.32 raw px/rad, rotation 1.0) with true relative velocity and true surface distance; expect noise-level innovations",
+      "perturbation": "S sweeps of scale, rotation coefficient, cone angle, dropouts; include shared-SIL case (409.26, 1.25) as a named case",
+      "driver_stage": "reproduce outlier/gate/std in wrapper; SITL sensors_sitl.c L247-256 bypasses them",
+      "scenarios": [
+        "static floor",
+        "floor->pad 0.30 m step",
+        "straight 0.25 m/s",
+        "semicircle R 3.75 m",
+        "descent from z_cam ~0.26 m through z<0.1 m",
+        "edge mixed returns"
+      ]
+    },
+    "structural_interpretation_untested": [
+      "Z behaves as vertical distance to observed surface; 0.30 m ToF step at floor->pad can be absorbed as Z change (near-range std ~2.5 mm), so a Z-hold controller may climb",
+      "flow over pad = cart-relative velocity",
+      "straight segment cart frame inertial; conflicts mainly at transitions/mixed returns",
+      "semicircle: cart yaw rate 0.0667 rad/s (3.82 deg/s), centripetal 0.0167 m/s2, 47.1 s for 180 deg; non-inertial; aircraft yaw does not follow automatically"
+    ],
+    "component_operating_envelope": {
+      "checked_at_kst": "2026-10-08T04:19:19.735857+09:00",
+      "reviewer": "Codex-Independent-Flight-Reviewer (Heisenberg)",
+      "source_class": "P only for explicitly identified component/document/lens",
+      "sources": [
+        {
+          "id": "st_vl53l1x_rev8",
+          "url": "https://www.st.com/resource/en/datasheet/vl53l1x.pdf",
+          "manufacturer": "STMicroelectronics",
+          "document": "VL53L1X DS12385",
+          "revision": "Rev 8",
+          "date": "August 2024",
+          "section": "7.3",
+          "printed_page": 21,
+          "class": "P",
+          "scope": "component minimum ranging distance; not installed Bitcraze deck accuracy",
+          "minimum_ensured_ranging_distance_m": 0.04,
+          "below_minimum": {
+            "target_detection_possible": true,
+            "measurement_accurate": false
+          },
+          "verified_by": "official web PDF text §7.3, retrieved 2026-10-08",
+          "pdf_sha256": null,
+          "local_copy_limitation": "official web text verified; direct byte fetch timeout/HTTP2 errors; no invented file hash"
+        },
+        {
+          "id": "pixart_pmw3901_newlens_v1_40",
+          "url": "https://wiki.bitcraze.io/_media/projects:crazyflie2:expansionboards:pot0189-pmw3901mb-txqt-ds-r1.40-280119.pdf",
+          "manufacturer": "PixArt Imaging Inc.",
+          "document": "PMW3901MB-TXQT Product Datasheet",
+          "revision": "Version 1.40",
+          "date": "2019-01-28",
+          "lens": "L214-ZSZ",
+          "lens_generation": "new",
+          "package_identity_source": "page 1 ordering information",
+          "printed_page": 3,
+          "pdf_page_one_based": 3,
+          "section": "2.2 Table 3",
+          "minimum_working_range_m": 0.08,
+          "effective_viewing_angle_typical_deg": 42,
+          "effective_viewing_angle_axis": "not identified by this table; no installed-deck FoV assertion",
+          "class": "P",
+          "scope": "component+lens recommended operating envelope only",
+          "pdf_sha256": "751ad896822a1376f9fa13c94d84057eb6f65cb10b5438c1d26d0f65a1d136cb",
+          "snapshot": "artifacts/mission3/independent-review/20261008-component-sensor-envelope/pixart-pmw3901mb-txqt-r1.40-newlens.pdf",
+          "verification": "native PDF text + visually verified Min/Typ columns; Bitcraze official wiki-hosted manufacturer datasheet"
+        },
+        {
+          "id": "pixart_pmw3901_oldlens_v1_00",
+          "url": "https://wiki.bitcraze.io/_media/projects:crazyflie2:expansionboards:pot0189-pmw3901mb-txqt-ds-r1.00-200317_20170331160807_public.pdf",
+          "manufacturer": "PixArt Imaging Inc.",
+          "document": "PMW3901MB-TXQT Product Datasheet",
+          "revision": "Version 1.00",
+          "date": "2017-03-20",
+          "lens": "LN03-ZSZ",
+          "lens_generation": "old",
+          "package_identity_source": "page 1 ordering information",
+          "printed_page": 8,
+          "pdf_page_one_based": 3,
+          "section": "2.2 Table 3",
+          "minimum_working_range_m": 0.08,
+          "effective_viewing_angle_typical_deg": 42,
+          "effective_viewing_angle_axis": "not identified by this table; no installed-deck FoV assertion",
+          "class": "P",
+          "scope": "component+lens recommended operating envelope only",
+          "pdf_sha256": "80a9a362beb61dd2bdc052ed2fd94e55bed95b7979ab7e21feff72e0975ed408",
+          "snapshot": "artifacts/mission3/independent-review/20261008-component-sensor-envelope/pixart-pmw3901mb-txqt-r1.00-oldlens.pdf",
+          "verification": "native PDF text + visually verified Min/Typ columns; Bitcraze official wiki-hosted manufacturer datasheet"
+        }
+      ],
+      "actual_deck": {
+        "class": "U",
+        "allocation_confirmed": false,
+        "lens_revision": null,
+        "calibrated_FoV_deg": null,
+        "minimum_valid_height_m": null,
+        "ToF_minimum_accurate_distance_m": null,
+        "mount_transform": null,
+        "note": "component P does not fill installed deck or assembled hardware nulls"
+      },
+      "unknown_or_other_revision": {
+        "class": "U",
+        "scope": "later revisions or claimed withdrawal/replacement not verified in this bounded audit"
+      },
+      "historical_conditional_runs": {
+        "run_ids": [
+          "20261008-032640-670598-entry1-seed1",
+          "20261008-035506-047754-entry1-seed8"
+        ],
+        "near_sensor_model": "optimistic S assumes accurate ToF/Flow near 9mm; outside verified component envelope",
+        "contact_only_approvals_preserved": true,
+        "qualified_mission_success": false,
+        "real_hardware_sensor_hold_relevance_established": false
+      },
+      "policy": {
+        "nonhardware_mounting_inference_class": "S/U",
+        "unpublished_parameters_stay_unresolved": true,
+        "third_party_values_added": false,
+        "provided_hardware_nulls_preserved": true
+      },
+      "software_policy_developer_selected": {
+        "class": "experiment policy based on P component envelope, not hardware certification",
+        "tof_metric_accuracy_guard_below_raw_range_m": 0.04,
+        "flow_velocity_usability_guard_below_sensor_to_surface_m": 0.08,
+        "body_height_to_sensor_range_conversion": "S/U; guard in sensor distance coordinates",
+        "above_guard_is_not_accuracy_guarantee": true,
+        "implementation_owner": "main; independent reviewer changed no implementation",
+        "selected_by": "main developer",
+        "selection_basis": "manufacturer component operating envelopes; conservative simulation experiment policy",
+        "human_user_threshold_specification": false
+      }
+    }
+  },
+  "shared_sil_mismatch": {
+    "src": "local_sim_fork simulator_files/mujoco/crazysim.py",
+    "sim_raw_dpixel_per_rad": 409.26,
+    "sim_constants": {
+      "FLOW_NPIX": 30,
+      "FLOW_THETAPIX_deg": 4.2,
+      "lines": "L112-113",
+      "omega_factor": 1.25,
+      "omega_line": "L1057",
+      "noise_px": 0.5,
+      "noise_lines": "L1065-1066"
+    },
+    "fw_raw_dpixel_per_rad": 488.32,
+    "translation_ratio": 0.8381,
+    "rotation_ratio": 1.0476,
+    "algebraic_fit": "v_hat = 0.838 v - 0.048 z omega",
+    "algebraic_only": true,
+    "ekf_convergence_tested": false,
+    "other_diffs": [
+      "height from true single body -z ray at body origin, no cone/offset (L1020-1033)",
+      "velocity from MuJoCo cvel (L1041), surface velocity not subtracted; cvel reference point to verify",
+      "sensors_sitl.c L247-256 enqueues with std 2.0, no 0xB0 gate, no outlier"
+    ]
+  },
+  "contact_test_feasibility": {
+    "real_contact_or_flight_now": false,
+    "near_field_focus_test_without_ai_deck": false,
+    "simulation": "pad fit/foot contact/tip-over with datasheet envelope + official mesh; contact, inertia, motor params as S; results = conditional internal checks",
+    "on_arrival_measurements": [
+      "mass and CoM (suspension)",
+      "inertia (bifilar/trifilar pendulum method)",
+      "checkerboard intrinsics",
+      "T_BC with reference jig and marker board",
+      "ArUco near-field detection 0.15-0.40 m",
+      "video latency with in-frame clock/LED",
+      "Flow/ToF over moving cart surface"
+    ]
+  },
+  "recommendations_for_main": [
+    "Treat scene optical point as camera frame C only; T_BC as S set {x_f, z_cam, theta, deck over/under}; decisions must hold across set; never write chosen values to provided-hardware.json",
+    "Provisional aircraft: official mesh + datasheet envelope; mass 0.029 or conditional 0.035 (D); legacy thrust polynomial + THRUST_MAX 0.12 N (C); inertia/motor time constant/drag/contact as labeled S; no cf2x_P250 or Foerster values; report as sensitivity results",
+    "Camera input contract: official full array is 324x324; 320x320 window rule needs explicit user/main decision; until then no silent resize/crop; keep rejecting 324x244",
+    "Intrinsics: test M0-M2 set (docs 4.1); change strict_focus to min code-corner axis depth gate (docs 5.1)",
+    "Terminal phase must not depend on sharp marker at contact; full-marker descent start z_cam <= 0.224-0.262 m (x_f 0.04-0, theta 0) as reference",
+    "No capture timestamp: use host receive time; latency/frame interval as S; measure on hardware via profiling fields + external clock",
+    "Flow/ToF replay with official f6e0f0a3 bindings extending estimator_kalman_emulator.py in a project wrapper; no upstream edits",
+    "Stock 2.1 likely needs legacy propeller config; decide after physical propeller check; do not change build now",
+    "Populate vendor/CMSIS at a65b7c9a in src/bitcraze-mission3-firmware before building bindings"
+  ],
+  "hardware_nulls_preserved": [
+    "aircraft.assembled_mass_kg",
+    "aircraft.assembled_center_of_mass_m",
+    "aircraft.assembled_inertia_kg_m2",
+    "aircraft.applicable_pwm_to_thrust_model",
+    "aircraft.motor_response_model",
+    "aircraft.aerodynamic_model",
+    "camera.calibrated_K",
+    "camera.calibrated_distortion",
+    "camera.R_body_camera_cv",
+    "camera.camera_position_body_m",
+    "camera.capture_timestamp_available",
+    "camera.measured_stream_fps",
+    "camera.measured_capture_to_pc_delay_s"
+  ],
+  "local_scratch_not_project": "/tmp/drone3-evidence",
+  "checked_times_actual": {
+    "local_reads_start_utc": "2026-10-07T16:52Z",
+    "remote_clone_utc": "2026-10-07T17:00Z",
+    "last_remote_fetch_utc_approx": "2026-10-07T17:08Z",
+    "clone_reads_until_utc_approx": "2026-10-07T17:16Z",
+    "first_write_utc": "2026-10-07T17:17:32Z",
+    "revision_started_utc": "2026-10-07T17:20Z",
+    "component_envelope_independent_addendum_kst": "2026-10-08T04:19:19.735857+09:00"
+  },
+  "firmware_copy_status": {
+    "path": "src/bitcraze-mission3-firmware",
+    "checked": "read-only, 2026-10-07T17:2xZ",
+    "head": "f6e0f0a3b526861328caf3296a7ecf00bb915d39",
+    "source_clone": {
+      "shallow": true,
+      "partial_filter": "blob:limit=5242880"
+    },
+    "vendor_CMSIS_populated": false,
+    "bindings_require": "bindings/setup.py L19-34 vendor/CMSIS headers and DSP sources",
+    "required_CMSIS_commit": "a65b7c9a3e6502127fdb80eb288d8cbdf251a6f4",
+    "local_same_commit": "src/crazyflie-ros2-sil/crazyflie-firmware/vendor/CMSIS",
+    "options": [
+      "git submodule update --init vendor/CMSIS (read-only remote fetch)",
+      "copy same-commit CMSIS"
+    ],
+    "reimplementation_needed": false
+  },
+  "fixture_bench_independent_check": {
+    "checked_utc": "2026-10-07T17:24Z/2026-10-07T17:43Z",
+    "claim_scope": "fixture bench actual execution of official Kalman core/Flow/ToF C; no FreeRTOS, drivers, flight control or physics; not physical flight or equipment validation",
+    "main_files_read_only": [
+      "scripts/mission3/firmware_host.c",
+      "scripts/mission3/firmware.py",
+      "scripts/build_mission3_firmware_host.py",
+      "scripts/replay_mission3_firmware.py",
+      "build/mission3-firmware-host/source-manifest.json",
+      "artifacts/mission3/firmware-transition-consistent",
+      "artifacts/mission3/firmware-transition-corrected",
+      "artifacts/mission3/firmware-transition-gated"
+    ],
+    "independent_replica_outside_project": "/tmp/drone3-evidence/calc (verify_host.c, verify_host2.c, verify_replay.py, verify_settle.py, verify_diag.py, verify_diag2.py, *_result.json)",
+    "source_integrity": {
+      "head": "f6e0f0a3b526861328caf3296a7ecf00bb915d39",
+      "git_status_clean": true,
+      "sha256_prefix": {
+        "kalman_core.c": "d0215770d05b213a",
+        "mm_flow.c": "1365472549ff33d3",
+        "mm_tof.c": "0cd4c17664a45609"
+      },
+      "matches_review_clone": true,
+      "cmsis_commit": "a65b7c9a3e6502127fdb80eb288d8cbdf251a6f4"
+    },
+    "units_ok": {
+      "predict_acc": "m/s2 specific force (estimator_kalman.c L382 GRAVITY_MAGNITUDE 9.81f)",
+      "predict_gyro": "rad/s (L383 DEG_TO_RAD)",
+      "flow_gyro": "deg/s gyroLatest (L341-342, L352)",
+      "flow_raw": "driver counts, std 2.0, dt 0.01",
+      "tof": "m, zranger2 std model"
+    },
+    "schedule": {
+      "predict_hz": 100,
+      "flow_hz": 100,
+      "tof_hz": 40,
+      "finalize_every_ms": 1,
+      "order_ok": true
+    },
+    "process_noise_schedule": {
+      "official": "every estimator loop (estimator_kalman.c L258-259), loop at RATE_MAIN_LOOP 1000 Hz",
+      "wrapper": "inside bench_predict at 100 Hz",
+      "match": false,
+      "variance_formula": "(a*dt+b)^2 per call (kalman_core.c L613-625); defaults procNoiseVel=procNoisePos=procNoiseAtt=0",
+      "effect_per_10ms": {
+        "velocity_attitude": "about 10x",
+        "position": "about 1000x"
+      }
+    },
+    "platform_config": {
+      "CONFIG_PLATFORM_CF2": true,
+      "DRAG_B": 0,
+      "FLOWDECK_POS": 0,
+      "CENTER_OF_PRESSURE": 0,
+      "CF_MASS": 0.029,
+      "KALMAN_INITIAL_YAW_STD": 0.01,
+      "GENERAL_PURPOSE_defined": false,
+      "procNoiseAcc_xy": 0.5,
+      "procNoiseAcc_z": 1,
+      "legacy_thrust_table_active": false,
+      "reason": "CONFIG_ENABLE_THRUST_BAT_COMPENSATED not defined; THRUST_MAX falls back to 0.1125 (platform_defaults.h L78-79)",
+      "affects_estimator": false
+    },
+    "missing_official_loop_parts": [
+      "kalmanSupervisorIsStateWithinBounds (100 m, 10 m/s reset) - not triggered in these runs",
+      "kalmanCoreExternalizeState",
+      "KALMAN_DECOUPLE_XY (undefined)"
+    ],
+    "attitude_reversion_while_flying": "inactive (kalman_core.c L589)",
+    "provenance_gap": "firmware-transition-consistent/experiment.json lacks mode key; replica shows equal to stock",
+    "replica_results": {
+      "noise_every_10ms_matches_main": true,
+      "noise_every_10ms": {
+        "before_2_9s": [
+          0.5,
+          0.2619
+        ],
+        "stock": {
+          "pad_6_9s": [
+            0.2,
+            -0.0061
+          ],
+          "peak_vz": 2.1793
+        },
+        "corrected": {
+          "pad_6_9s": [
+            0.51,
+            0.2964
+          ],
+          "peak_vz": 2.0981
+        },
+        "gate_moving": {
+          "pad_6_9s": [
+            -7.8621,
+            -0.0422
+          ],
+          "peak_vz": 2.0985
+        }
+      },
+      "noise_every_1ms_official": {
+        "before_2_9s": [
+          0.5,
+          0.3022
+        ],
+        "stock": {
+          "pad_6_9s": [
+            0.2,
+            -0.0241
+          ],
+          "peak_vz": 1.2271
+        },
+        "corrected": {
+          "pad_6_9s": [
+            0.51,
+            0.3154
+          ],
+          "peak_vz": 0.8674
+        },
+        "gate_moving": {
+          "pad_6_9s": [
+            -3.0149,
+            0.4898
+          ],
+          "peak_vz": 0.868
+        }
+      },
+      "format": "[z_m, vx_world_m_s]",
+      "corrected_params": {
+        "delay_s": 0.05,
+        "height_error_m": 0.01,
+        "velocity_error_m_s": 0.03
+      }
+    },
+    "baseline_velocity_offset": {
+      "steady_5_to_19_9s": true,
+      "noise_10ms": {
+        "vx": 0.2617,
+        "pitch_est_deg": 0.274
+      },
+      "noise_1ms": {
+        "vx": 0.295,
+        "pitch_est_deg": 0.505
+      },
+      "true_vx": 0.25,
+      "hover_offset": 0,
+      "v0_10_with_tof_1ms": 0.1611,
+      "without_tof": "diverges (scale ambiguity)",
+      "not_flying_mode_1ms": 0.2722,
+      "attitude_reversion_cause": false,
+      "cause": "U (suspected weak pitch observability in flying-mode predict without lateral acc)",
+      "real_aircraft_occurrence": "U"
+    },
+    "recommendations": [
+      "separate process-noise call every 1 ms; keep predict 100 Hz; regenerate modes",
+      "report transition effects relative to same-schedule stock baseline; record baseline offset first",
+      "fix build docstring or add CONFIG_ENABLE_THRUST_BAT_COMPENSATED if thrust constants are needed (not for estimator)",
+      "record mode and process-noise schedule in every experiment.json; add supervisor bounds for long runs",
+      "label as fixture bench execution of official estimator C only"
+    ]
+  }
+}

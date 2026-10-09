@@ -1,0 +1,55 @@
+# 제조사 사양, 가상 실험 변수, 렌더링 근사를 구분합니다.
+# 실기체 지급 전의 조건부 프로필이며 완성기체 동역학 모델이 아닙니다.
+
+[hardware_profile]
+aircraft = "Crazyflie 2.1"
+ai_deck = "AI-deck 1.1 (conditional)"
+flow_deck = "Flow deck v2 (conditional)"
+hardware_owned = false
+radio_owned = false
+hardware_modifications_allowed = false
+software_changes_understood_allowed = true
+mounting_policy = "manufacturer instructions"
+camera_to_body_transform = "unresolved; camera-centered geometry only"
+
+[camera]
+width = 320
+height = 320
+vertical_fov_deg = 87.0
+source = "https://www.bitcraze.io/documentation/hardware/ai_deck_mono_camera/ai_deck_mono_camera-datasheet.pdf"
+projection = "ideal pinhole derived from nominal FOV; not hardware calibration"
+orientation = "forward optical axis in this geometry experiment; mounting review required"
+
+[vehicle]
+speed_m_s = 0.3                 # 사용자 확정: +X 등속 직진
+render_length_m = 0.85          # 차량 외형의 임시 시각화 값
+render_width_m = 0.35
+
+[pad]
+width_m = 0.30                  # 사용자 확정
+length_m = 0.30                 # 사용자 확정
+top_height_m = 0.20             # 가상 차량 실험값
+
+[marker]
+dictionary = "DICT_4X4_50"
+id = 0
+length_m = 0.10                 # 검은 외곽을 포함한 한 변, 흰 여백 제외
+quiet_margin_m = 0.02           # 차량 실험값
+offset_from_pad_m = [0.40, 0.0, 0.15]  # +X 앞쪽, +Z 위쪽, 면은 -X를 향함
+
+[trajectory]
+# 기체 경로가 아닌 카메라 광학 중심의 직접 지정 경로입니다.
+duration_s = 10.0
+sample_hz = 20.0                # 프로그램의 시험 주기; 제조사 영상 fps 아님
+start_x_relative_pad_m = -0.40
+start_y_relative_pad_m = 0.04
+camera_height_above_pad_m = 0.25
+end_camera_height_above_pad_m = 0.06  # 접촉을 의미하지 않음
+initial_yaw_deg = 8.0
+
+[verification]
+# 내부 기하·검출 회귀 검사이며 장비 지급 합격 기준이 아닙니다.
+minimum_detection_fraction = 0.95
+maximum_near_pad_error_m = 0.04
+maximum_reprojection_error_px = 1.5
+negative_probe_camera_height_m = 0.80

@@ -1,0 +1,7 @@
+mujoco>=3.3,<4
+numpy
+Jinja2
+tomli; python_version < '3.11'
+Pillow
+opencv-python-headless>=4.10,<5
+-e ./src/crazyflie-lib-python

@@ -1,0 +1,23 @@
+flowchart LR
+    CAM[시뮬레이션 AI-deck 영상 324×244] --> CPX[CPX / ROS Image]
+    CPX --> PNP[ArUco IPPE 두 후보]
+    ATT[기체 gyro·roll·pitch 50 Hz] --> CLOCK[단위 변환·시계 매핑·시간 버퍼]
+    CLOCK --> FIT[roll·pitch 제약 yaw 재추정]
+    PNP --> FIT
+    FIT --> QUALITY[크기·경계·잔차·후보 차이 검사]
+    QUALITY --> FUSION[gyro 예측 + 지연 근사 시각 보정]
+    CLOCK --> FUSION
+    FUSION --> ERR[초기 방향과 yaw 오차]
+    ERR --> RATE[P 제어·deadband·속도 제한]
+    RATE --> OWN[단일 cmd_hover 발행자 50 Hz]
+    OWN --> FW[공유 Crazyflie firmware PID]
+    FLOW[Flow·ToF] --> EKF[기체 내부 속도·높이 추정]
+    EKF --> FW
+    STATE[영상·IMU·명령 age / 상태·모터 로그] --> MODE[실험 상태기계]
+    MODE --> OWN
+    MODE --> LAND[마지막 호버 전송 → 대기 → 새 착륙 계획 → 우선순위 반환]
+    LAND --> FW
+    FW --> PLANT[공유 MuJoCo 기체 동역학]
+    PLANT --> CAM
+    PLANT --> ATT
+    PLANT -. 평가 파일만 .-> EVAL[종료 후 yaw·위치·착륙 평가]

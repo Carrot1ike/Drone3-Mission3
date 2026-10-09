@@ -1,0 +1,123 @@
+{
+  "scope": "conditional rigid-body flight with official software PID and motor curve; manufacturer-matched assembled aircraft is unverified",
+  "manufacturer_matched": false,
+  "controller_software": {
+    "terminal_max_prediction_s": 12.0,
+    "lower_align_world_height_m": 0.4,
+    "geometry_terminal_optical_height_m": 0.11
+  },
+  "aircraft_contact_case": {
+    "foot_family": "mesh31",
+    "inertia_scale": 1.0,
+    "mass_kg": 0.035,
+    "com_height_m": 0.0145,
+    "friction_sliding": 0.6
+  },
+  "motor": {
+    "static_curve_source_class": "official_software_model",
+    "response_time_constant_s": 0.02,
+    "response_source_class": "sensitivity_assumption",
+    "force_gain": 1.0,
+    "supply_voltage_V": 4.2,
+    "yaw_torque_signs": [
+      -1,
+      1,
+      -1,
+      1
+    ]
+  },
+  "aerodynamics": {
+    "linear_drag_N_per_m_s": 0.0,
+    "rotational_drag_Nm_per_rad_s": 0.0,
+    "ground_effect": "not modeled",
+    "source_class": "sensitivity_assumption"
+  },
+  "mounts": {
+    "camera_position_body_m": [
+      0.02,
+      0.0,
+      0.015
+    ],
+    "camera_rpy_offset_deg": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "flow_position_body_m": [
+      0.0,
+      0.0,
+      -0.005
+    ],
+    "imu_position_body_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "source_class": "sensitivity_assumption",
+    "actual_manufacturer_transform": null
+  },
+  "sensor": {
+    "flow_half_angle_deg": 21.0,
+    "tof_half_angle_deg": 7.5,
+    "patch_grid_side": 5,
+    "tof_selection": "nearest_positive_return",
+    "flow_mixed_surface_policy": "area weighted angular flow",
+    "tof_noise_std_m": 0.004,
+    "gyro_noise_std_deg_s": 0.08,
+    "gyro_bias_deg_s": [
+      0.0,
+      0.0,
+      0.03
+    ],
+    "accel_noise_std_m_s2": 0.02,
+    "flow_velocity_noise_std_m_s": 0.008,
+    "source_class": "sensitivity_assumption",
+    "actual_deck_fov": null,
+    "flow_component_min_working_range_m": 0.08,
+    "tof_component_min_accurate_distance_m": 0.04,
+    "component_envelope_policy": "conservative disabling of metric fusion outside published component range; actual deck quality response unresolved"
+  },
+  "simulation": {
+    "timestep_s": 0.001,
+    "lower_controller_hz": 1000,
+    "gravity_m_s2": 9.81,
+    "firmware_prediction_hz": 100,
+    "flow_hz": 100,
+    "tof_hz": 40,
+    "process_noise_hz": 1000
+  },
+  "contact_observer": {
+    "assumed_mass_kg": 0.035,
+    "assumed_motor_response_s": 0.02,
+    "filter_window_s": 0.15,
+    "support_residual_min_m_s2": 1.2,
+    "supported_accel_tolerance_m_s2": 1.5,
+    "gyro_limit_rad_s": 0.3,
+    "tilt_limit_deg": 10.0,
+    "support_confirm_s": 0.25,
+    "hold_bad_grace_s": 0.25,
+    "probe_start_body_height_above_pad_m": 0.025,
+    "probe_multiplier_min": 0.65,
+    "probe_ramp_s": 1.0,
+    "descent_speed_m_s": 0.025,
+    "source_class": "software sensitivity assumptions; actual mass, rotor model and IMU calibration unresolved",
+    "require_freeflight_calibration": true,
+    "calibration_window_s": 2.0,
+    "calibration_min_span_s": 1.0,
+    "calibration_max_residual_rms_m_s2": 0.3,
+    "probe_motor_accel_max_m_s2": 7.3
+  },
+  "observer_software": {
+    "motion_uncertainty": {
+      "initial_velocity_std_m_s": 0.03,
+      "initial_gyro_bias_std_deg_s": 0.05,
+      "initial_accel_bias_std_m_s2": 0.005,
+      "accel_sample_std_m_s2": 0.02,
+      "gyro_sample_std_deg_s": 0.08,
+      "gyro_bias_walk_deg_s_sqrt_s": 0.001,
+      "accel_bias_walk_m_s2_sqrt_s": 0.0001,
+      "floor_flow_velocity_std_m_s": 0.02,
+      "source_class": "conditional error budget assumptions; no calibrated confidence probability"
+    }
+  }
+}

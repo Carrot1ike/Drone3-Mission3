@@ -1,0 +1,262 @@
+{
+  "scope": "conditional rigid-body flight with official software PID and motor curve; manufacturer-matched assembled aircraft is unverified",
+  "manufacturer_matched": false,
+  "controller_software": {
+    "terminal_max_prediction_s": 12.0,
+    "lower_align_world_height_m": 0.4,
+    "geometry_terminal_optical_height_m": 0.11,
+    "terminal_inertial_handoff_enabled": true,
+    "terminal_inertial_handoff_max_age_s": 3.0,
+    "last_fix_standoff_m": 0.3,
+    "last_fix_margin_basis": "S geometry: floor cone at bodyz .4 approx .405*tan21=.155m; padhalf .1 + tracking tolerance .035 -> .290m, rounded .30. Actual deckcone/mount U; camera depth nominal .53m vs published minfocus .30m",
+    "search_station_policy": "nearest_static",
+    "search_station_basis": "S known static entry and stadium prior select nearest permitted observation x on nearest-side straight, without live vehicle position/speed. Downstream acquisition may need curved following; TRACK descent still requires observed straight and remaining landing margin. Uncertainty gate unchanged.",
+    "lineup_lowering_requires_straight": true,
+    "lineup_preparation_budget_s": 12.0,
+    "lineup_preparation_basis": "S model preparation budget: log(.30/.025)/.8=3.11s height convergence +1s hold +log(.35/.035)/.65=3.54s approach +2s track hold +2.35s allowance=12s. Add existing12s terminal and3s motor-off hold plus existing.5m straight margin. Curve or downstream insufficient distance retains.70m LINEUP, preserving qualified-floor freeflight calibration instead of increasing45s age. Not hardware timing guarantee."
+  },
+  "aircraft_contact_case": {
+    "foot_family": "mesh31",
+    "inertia_scale": 1.0,
+    "mass_kg": 0.035,
+    "com_height_m": 0.0145,
+    "friction_sliding": 0.6
+  },
+  "motor": {
+    "static_curve_source_class": "official_software_model",
+    "response_time_constant_s": 0.02,
+    "response_source_class": "sensitivity_assumption",
+    "force_gain": 1.0,
+    "supply_voltage_V": 4.2,
+    "yaw_torque_signs": [
+      -1,
+      1,
+      -1,
+      1
+    ]
+  },
+  "aerodynamics": {
+    "linear_drag_N_per_m_s": 0.0,
+    "rotational_drag_Nm_per_rad_s": 0.0,
+    "ground_effect": "not modeled",
+    "source_class": "sensitivity_assumption"
+  },
+  "mounts": {
+    "camera_position_body_m": [
+      0.02,
+      0.0,
+      0.015
+    ],
+    "camera_rpy_offset_deg": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "flow_position_body_m": [
+      0.0,
+      0.0,
+      -0.005
+    ],
+    "imu_position_body_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "source_class": "sensitivity_assumption",
+    "actual_manufacturer_transform": null
+  },
+  "sensor": {
+    "flow_half_angle_deg": 21.0,
+    "tof_half_angle_deg": 9.634753472390925,
+    "patch_grid_side": 5,
+    "tof_selection": "nearest_positive_return",
+    "flow_mixed_surface_policy": "area weighted angular flow",
+    "tof_noise_std_m": 0.004,
+    "gyro_noise_std_deg_s": 0.08,
+    "gyro_bias_deg_s": [
+      0.0,
+      0.0,
+      0.03
+    ],
+    "accel_noise_std_m_s2": 0.02,
+    "flow_velocity_noise_std_m_s": 0.008,
+    "source_class": "sensitivity_assumption",
+    "actual_deck_fov": null,
+    "flow_component_min_working_range_m": 0.08,
+    "tof_component_min_accurate_distance_m": 0.04,
+    "component_envelope_policy": "conservative disabling of metric fusion outside published component range; actual deck quality response unresolved",
+    "texture_quality_sensitivity": {
+      "virtual_resolution_px": 64,
+      "virtual_fov_deg": 42.0,
+      "min_intensity_std": 2.0,
+      "min_gradient_eigenvalue": 0.25,
+      "min_correlation_response": 0.2,
+      "max_shift_fraction": 0.2,
+      "source_class": "generic virtual image-correlation sensitivity, not PMW3901 hardware response"
+    },
+    "tof_angular_basis": {
+      "component_receiver_diagonal_deg_P": 27.0,
+      "assumed_equal_horizontal_vertical_pinhole_D": true,
+      "axis_half_angle_deg_D": 9.634753472390925,
+      "current_patch_shape_S": "square projected equal-grid rays, not circular cone",
+      "roi_default_C": "ST API default16x16 0xFF, officialdeck initData/Static+medium25ms no userROI override found",
+      "source_ref": "https://www.st.com/resource/en/application_note/an5191-using-the-programmable-region-of-interest-roi-with-the-vl53l1x-stmicroelectronics.pdf p4/p7",
+      "effective_mounted_calibrated_deck_fov_U": null,
+      "nearest_return_response_S": "unchanged finite-ray minimum; no ST reflectance/signal strength/crosstalk engine"
+    },
+    "tof_fov_basis": "P ST AN5191 default16x16ROI nominalreceiver diagonal27deg; D equal-axis pinhole half-angle9.634753deg; S square5x5ray nearestreturn model, actualdeck response/capture/calibration U."
+  },
+  "simulation": {
+    "timestep_s": 0.001,
+    "lower_controller_hz": 1000,
+    "gravity_m_s2": 9.81,
+    "firmware_prediction_hz": 100,
+    "flow_hz": 100,
+    "tof_hz": 40,
+    "process_noise_hz": 1000
+  },
+  "contact_observer": {
+    "assumed_mass_kg": 0.035,
+    "assumed_motor_response_s": 0.02,
+    "filter_window_s": 0.15,
+    "support_residual_min_m_s2": 1.2,
+    "supported_accel_tolerance_m_s2": 0.2,
+    "gyro_limit_rad_s": 0.3,
+    "tilt_limit_deg": 10.0,
+    "support_confirm_s": 0.25,
+    "hold_bad_grace_s": 0.25,
+    "probe_start_body_height_above_pad_m": 0.025,
+    "probe_multiplier_min": 0.6,
+    "probe_ramp_s": 1.0,
+    "descent_speed_m_s": 0.025,
+    "source_class": "software sensitivity assumptions; actual mass, rotor model and IMU calibration unresolved",
+    "require_freeflight_calibration": true,
+    "calibration_window_s": 2.0,
+    "calibration_min_span_s": 1.0,
+    "calibration_max_residual_rms_m_s2": 0.3,
+    "probe_motor_accel_max_m_s2": 6.5,
+    "inertial_bridge_max_prediction_s": 6.0,
+    "inertial_bridge_scope": "optional calibrated IMU/model support path after predicted near-pad alignment; conditional bounded6s, no measured hardware error guarantee",
+    "support_body_height_above_pad_m": 0.0145,
+    "support_height_tolerance_m": 0.012,
+    "calibration_max_age_s": 45.0,
+    "constraint_basis": "S guard: estimated contact CoMheight .0145\u00b1.012 above knownpad .30; tighternear-g\u00b1.2 andpredrotor<=6.5 conservativelyrejectgain1.3 airborne6.5*1.3=8.45<9.61; no actualgainbound/hardwareguarantee, freshness45s softwarelimit only"
+  },
+  "observer_software": {
+    "motion_uncertainty": {
+      "initial_velocity_std_m_s": 0.03,
+      "initial_gyro_bias_std_deg_s": 0.05,
+      "initial_accel_bias_std_m_s2": 0.005,
+      "accel_sample_std_m_s2": 0.02,
+      "gyro_sample_std_deg_s": 0.08,
+      "gyro_bias_walk_deg_s_sqrt_s": 0.001,
+      "accel_bias_walk_m_s2_sqrt_s": 0.0001,
+      "floor_flow_velocity_std_m_s": 0.02,
+      "source_class": "conditional error budget assumptions; no calibrated confidence probability"
+    },
+    "straight_gyro_bias_observer": {
+      "confirm_s": 1.5,
+      "integral_gain_per_s2": 0.002,
+      "bias_limit_deg_s": 0.2,
+      "source_class": "conditional known-map/marker software yaw bias observer; no live vehicle heading datum"
+    },
+    "floor_accel_bias_observer": {
+      "integral_gain_per_s2": 4.0,
+      "bias_limit_m_s2": 0.15,
+      "source_class": "S software observer: effective heading-frame horizontal IMU/tilt/model residual fitted only by qualified stationary-floor velocity innovation; not chip calibration",
+      "gain_basis": "current100Hz floorvelocitygain .134 gives residual adaptation timescale approx(.134/.01)/4=3.35s; no actual hardwarenoise confidence"
+    }
+  },
+  "synthetic_lens": {
+    "K": [
+      [
+        182.6897594648856,
+        0.0,
+        160.0
+      ],
+      [
+        0.0,
+        182.6897594648856,
+        160.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "distortion": [
+      -0.08561321102835054,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "horizontal_fov_deg": 87.0,
+    "vertical_fov_deg": 87.0,
+    "diagonal_fov_deg": 115.0,
+    "source_class": "sensitivity candidate derived from published angular boundary values; not measured lens K/D"
+  },
+  "observer_optics_sensitivity": {
+    "K": [
+      [
+        182.6897594648856,
+        0.0,
+        160.0
+      ],
+      [
+        0.0,
+        182.6897594648856,
+        160.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "distortion": [
+      -0.08561321102835054,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "horizontal_fov_deg": 87.0,
+    "vertical_fov_deg": 87.0,
+    "diagonal_fov_deg": 115.0,
+    "source_class": "sensitivity candidate derived from published angular boundary values; not measured lens K/D"
+  },
+  "control_architecture": {
+    "mode": "pc_velocity_rpyt",
+    "onboard_estimator": "official_full_flow_tof",
+    "pc_velocity_pid_hz": 100,
+    "rpyt_packet_hz": 100,
+    "pc_contact_imu_hz": 100,
+    "command_pwm_telemetry_hz": 100,
+    "command_pwm_telemetry_delay_s": 0.0,
+    "legacy_collective_cap": 60000,
+    "source_class": "software architecture with sensitivity timing/limits; actual radio/PC timing unverified",
+    "hardware_link": false,
+    "onboard_full_state_used_for": "attitude only; PC surface observer supplies outer position/velocity",
+    "supervisor_rtOS_link_timeout": "not reproduced; actual RPYT decoder and attitude/rate PID code only",
+    "pc_attitude": "independent_imu_100hz",
+    "pc_attitude_scope": "sensor-only PC100Hz IMU prediction; startup level assumption, residual biases not measured; onboard full EKF remains separate"
+  },
+  "mission_handoff": {
+    "target_height_m": 1.0,
+    "height_tolerance_m": 0.025,
+    "position_xy_tolerance_m": 0.05,
+    "vertical_speed_limit_m_s": 0.05,
+    "horizontal_speed_limit_m_s": 0.02,
+    "tilt_limit_deg": 5.0,
+    "heading_tolerance_deg": 3.0,
+    "stable_duration_s": 2.0,
+    "max_duration_s": 15.0,
+    "position_gain_per_s": 1.2,
+    "velocity_limit_m_s": 0.3,
+    "source_class": "S sensor-controlled continuous-hover fixture readiness limits; not Mission2 route execution or manufacturer handoff guarantee",
+    "floor_quality_grace_s": 0.1,
+    "grace_basis": "S max100ms IMU bridge only while same static-floor hypothesis and accurate range; finalready requires current qualifiedfloor. Motionlimit .05m/s over .1s gives5mm displacement plus .5*.15*.1^2=.75mm assumed residual; within25mm height tolerance, not hardware error guarantee"
+  }
+}

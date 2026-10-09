@@ -1,0 +1,31 @@
+%% 현재 PC-RPYT 조건부 물리 경로. 공식 코드/현실 센서 동일성은 별개.
+flowchart LR
+  IMG["AI-deck 가상 native mono8 320×320<br/>공칭 H87°·lens candidate S·actual K/D U"] --> VISION["ArUco·IPPE 후보·capture PC 자세"]
+  IMU["raw body IMU<br/>PC 평균100Hz S"] --> PCATT["PC 독립 IMU 자세<br/>공식 core 별도 문맥·deck update 없음"]
+  PCATT --> VISION
+  DECK["Flow100Hz·ToF40Hz S시간<br/>finite rays/texture/noise/mount S"] --> SELF["PC 자기 운동·표면 가설<br/>유효 바닥에서만 수평 IMU 잔차 fit S<br/>Flow8cm/ToF4cm·무늬 gate"]
+  PCATT --> SELF
+  VISION --> VEH["영상+자기 운동으로 차량 상태 추정<br/>live 위치/속도/heading truth 없음"]
+  SELF --> VEH
+  MAP["알려진 경기장·진입점·정적 트랙"] --> HANDOFF["센서1m 안정 호버 인계 fixture<br/>PID·motor·추정기 상태 유지<br/>실제 미션2 경로 미구현"]
+  SELF --> HANDOFF
+  HANDOFF --> PHASE["WAIT15·EXPLORE·발견·후방정렬<br/>접근/추종·lastfix·bounded blind"]
+  VEH --> PHASE
+  SELF --> PHASE
+  PHASE --> OUTER["FF 추정 차량 속도 + FB 상대 오차<br/>명령·영상age·직선 여유 제한"]
+  OUTER --> PCPID["PC 공식 velocity PID100Hz"]
+  PCPID --> WIRE["RPYT bytes100Hz<br/>roll/pitch/yawrate/collective·zero unlock"]
+  WIRE --> INNER["공식 decoder·기체 자세/각속도 PID500Hz<br/>mixer/PWM1kHz"]
+  IMU --> EKF["기체 공식 전체 Flow/ToF EKF<br/>고정바닥 해석·PC 상태에 직접 공급하지 않음"]
+  DECK --> EKF
+  EKF --> INNER
+  INNER --> PLANT["MuJoCo 자유 기체<br/>조건부motor model·힘/토크·접촉"]
+  INNER --> SUPPORT["최근 명령 PWMmodel/IMU 비율 보정<br/>추정 상판높이·probe·지지 residual<br/>motoroff후IMU3초·공중 오판 한계"]
+  IMU --> SUPPORT
+  PHASE --> SUPPORT
+  SUPPORT --> WIRE
+  PLANT --> IMG
+  PLANT --> DECK
+  PLANT --> IMU
+  PLANT -->|"실행 후 평가 전용"| REVIEW["독립 접촉·네발·PWM0·3초·직선·점수 검토<br/>모든 실패 보존·source/runtime SHA"]
+  REVIEW --> NEXT["새 frozen series/unused seed<br/>conditional coverage ≠ manufacturer qualified"]

@@ -1,0 +1,18 @@
+{
+  "scope": "initial 70 degree optical pose acquisition; virtual optical kinematics only",
+  "search": {
+    "enabled": true,
+    "rate_deg_s": 12.0,
+    "direction": -1,
+    "timeout_s": 35.0,
+    "acquire_hold_s": 0.30,
+    "bearing_tolerance_deg": 3.0,
+    "lineup_tolerance_m": 0.015,
+    "lineup_speed_tolerance_m_s": 0.025,
+    "lineup_hold_s": 1.0,
+    "start_vehicle_on_discovery": true
+  },
+  "lateral_start_distance_from_pad_m": 0.35,
+  "interpretation": "rear-bearing70: smaller horizontal angle between camera forward and line from initial camera position to pad rear edge center is 70 degrees; heading/lateral alternatives are separate experiments",
+  "hardware_values_changed": false
+}

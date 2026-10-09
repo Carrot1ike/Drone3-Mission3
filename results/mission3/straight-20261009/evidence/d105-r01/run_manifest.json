@@ -1,0 +1,329 @@
+{
+  "schema": "mission3-run/1",
+  "run_id": "run",
+  "author": "main-flight-adapter",
+  "run_kind": "mission3_closed_loop",
+  "evidence_level": "L2",
+  "physics_contact": true,
+  "completed": true,
+  "entry_id": 1,
+  "seed": 1001,
+  "split": "training",
+  "series_id": "20261009-193646-264501",
+  "code_sha256": {
+    "scripts/run_mission3_physical.py": "9ebbc145d5b6e9bbf75b6047e232a9e38f2f738ec0dfc314572a56eb1cacf7ca",
+    "scripts/mission3/test_onboard_range_gate.py": "6fb282b95c8cb6a567f8555bca7431a684c45c26c518cd2a9b97e49a8a023466",
+    "scripts/mission3/test_approach_reference.py": "64eefaa53ee0c82cc2ce130e21c85296c8347c61737a2e77fcb333c3dee96dc6",
+    "scripts/mission3/firmware.py": "1a461c5ce547e1789fd804dfc29fdc1111c2f4be70b4a69673814c92b3ce58fc",
+    "scripts/mission3/flow_texture.py": "0292bb8cb7948199c7c3379ec35538f1a277858658bd83f291be234532eb3e74",
+    "scripts/mission3/scene.py": "533cd38610765125125dab567b67ba6c1df2ec77628ab9a9a166a0b090cc8c87",
+    "scripts/mission3/controller.py": "b2359cd03f2a6d2d717d9dc118bb875b6ff551c786d0e253ed0a1a4f7c377910",
+    "scripts/mission3/__init__.py": "57b9c18f0d2717554c9ff5322015df0fdfc63870102e23c5e0edcd9366458481",
+    "scripts/mission3/test_search_translation_gaze.py": "e4c7d16191c1a177ccc0053d3fe2c466d57e40206681a6f595401511f7a2e21a",
+    "scripts/mission3/optics.py": "08e42abecbe2212b81c03b4775c87e00ce587062a55bd9afb1d5882b5a53e13a",
+    "scripts/mission3/test_straight_preparation.py": "bff3c81d82f12d60150b7e93806c7f1d2006547c00ca88192a6982e96e5ad8d9",
+    "scripts/mission3/height_bearing_geometry.py": "5b3a9a0f27a003889cb85373a85a33542a6579b16a5c01c6960f3336d0efe59d",
+    "scripts/mission3/test_touchdown.py": "ce0322c7a2b38f378cbf37ecfff26dc1aff2eb8c7735f2457dce60e23316e0d2",
+    "scripts/mission3/test_candidate_gaze.py": "4facc8302921a6d9fd3c2a45c336cf230158bef09b55e8dbd990813cd5cca789",
+    "scripts/mission3/touchdown.py": "b258eeea56689f03c7ff1c258c1703f666b514c3ff34761f10856d8f9b239f7b",
+    "scripts/mission3/test_relative_velocity.py": "30c35b03cd6e41177ca79066d1432fdfd5e52b0dc2aa0f76a030d6d7e8f8a0d4",
+    "scripts/mission3/vehicle_motion.py": "8930dc2b37bad9965f5237c1a7ae3011d027b4ca363ea919402bf4de034bb36b",
+    "scripts/mission3/vertical_fit.py": "afba09e5003b5f77d13916854cd54f015f73e76345f74408e2646bb59c1f2153",
+    "scripts/mission3/test_height_bearing_geometry.py": "caa8a17b81ef09bc85fe8c5c3b17abb2a6f58a826c44bdc857b9f86eb7d5625d",
+    "scripts/mission3/test_metric_height_quality.py": "d4abb63c5b14d73a56665fc0dcc32629dd911602cd61d5508192e54ed825f9c3",
+    "scripts/mission3/test_search.py": "5375e43b9f5e1845dd67f594a14c133dad8b146353d7d5a11d0acd211424fbfa",
+    "scripts/mission3/test_terminal_adapter.py": "684b6406b0b92dec5721d4b7396fe6be44861ab2e8c01f95ac558ae78d818a03",
+    "scripts/mission3/evaluation.py": "731aa757514d6028af1743147630804896e42f7e030e7cf13e9e7d131da00da0",
+    "scripts/mission3/test_coarse_direction.py": "97f0aeed3b4843a053003da8769000cab046ba598522ed5cdd670542435ebeb7",
+    "scripts/mission3/vision.py": "11d751c4e4197469c2ab69797224922e708ffefc3a36f830d18928f058b3e757",
+    "scripts/mission3/uncertainty.py": "fb2bf490da436d76a767a2cb931008c9a81995ece7d23153365e20fabc109bb2",
+    "scripts/mission3/test_support_constraints.py": "ea0f91562da1cae545872ba3a036b6761923a4d7fd012859d2b7b7ab3172d398",
+    "scripts/mission3/passage.py": "89f5d5de09e5302ba78f70790bfc7bc1ddaf14790dae42bcc4189632027b473e",
+    "scripts/mission3/test_abort_delivery.py": "91cbfe2b1ecf559e0e55348bc13adf5ba081f328b1aa06266279156039a6add1",
+    "scripts/mission3/conditional_contact.py": "901a12b1b30e799a21d31f1dc927c581b1e5b63beeb45722694d90cebfd3f07b",
+    "scripts/mission3/handoff.py": "431f45a97794f5424fdd2bdab6a067504e016e1b225bc7bf9dc388a5a269aeb1",
+    "scripts/mission3/test_entry_hold.py": "d51a8697eaa8713a2bff90de92691c501973633b5d2f0df9f4572f33003423e3",
+    "scripts/mission3/flight_controller.py": "1ab2c27ebf8096a0d0b11ae9a4ffc8ea7aea123a13dd62601f62350d5a9f3190",
+    "scripts/mission3/test_map_constraint_geometry.py": "23822d2ed5dd3cc7a448a5a1fad0b1e291ddab6518d23f8cc659a7e3273589d9",
+    "scripts/mission3/test_position_bridge.py": "9175b37d8dd357530cba5c9e32bb9ff3ce1e8069e47b9db50aabdc14ecc8f103",
+    "scripts/mission3/test_attitude_context.py": "81e34bcd5af1b761f4186ad04660198580b1638d0fafe24560ddc26faa57cb3f",
+    "scripts/mission3/test_detector_profile.py": "f42843389d65709f5126995bf1f213d894dd668c5734a7a6f1de56a7e24c7843",
+    "scripts/mission3/test_terminal_recovery.py": "ca7278c6d693ee946a53dc195a1930ce2af6aa8bce1a1d37430b7c7ed62919aa",
+    "scripts/mission3/test_uncertainty.py": "f402ff5f5c83482887c4b84063502a464160274584c4f44a564aac583f6c1df8",
+    "scripts/mission3/estimator.py": "797cd49ae941889b10cc934567cab0fe67fe6701086109268728fe6e153699fe",
+    "scripts/mission3/map_constraint_geometry.py": "0e4adc18d80838ec14da161cf1a928ddc59a08bfee8e26cb56e3d44fe33697a3",
+    "scripts/mission3/test_accel_residual.py": "68c5157fe99236d1ade28dda5af047295c073385947505742f907752637b665d",
+    "scripts/mission3/test_coarse_turn.py": "95f6afa6762a7ef6ec1ac419e670ab712afddae623ef528f4539e5da52ef5b7f",
+    "scripts/mission3/sensor_time.py": "66a70fc11c5ca20a305a34bb08c672b90c389dd663197de441be953ae09f335f",
+    "scripts/mission3/track.py": "8191e00bbeeb88b518b4955d8ad56c378865f5720dbd59cbed241b85fb2a3907",
+    "scripts/mission3/settings.py": "db8e8deb9d0fb9b15dcae149d92ddbd9ec9d8b27c978cbf120d9ddde053e2e9b",
+    "scripts/mission3/test_flow_texture.py": "bee636d8f1fa23b7f4c2f34b5fc56d2dfde9f0bb29affcc84cc9fcb06bd5e0aa",
+    "scripts/mission3/test_abort_adapter.py": "1b61a3d745cfc589e69cc59e76303edd7bed867ec8dde877d8249c3130572928",
+    "scripts/mission3/abort_delivery.py": "a75e5e3dff632f3a3b186d6fb6ed09002bcf3ac7dd754ee3cfe6c144661fbc27",
+    "scripts/mission3/test_vertical_fit.py": "2b20411de71eacce4bbcd675760aac666b29c08bf212f9ae38eee07f2c0fb42b",
+    "scripts/mission3/test_experiment_identity.py": "4b762cc20e752a70d84cafb30031921a78d1cbcfde214cb9287e6fcf2b54f6f1",
+    "scripts/mission3/recording.py": "157ee9c188a9f705ccfc2a01b6191943e7ac1a6244867db1ff0966b6e3ec4961",
+    "scripts/mission3/position_bridge.py": "293807ba26348869665cceee863fbabb99b8bd0105c1a5307c80b68d0dcab6c4",
+    "scripts/mission3/test_handoff.py": "d1df685392ec269610395a4e76817bdda6e76d04bc7c547168d88b6e508cf211",
+    "scripts/mission3/physical_estimator.py": "30cb9636f49b6c486474c5ff005e5b5e7095fb31ef4cb5ae3250125945c3cd25",
+    "scripts/mission3/test_straight.py": "b2bede5fdbf7e37b85a09f6f66cd077f473f95f53afc58270dccfcf91c2cd323",
+    "scripts/mission3/test_evaluation.py": "a0950a5e7640072fd8020195f174c8e238cdaa4ee7044536f1d085142dccea81",
+    "scripts/mission3/test_uncertainty_observation.py": "26354c84f0b484d906f0570cfac763842119e28faea2dbd148444d862506dc5c",
+    "scripts/mission3/test_optics.py": "340967112925ab2c850ed869ffdb05dcc36c9d6acff1a9d6eebaeca165e58193",
+    "scripts/mission3/test_search_reverse_speed.py": "999dc068439e434ceb6f589afbb54760238b5aaa2f3fcffe1c2ddc2952401312",
+    "scripts/mission3/test_physical.py": "c2214aa8b1357cd6fa1278862e9a39891e2ba58ca415d8150c4b2330147f7671",
+    "scripts/mission3/test_recording.py": "0b43fbdf6d3128f5d2b82b4e4804d90790c8b4ba9a81e0cec92601c0c3fe9c43",
+    "scripts/mission3/physical_scene.py": "7caf675156cefb7f2f2a6058ec69d447b8e8cde0cacc19479ebcc103256de935",
+    "scripts/mission3/approach_reference.py": "cca336cb4f5673059eeb29d5f5da8127e6dbcb0e61aa184c694a4c00ffc36c27",
+    "scripts/mission3/test_contracts.py": "9e56fe3c16980061a7d0949aa2d07c56f20c5d9029de6b544e5a0f0589226990",
+    "scripts/mission3/test_sensor_chronology.py": "e181556c64cd9947be868a8f0400331ac098be6fbc0e764e514ec7fc8129970d",
+    "scripts/mission3/firmware_host.c": "bab0f8154a809d7f9a8c0796424d08eae6cc70209398317ad57842fd7ee13990",
+    "scripts/mission3/flight_controller_host.c": "f6f370dd38b12a9ce9ec5a138edf02f00ff2f59f78b2796b59bcf696098bb737",
+    "scripts/mission3/position_bridge_host.c": "d67b6dc1fb0c7e8ca7bcc714db3dd8ce4df3b88eca0f628a861569bbd6b9e45f",
+    "scripts/yaw_core.py": "f23c0d260aaab1cb59c13ae6673209c993d2567246bd7e8c1d06e8d3ebe23786",
+    "scripts/aruco_pose.py": "12683b544759ba147cd6b5071257e7988c09645560ae68feaee9d6f8b7f39687",
+    "scripts/mission3_rpyt_protocol.py": "72eb89c6ef42d7d6cf32f5dbbcab54ea39cc318a5791e32d48533c0f7711e550"
+  },
+  "config_sha256": "0651ba6f87a43357e3a5c5c66fba4f684364bfc6457c63082712fc8dff720935",
+  "config_identity_file": "frozen-experiment-settings.json",
+  "trial_metadata_sha256": "c3fcf30f629a311c19c9a65d046cc7f4aaa8f6056059ce3a38cf26662b193d19",
+  "controller_settings_file": "controller-settings.json",
+  "mission_timeout_s": 105.0,
+  "handoff_time_s": 9.76000000000003,
+  "vehicle_nominal_speed_m_s": 0.3,
+  "descent_phases": [
+    "BLIND_DESCEND",
+    "DESCEND",
+    "TOUCHDOWN_DESCEND"
+  ],
+  "controller_in_loop": true,
+  "started_from": "HANDOFF_IN",
+  "aircraft_center_definition": "conditional aircraft CoM/body freejoint origin",
+  "aircraft_profile": {
+    "assembled_mass_kg": {
+      "value": 0.035,
+      "source_class": "sensitivity_assumption",
+      "source_ref": "experiment.json.physical"
+    },
+    "assembled_center_of_mass_m": {
+      "value": null,
+      "source_class": "unresolved",
+      "source_ref": "docs/mission3/hardware-sensor-evidence.md"
+    },
+    "assembled_inertia_kg_m2": {
+      "value": [
+        2.7139583333333333e-05,
+        2.7139583333333333e-05,
+        4.937333333333334e-05
+      ],
+      "source_class": "sensitivity_assumption",
+      "source_ref": "experiment.json.physical"
+    },
+    "pwm_to_thrust_model": {
+      "value": null,
+      "source_class": "unresolved",
+      "source_ref": "docs/mission3/hardware-sensor-evidence.md"
+    },
+    "motor_response_model": {
+      "value": {
+        "static_curve_source_class": "official_software_model",
+        "response_time_constant_s": 0.02,
+        "response_source_class": "sensitivity_assumption",
+        "force_gain": 1.0,
+        "supply_voltage_V": 4.2,
+        "yaw_torque_signs": [
+          -1,
+          1,
+          -1,
+          1
+        ]
+      },
+      "source_class": "sensitivity_assumption",
+      "source_ref": "experiment.json.physical"
+    },
+    "aerodynamic_model": {
+      "value": {
+        "linear_drag_N_per_m_s": 0.0,
+        "rotational_drag_Nm_per_rad_s": 0.0,
+        "ground_effect": "not modeled",
+        "source_class": "sensitivity_assumption"
+      },
+      "source_class": "sensitivity_assumption",
+      "source_ref": "experiment.json.physical"
+    },
+    "camera_K": {
+      "value": null,
+      "source_class": "unresolved",
+      "source_ref": "docs/mission3/hardware-sensor-evidence.md"
+    },
+    "camera_distortion": {
+      "value": null,
+      "source_class": "unresolved",
+      "source_ref": "docs/mission3/hardware-sensor-evidence.md"
+    },
+    "R_body_camera": {
+      "value": null,
+      "source_class": "unresolved",
+      "source_ref": "docs/mission3/hardware-sensor-evidence.md"
+    },
+    "camera_position_body_m": {
+      "value": [
+        0.02,
+        0.0,
+        0.015
+      ],
+      "source_class": "sensitivity_assumption",
+      "source_ref": "experiment.json.physical"
+    },
+    "camera_capture_timestamp": {
+      "value": null,
+      "source_class": "unresolved",
+      "source_ref": "docs/mission3/hardware-sensor-evidence.md"
+    },
+    "flow_deck_position_body_m": {
+      "value": [
+        0.0,
+        0.0,
+        -0.005
+      ],
+      "source_class": "sensitivity_assumption",
+      "source_ref": "experiment.json.physical"
+    },
+    "flow_fov_deg": {
+      "value": null,
+      "source_class": "unresolved",
+      "source_ref": "docs/mission3/hardware-sensor-evidence.md"
+    },
+    "flow_min_height_m": {
+      "value": null,
+      "source_class": "unresolved",
+      "source_ref": "docs/mission3/hardware-sensor-evidence.md"
+    },
+    "tof_fov_deg": {
+      "value": null,
+      "source_class": "unresolved",
+      "source_ref": "docs/mission3/hardware-sensor-evidence.md"
+    },
+    "tof_min_distance_m": {
+      "value": null,
+      "source_class": "unresolved",
+      "source_ref": "docs/mission3/hardware-sensor-evidence.md"
+    },
+    "landing_contact_geometry": {
+      "value": {
+        "foot_family": "mesh31",
+        "inertia_scale": 1.0,
+        "mass_kg": 0.035,
+        "com_height_m": 0.0145,
+        "friction_sliding": 0.6
+      },
+      "source_class": "sensitivity_assumption",
+      "source_ref": "experiment.json.physical"
+    }
+  },
+  "geom_class_map": {
+    "foot_fl": "foot_1",
+    "foot_fr": "foot_2",
+    "foot_rl": "foot_3",
+    "foot_rr": "foot_4",
+    "landing_pad": "pad",
+    "marker_board": "marker_board",
+    "floor": "floor"
+  },
+  "profile_scope": "conditional assembled mass sum/box inertia/mounts/motor response/finite ray sensor hypotheses; manufacturer match false",
+  "control_architecture": {
+    "mode": "pc_velocity_rpyt",
+    "software_settings": {
+      "mode": "pc_velocity_rpyt",
+      "onboard_estimator": "official_full_flow_tof",
+      "pc_velocity_pid_hz": 100,
+      "rpyt_packet_hz": 100,
+      "pc_contact_imu_hz": 100,
+      "command_pwm_telemetry_hz": 100,
+      "command_pwm_telemetry_delay_s": 0.0,
+      "legacy_collective_cap": 60000,
+      "source_class": "software architecture with sensitivity timing/limits; actual radio/PC timing unverified",
+      "hardware_link": false,
+      "onboard_full_state_used_for": "attitude only; PC surface observer supplies outer position/velocity",
+      "supervisor_rtOS_link_timeout": "not reproduced; actual RPYT decoder and attitude/rate PID code only",
+      "pc_attitude": "independent_imu_100hz",
+      "pc_attitude_scope": "sensor-only PC100Hz IMU prediction; startup level assumption, residual biases not measured; onboard full EKF remains separate"
+    },
+    "hardware_link": false,
+    "cold_start_at_height_not_live_mission2_handoff": true,
+    "mission3_after_sensor_stable_hover_preroll": true,
+    "live_mission2_route_executed": false
+  },
+  "handoff_fixture": {
+    "enabled": true,
+    "settings": {
+      "target_height_m": 1.0,
+      "height_tolerance_m": 0.025,
+      "position_xy_tolerance_m": 0.05,
+      "vertical_speed_limit_m_s": 0.05,
+      "horizontal_speed_limit_m_s": 0.02,
+      "tilt_limit_deg": 5.0,
+      "heading_tolerance_deg": 3.0,
+      "stable_duration_s": 2.0,
+      "max_duration_s": 15.0,
+      "position_gain_per_s": 1.2,
+      "velocity_limit_m_s": 0.3,
+      "source_class": "S sensor-controlled continuous-hover fixture readiness limits; not Mission2 route execution or manufacturer handoff guarantee",
+      "floor_quality_grace_s": 0.1,
+      "grace_basis": "S max100ms IMU bridge only while same static-floor hypothesis and accurate range; finalready requires current qualifiedfloor. Motionlimit .05m/s over .1s gives5mm displacement plus .5*.15*.1^2=.75mm assumed residual; within25mm height tolerance, not hardware error guarantee"
+    },
+    "state_reset_at_mission3_start": false,
+    "vehicle_motion_continuous": false,
+    "scope": "conditional sensor-controlled hover fixture, not a Mission2 route or hardware handoff",
+    "sensor_readiness": {
+      "t": 9.76000000000003,
+      "ready": true,
+      "floor_datum_qualified": true,
+      "floor_quality_grace_active": false,
+      "last_qualified_floor_age_s": 0.0,
+      "stable_since_s": 7.7400000000009195,
+      "sensor_estimated_position_m": [
+        2.0000274299014738,
+        1.4500100565049197,
+        0.9953037788711269
+      ],
+      "sensor_estimated_velocity_m_s": [
+        -4.609767196815185e-05,
+        0.0005195032101494535,
+        0.0008965700839001432
+      ],
+      "sensor_estimated_rpy_rad": [
+        -0.000520591546776729,
+        -0.00046285842136455595,
+        1.2216471724500666
+      ],
+      "scope": "sensor-only continuous-hover fixture; not live Mission2 execution"
+    }
+  },
+  "mission3_phase_entered": true,
+  "vehicle_motion_schedule": {
+    "settings": {
+      "start_trigger": "hover_ready",
+      "end_behavior": "stop",
+      "acceleration_m_s2": 0.15,
+      "source_class": "S experiment value; user specifies speed/trigger/endpoint, not acceleration",
+      "basis": "continuous position and velocity;2s to reach.3m/s; start/stop each use.3m; total95.333s for28m"
+    },
+    "start_time_s": 9.76000000000003,
+    "plant_only": true,
+    "scope": "user hover-ready trigger; acceleration/deceleration are explicit experiment assumptions"
+  },
+  "runtime_library_sha256": {
+    "build/mission3-flight-controller/libmission3_controller.so": "e118b28ccd995bf9f4b59d3f31030c8b6b96afc70a7cb08248975390d287d5be",
+    "build/mission3-flight-controller/source-manifest.json": "77de2ad125fb4154f1e713bc8968a0b87dae87981cfe294e13a76d073f579663",
+    "build/mission3-flight-controller/autoconf.h": "34bef83a0cc0280a0403b6ce3a11b5d046cc282d1b6f137ce7ee5aca38037af1",
+    "build/mission3-flight-controller/FreeRTOS.h": "75ea1d5a6ad95d9da36d80fe3fe9f52cc1e101538053adb9c6a10c1689bb1bf0",
+    "build/mission3-firmware-host/libmission3_estimator.so": "078b21e35f41a15dfe88ce4c2005beb41e7dc9197aeb743790071eb4e4769f50",
+    "build/mission3-firmware-host/source-manifest.json": "eda11ddeb13d2f2c510004637ce8e87c20b00d95ce431aca49f128314f1693a5",
+    "build/mission3-firmware-host/autoconf.h": "00481145635afa4c4b0ffea5438e79204ee95583e34d7b0b3ea894e520efc749",
+    "build/mission3-position-bridge/libmission3_position_bridge.so": "fbe8752bb9f8196c8bd6bbc84687e27d1db04892af247870817cc8b2be66f4d2",
+    "build/mission3-position-bridge/source-manifest.json": "d4889942de427fde9916ecf6f7904bb082f4042e4165faf70c8b85bac611e690",
+    "build/mission3-position-bridge/autoconf.h": "34bef83a0cc0280a0403b6ce3a11b5d046cc282d1b6f137ce7ee5aca38037af1"
+  },
+  "termination_reason": "hold_window_elapsed"
+}

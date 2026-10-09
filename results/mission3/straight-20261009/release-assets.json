@@ -1,0 +1,21 @@
+{
+  "scope": "Proposed GitHub Release assets; no remote upload performed",
+  "assets": [
+    {
+      "filename": "mission3-team-share-privacy-20261010.zip",
+      "bytes": 49618686,
+      "sha256": "f3d757d8fccbe0487caade5c27d9ea183894b8cafe68ef2597f5dbfa1f08e2ba",
+      "download_url": null,
+      "upload_state": "not_uploaded",
+      "local_original": "artifacts/mission3/mission3-team-share-privacy-20261010.zip"
+    },
+    {
+      "filename": "mission3-straight-16-privacy-20261010.zip",
+      "bytes": 544757354,
+      "sha256": "159c70fbc3ac31cbb4a4d2f4c9fd4a9fb9a40c472508e6acc135430dd5d21d2a",
+      "download_url": null,
+      "upload_state": "not_uploaded",
+      "local_original": "artifacts/mission3/mission3-straight-16-privacy-20261010.zip"
+    }
+  ]
+}

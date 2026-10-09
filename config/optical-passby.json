@@ -1,0 +1,21 @@
+{
+  "scope": "user sketches: fixed standby, independently passing vehicle, visual lineup and descent; optical kinematics only",
+  "search": {
+    "enabled": true,
+    "passive_wait": true,
+    "timeout_s": 35.0,
+    "acquire_hold_s": 0.30,
+    "bearing_tolerance_deg": 3.0,
+    "lineup_standoff_m": 0.35,
+    "lineup_distance_tolerance_m": 0.025,
+    "lineup_x_speed_tolerance_m_s": 0.025,
+    "lineup_tolerance_m": 0.015,
+    "lineup_speed_tolerance_m_s": 0.025,
+    "lineup_hold_s": 1.0,
+    "translation_bearing_gate_deg": 12.0,
+    "start_vehicle_on_discovery": false
+  },
+  "spawn": {"x_m": 0.0, "y_m": -0.35, "yaw_deg": 90.0},
+  "initial_forward_to_rear_smaller_angle_deg": 70.0,
+  "hardware_values_changed": false
+}

@@ -1,0 +1,16 @@
+flowchart TB
+    sensors[AI-deck 영상 / Flow·ToF / IMU] --> estimate[인식·상태 추정]
+    estimate --> supervisor[상위 판단 관리자<br/>단계 선택 · 관측 유효성 · 안전 조건]
+    supervisor --> acquisition[대기·발견 제어]
+    supervisor --> alignment[차량 뒤 정렬 제어]
+    supervisor --> approach[추종·접근 제어]
+    supervisor --> landing[예측·하강 제어]
+    supervisor --> recovery[복구 제어]
+    acquisition --> output[공통 명령 제한<br/>속도 · 가속도 · yaw]
+    alignment --> output
+    approach --> output
+    landing --> output
+    recovery --> output
+    output --> pid[하위 기체 제어<br/>속도 → 자세 → 각속도 PID]
+    pid --> motors[모터 / 물리 시뮬레이션]
+    motors --> sensors

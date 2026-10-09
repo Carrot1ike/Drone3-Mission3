@@ -1,0 +1,47 @@
+{
+  "policy": "manufacturer sources only; unpublished hardware values remain null",
+  "updated": "2026-10-04",
+  "aircraft": {
+    "product": "Crazyflie 2.1",
+    "hardware_modification_allowed": false,
+    "software_modification_allowed": true,
+    "stock_takeoff_mass_kg": 0.029,
+    "stock_mass_source": "https://www.bitcraze.io/documentation/hardware/crazyflie_2_1/crazyflie_2_1-datasheet.pdf",
+    "assembled_mass_kg": null,
+    "assembled_center_of_mass_m": null,
+    "assembled_inertia_kg_m2": null,
+    "applicable_pwm_to_thrust_model": null,
+    "motor_response_model": null,
+    "aerodynamic_model": null,
+    "manufacturer_validated_simulation_model": null
+  },
+  "decks": {
+    "ai_deck": {"allocated_revision": null, "conditional_reference_revision": "1.1", "reference_mass_kg": 0.0044, "source": "https://www.bitcraze.io/documentation/hardware/ai_deck_1_1/ai_deck_1_1-datasheet.pdf"},
+    "flow_deck": {"allocated_revision": null, "conditional_reference_revision": "v2", "reference_mass_kg": 0.0016, "mounting": "manufacturer mounting below aircraft", "source": "https://www.bitcraze.io/documentation/hardware/flow_deck_2/flow_deck_2-datasheet.pdf"}
+  },
+  "camera": {
+    "mode": "monochrome",
+    "width": 320,
+    "height": 320,
+    "ros_encoding": "mono8",
+    "sensor": "HM01B0-MNA",
+    "resolution_is_fixed_user_requirement": true,
+    "source": "https://www.bitcraze.io/documentation/hardware/ai_deck_mono_camera/ai_deck_mono_camera-datasheet.pdf",
+    "nominal_horizontal_fov_deg": 87.0,
+    "nominal_vertical_fov_deg": 87.0,
+    "focus_distance_m": 0.35,
+    "depth_of_field_minimum_m": 0.30,
+    "mounting": "manufacturer standard mounting; no hardware change",
+    "calibrated_K": null,
+    "calibrated_distortion": null,
+    "R_body_camera_cv": null,
+    "camera_position_body_m": null,
+    "capture_timestamp_available": null,
+    "measured_stream_fps": null,
+    "measured_capture_to_pc_delay_s": null
+  },
+  "derived": {
+    "conditional_component_mass_sum_kg": 0.035,
+    "component_mass_sum_is_assembled_mass": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "scope": "historical shared integration baseline only; static marker, preserve initial heading; not supplied-hardware validation",
+  "marker": {"dictionary": "DICT_4X4_50", "id": 0, "length_m": 0.15, "center_m": [0.55, 0.0, 0.25], "quiet_margin_m": 0.025},
+  "camera": {"width": 324, "height": 244, "legacy_shared_baseline_only": true, "matches_supplied_camera": false},
+  "observer": {"max_rmse_px": 1.5, "min_side_px": 30.0, "max_candidate_yaw_gap_deg": 3.0, "min_cost_separation_px": 0.25, "visual_gain": 0.25, "max_innovation_deg": 20.0, "assumed_image_delay_s": 0.08, "max_visual_age_s": 0.45, "max_imu_age_s": 0.20},
+  "control": {"height_m": 0.30, "takeoff_s": 3.0, "land_s": 3.0, "kp_per_s": 1.2, "deadband_deg": 1.5, "max_rate_deg_s": 15.0, "pulse_rate_deg_s": 10.0, "pulse_s": 1.2, "recovery_s": 7.0, "hold_s": 4.0, "loss_abort_s": 2.0, "max_command_gap_s": 0.25, "ready_timeout_s": 25.0},
+  "test": {"observer_gyro_bias_deg_s": 0.0, "drop_images_during_hold_s": 0.0},
+  "evaluation": {"max_final_yaw_error_deg": 5.0, "max_peak_xy_displacement_m": 0.15, "min_visual_valid_fraction": 0.50}
+}

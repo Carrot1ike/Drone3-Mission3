@@ -1,0 +1,514 @@
+{
+  "schema": "drone3.mission3.contact_sensitivity.v1",
+  "updated_kst": "2026-10-08",
+  "purpose": "Conditional MuJoCo contact/support fixture: passive aircraft-sized rigid body lowered onto a pad that keeps moving at 0.25 m/s; motor force 0 after a pre-scheduled cut; 3 s hold/slip/tipover classification",
+  "claims": {
+    "class": "conditional_contact_sensitivity",
+    "manufacturer_matched": false,
+    "mission_landing": false,
+    "entry_advancement": false,
+    "physical_flight": false,
+    "flight_control_modeled": false,
+    "onboard_sensing_modeled": false,
+    "contact_truth_used_by_controller": false,
+    "note": "Every run is a sensitivity case under declared S/E settings. Contact truth is read only by the evaluator. Onboard contact/IMU sensing needs a real adapter connected later by main."
+  },
+  "legend": {
+    "P": "manufacturer published",
+    "D": "derived from P",
+    "S": "sensitivity setting (not a spec)",
+    "E": "experiment/evaluation setting (not a spec)"
+  },
+  "sources": {
+    "datasheet_cf21": {
+      "repo": "https://github.com/bitcraze/hardware",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "path": "src/products/crazyflie-2_1/datasheet/index.md",
+      "lines": "L92-93",
+      "values": "takeoff weight 29 g; 92x92x29 mm motor-to-motor incl. motor mount feet"
+    },
+    "datasheet_decks": {
+      "ai_deck_1_1_g": 4.4,
+      "flow_deck_v2_g": 1.6,
+      "paths": [
+        "src/products/ai-deck-1_1/datasheet/index.md",
+        "src/products/flow-deck-2/datasheet/index.md"
+      ]
+    },
+    "sim_mesh_doc": {
+      "repo": "https://github.com/bitcraze/crazyflie-simulation",
+      "commit": "7e93752dbc803af2488c1db46bb79b3da55f5d8c",
+      "path": "docs/functional_areas/meshes.md",
+      "sha256": "265342264fd98f04e88cee33083de1a215fcbb28a6bc478f966fb7325425f779",
+      "motor_mount_origin_m": [
+        0.031,
+        0.031,
+        0.014
+      ]
+    },
+    "sim_mesh_stl": {
+      "repo": "https://github.com/bitcraze/crazyflie-simulation",
+      "commit": "7e93752dbc803af2488c1db46bb79b3da55f5d8c",
+      "license": "MIT",
+      "units": "m (measured)",
+      "files": {
+        "meshes/stl_files/4_motormounts.stl": {
+          "sha256": "a243c7638e8b9e56ed8ae179c32ca1b6e100ce87d4e14cdd1d594e936645b2ef",
+          "z_min": 0.00128,
+          "lowest_vertex_cluster_centroid_xy": 0.0334,
+          "lowest_vertex_cluster_xy_range": [
+            0.0308,
+            0.0364
+          ],
+          "bbox_xy": 0.03821
+        },
+        "meshes/stl_files/cf_body.stl": {
+          "sha256": "d3aef73f6cc8fdc0578b7d66390fb19f227f59ba473a9833100f704edaa93deb",
+          "bbox_min": [
+            -0.02889,
+            -0.02947,
+            0.01375
+          ],
+          "bbox_max": [
+            0.02889,
+            0.02947,
+            0.01831
+          ]
+        },
+        "meshes/stl_files/cf2_assembly.stl": {
+          "sha256": "f69e10e1a18cd0a53f5356d88fafdf71694df51e41d1b9a691f8442fea65dc5c",
+          "bbox_min": [
+            -0.04813,
+            -0.04992,
+            0.00142
+          ],
+          "bbox_max": [
+            0.04813,
+            0.04992,
+            0.02395
+          ]
+        },
+        "meshes/stl_files/4_motors.stl": {
+          "bbox_z": [
+            0.00871,
+            0.01929
+          ]
+        },
+        "meshes/stl_files/battery.stl": {
+          "bbox_z": [
+            0.01754,
+            0.02246
+          ]
+        },
+        "meshes/stl_files/battery_holder.stl": {
+          "bbox_z": [
+            0.0245,
+            0.0275
+          ]
+        }
+      },
+      "note": "official low-poly visual meshes without decks; read once for geometry evidence, not loaded at runtime"
+    },
+    "mission_geometry_mirror": {
+      "path": "config/mission3.json",
+      "keys": [
+        "vehicle_plant_only.pad_length_m",
+        "pad_width_m",
+        "pad_height_m",
+        "pad_thickness_m",
+        "marker_plane_gap_from_pad_front_edge_m",
+        "marker_board_width_m",
+        "marker_board_height_m",
+        "speed_m_s"
+      ],
+      "note": "mirrored values; test checks consistency read-only"
+    }
+  },
+  "aircraft": {
+    "mass_kg": {
+      "value": 0.035,
+      "class": "D",
+      "basis": "29 g stock + 4.4 g AI-deck 1.1 + 1.6 g Flow deck v2 (conditional decks); pins/holder inclusion unknown"
+    },
+    "envelope_m": {
+      "value": [
+        0.092,
+        0.092,
+        0.029
+      ],
+      "class": "P",
+      "basis": "Crazyflie 2.1 datasheet; used for uniform-box inertia and visual envelope only"
+    },
+    "inertia_model": {
+      "type": "uniform_solid_box",
+      "class": "S",
+      "formula": "Ixx=m(Ly^2+Lz^2)/12, Iyy=m(Lx^2+Lz^2)/12, Izz=m(Lx^2+Ly^2)/12, then multiplied by inertia_scale",
+      "nominal_kg_m2_at_0_035": [
+        0.00002714,
+        0.00002714,
+        0.000049373
+      ],
+      "manufacturer_inertia": null
+    },
+    "com_height_above_foot_plane_m": {
+      "nominal": 0.0145,
+      "class": "S",
+      "basis": "geometric centre of 29 mm envelope; assembled CoM unknown"
+    },
+    "foot_radius_m": {
+      "value": 0.0028,
+      "class": "D->S",
+      "basis": "half width of lowest-vertex cluster of official 4_motormounts.stl (30.8-36.4 mm)"
+    },
+    "foot_families": {
+      "mesh31": {
+        "xy_m": 0.031,
+        "class": "P(mesh doc)->S",
+        "basis": "meshes.md motor mount origin (+-0.031, +-0.031); conditional contact point"
+      },
+      "mesh_lowest33": {
+        "xy_m": 0.0334,
+        "class": "D->S",
+        "basis": "centroid of lowest vertices of official 4_motormounts.stl"
+      },
+      "envelope46": {
+        "xy_m": 0.0432,
+        "class": "S",
+        "basis": "foot outer edge on datasheet 92 mm envelope half-width 0.046 minus foot radius"
+      }
+    },
+    "hull": {
+      "class": "D (official mesh bounds) -> conditional collision",
+      "heights_relative_to_foot_plane": true,
+      "foot_plane_offset_in_mesh_m": 0.00128,
+      "pcb_box": {
+        "half_xy_m": [
+          0.02889,
+          0.02947
+        ],
+        "z_range_m": [
+          0.01247,
+          0.01703
+        ],
+        "source": "cf_body.stl bbox"
+      },
+      "battery_block": {
+        "half_xy_m": [
+          0.014,
+          0.014
+        ],
+        "z_range_m": [
+          0.01626,
+          0.02622
+        ],
+        "source": "battery.stl + battery_holder.stl bbox union"
+      },
+      "motor_columns": {
+        "radius_m": 0.0035,
+        "z_bottom_surface_m": 0.004,
+        "z_top_m": 0.018,
+        "source": "7 mm motors; 4_motors.stl top 0.01929"
+      },
+      "arms": {
+        "radius_m": 0.002,
+        "z_m": 0.0147,
+        "note": "PCB-height capsule from centre to each foot column"
+      },
+      "excluded": [
+        "propellers (motors off; legacy 2.1 propeller geometry not used)",
+        "AI-deck and Flow deck geometry (clearance unknown)",
+        "pin headers"
+      ]
+    }
+  },
+  "scene": {
+    "floor": {
+      "class": "E",
+      "friction_sliding": 1,
+      "note": "any aircraft-floor contact is a failure class"
+    },
+    "pad": {
+      "class": "E (user geometry)",
+      "length_m": 0.2,
+      "width_m": 0.2,
+      "top_height_m": 0.3,
+      "thickness_m": 0.015
+    },
+    "cart": {
+      "class": "E",
+      "speed_m_s": 0.25,
+      "mass_kg": 50,
+      "velocity_servo_kv": 5000,
+      "force_limit_N": 2000,
+      "column_half_xy_m": 0.03,
+      "column_z_range_m": [
+        0.05,
+        0.285
+      ],
+      "note": "slide joint + velocity servo; prescribed straight motion; vehicle body geometry unknown so a narrow column is used"
+    },
+    "marker_board": {
+      "class": "E (user geometry)",
+      "gap_from_pad_front_edge_m": 0.15,
+      "width_m": 0.2,
+      "height_m": 0.2,
+      "bottom_at_pad_top": true,
+      "thickness_m": 0.005
+    }
+  },
+  "contact": {
+    "class": "S",
+    "friction_sliding": [
+      0.3,
+      0.6,
+      1
+    ],
+    "friction_torsional": 0.005,
+    "friction_rolling": 0.0001,
+    "solref_timeconst_s": {
+      "nominal": 0.01,
+      "extended": [
+        0.005,
+        0.02
+      ]
+    },
+    "solref_dampratio": [
+      0.5,
+      1
+    ],
+    "solimp": [
+      0.9,
+      0.95,
+      0.001,
+      0.5,
+      2
+    ],
+    "condim": 3,
+    "cone": "pyramidal",
+    "combination": "MuJoCo max of geom frictions; pad and feet set to the same value"
+  },
+  "fixture": {
+    "class": "E",
+    "pad_speed_m_s": 0.25,
+    "init_world_vx_m_s": [
+      0.25,
+      0
+    ],
+    "drop_gap_m": 0.02,
+    "touchdown_vz_m_s": {
+      "nominal": -0.1,
+      "extended": [
+        -0.05,
+        -0.2
+      ]
+    },
+    "pre_contact_support": "ideal vertical world force m*g at CoM (stands for hover thrust; no propeller, motor, ground-effect or controller model)",
+    "cut_schedule": "t_cut = drop_gap/|touchdown_vz| + cut_delay, computed before simulation from initial geometry only",
+    "cut_delay_s": {
+      "nominal": 0,
+      "extended": [
+        0.05,
+        0.1
+      ]
+    },
+    "hold_window_s": 3,
+    "placement_reference": "aircraft CoM relative to pad top centre at the scheduled contact instant; initial x is pre-offset by (pad_speed - init_vx)*t_contact",
+    "placements": [
+      "center",
+      "near_edge_lateral",
+      "near_edge_rear",
+      "edge_straddle",
+      "off_pad"
+    ],
+    "near_edge_margin_m": 0.005,
+    "off_pad_clearance_m": 0.02,
+    "forbidden": [
+      "equality/weld constraints",
+      "mocap bodies",
+      "qpos/qvel writes after t=0",
+      "aircraft actuators"
+    ]
+  },
+  "simulation": {
+    "class": "E",
+    "timestep_s": 0.0005,
+    "integrator": "implicitfast",
+    "gravity_m_s2": 9.81,
+    "record_dt_s": 0.005,
+    "gravity_basis": "matches firmware GRAVITY_MAGNITUDE 9.81f"
+  },
+  "evaluation": {
+    "class": "E",
+    "settle_s": 0.3,
+    "end_window_s": 0.1,
+    "tilt_tipover_deg": 45,
+    "tilt_hold_max_deg": 10,
+    "post_settle_slip_max_m": 0.005,
+    "final_rel_speed_max_m_s": 0.005,
+    "touchdown_slip_hold_max_m": 0.005,
+    "min_feet_in_contact_end": 3,
+    "foot_center_margin_min_m": 0.0,
+    "tilt_creep_window_s": 1.0,
+    "tilt_creep_max_deg_s": 0.02,
+    "class_priority": [
+      "floor_contact",
+      "tipover",
+      "hull_contact",
+      "obstacle_contact",
+      "no_pad_support",
+      "partial_support",
+      "slip",
+      "hold_after_slip",
+      "hold"
+    ],
+    "success_like_classes": [
+      "hold",
+      "hold_after_slip"
+    ],
+    "failure_classes": [
+      "floor_contact",
+      "tipover",
+      "hull_contact",
+      "obstacle_contact",
+      "no_pad_support"
+    ],
+    "note": "success_like means conditional support under these S/E settings only"
+  ,
+    "class_definitions": {
+      "floor_contact": "any aircraft geom touched the floor at any time (failure; never success)",
+      "tipover": "max tilt above tilt_tipover_deg",
+      "hull_contact": "a non-foot aircraft geom (PCB, battery, motor column, arm) touched pad/column/board without exceeding the tipover tilt",
+      "obstacle_contact": "a foot touched the marker board or cart column",
+      "no_pad_support": "no foot in pad contact over the end window",
+      "partial_support": "1-2 feet in contact, final tilt above tilt_hold_max_deg, CoM outside pad, a foot centre beyond the pad edge, or tilt creep above tilt_creep_max_deg_s at end",
+      "slip": "supported but post-settle slip or final relative speed above thresholds",
+      "hold_after_slip": "supported and stationary relative to pad after a touchdown slip above touchdown_slip_hold_max_m",
+      "hold": "supported by >=3 feet, stationary relative to pad, touchdown slip within threshold"
+    }
+  },
+  "nominal_case": {
+    "placement": "center",
+    "init_world_vx_m_s": 0.25,
+    "foot_family": "mesh31",
+    "inertia_scale": 1,
+    "friction_sliding": 0.6,
+    "solref_timeconst_s": 0.01,
+    "solref_dampratio": 1,
+    "touchdown_vz_m_s": -0.1,
+    "cut_delay_s": 0,
+    "com_height_m": 0.0145,
+    "mass_kg": 0.035,
+    "drop_gap_m": 0.02
+  },
+  "matrices": {
+    "core": {
+      "type": "product",
+      "factors": {
+        "placement": [
+          "center",
+          "near_edge_lateral",
+          "near_edge_rear",
+          "edge_straddle",
+          "off_pad"
+        ],
+        "init_world_vx_m_s": [
+          0.25,
+          0
+        ],
+        "foot_family": [
+          "mesh31",
+          "envelope46"
+        ],
+        "inertia_scale": [
+          0.5,
+          1,
+          2
+        ],
+        "friction_sliding": [
+          0.3,
+          0.6,
+          1
+        ],
+        "solref_dampratio": [
+          0.5,
+          1
+        ]
+      }
+    },
+    "extended": {
+      "type": "one_at_a_time",
+      "base_factors": {
+        "placement": [
+          "center",
+          "near_edge_lateral",
+          "near_edge_rear"
+        ],
+        "init_world_vx_m_s": [
+          0.25,
+          0
+        ],
+        "foot_family": [
+          "mesh31",
+          "envelope46"
+        ]
+      },
+      "variations": {
+        "solref_timeconst_s": [
+          0.005,
+          0.02
+        ],
+        "touchdown_vz_m_s": [
+          -0.05,
+          -0.2
+        ],
+        "cut_delay_s": [
+          0.05,
+          0.1
+        ],
+        "com_height_m": [
+          0.02
+        ]
+      },
+      "extra_family": {
+        "foot_family": [
+          "mesh_lowest33"
+        ]
+      }
+    }
+  },
+  "representative_cases": [
+    {
+      "id": "R1_center_matched",
+      "placement": "center",
+      "init_world_vx_m_s": 0.25
+    },
+    {
+      "id": "R2_center_unmatched_mu03",
+      "placement": "center",
+      "init_world_vx_m_s": 0,
+      "friction_sliding": 0.3
+    },
+    {
+      "id": "R3_rear_edge_unmatched_mu03",
+      "placement": "near_edge_rear",
+      "init_world_vx_m_s": 0,
+      "friction_sliding": 0.3
+    },
+    {
+      "id": "R4_edge_straddle_matched",
+      "placement": "edge_straddle",
+      "init_world_vx_m_s": 0.25
+    },
+    {
+      "id": "R5_off_pad_matched",
+      "placement": "off_pad",
+      "init_world_vx_m_s": 0.25
+    },
+    {
+      "id": "R6_center_unmatched_late_cut",
+      "placement": "center",
+      "init_world_vx_m_s": 0,
+      "cut_delay_s": 0.1
+    }
+  ]
+}

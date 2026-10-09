@@ -1,0 +1,946 @@
+{
+  "schema": "mission3-manufacturer-mount-evidence/1",
+  "created_at_kst": "2026-10-08T05:47:17.707591+09:00",
+  "reviewer": {
+    "id": "Codex-Independent-Flight-Reviewer",
+    "nickname": "Heisenberg",
+    "agent_id": "01a117a1-f802-75f1-9980-91813ff9f0f9"
+  },
+  "consumer_restriction": "documentation/evidence only; not runtime mount/config defaults, controller truth inputs or manufacturer qualification",
+  "classification_definitions": {
+    "P": "manufacturer published fact/nominal design",
+    "C": "official software constant/behavior, not measured hardware",
+    "D": "derived from cited P/C with explicit frames/conditions",
+    "S": "project sensitivity assumption",
+    "U": "unverified unresolved null"
+  },
+  "target": {
+    "aircraft": "standard Crazyflie2.1",
+    "AI": "AI-deck1.1 C1 monochrome",
+    "Flow": "Flowdeckv2 C",
+    "actual_allocation": null
+  },
+  "manufacturer_profile_matches": false,
+  "qualified_mission_success": false,
+  "facts": [
+    {
+      "key": "ai_allowed_mount_location",
+      "classification": "P",
+      "value": [
+        "above",
+        "under"
+      ],
+      "unit": null,
+      "source_ids": [
+        "expansion-guide.html"
+      ],
+      "scope": "stock guide; actual selected stack/location U"
+    },
+    {
+      "key": "flow_v2_allowed_mount_location",
+      "classification": "P",
+      "value": "under",
+      "unit": null,
+      "source_ids": [
+        "expansion-guide.html"
+      ],
+      "scope": "stock mounting only; actual optical origin/body offset U"
+    },
+    {
+      "key": "ai_PCB_outline",
+      "classification": "P",
+      "value": [
+        28.6,
+        45.4
+      ],
+      "unit": "mm",
+      "source_ids": [
+        "hardware/src/products/ai-deck-1_1/datasheet/ai-deck-mechanics.png"
+      ],
+      "scope": "published linked plan drawing, not body extrinsic"
+    },
+    {
+      "key": "ai_holder_screw_center_span",
+      "classification": "P",
+      "value": 12.0,
+      "unit": "mm",
+      "source_ids": [
+        "hardware/src/products/ai-deck-1_1/datasheet/ai-deck-mechanics.png"
+      ],
+      "scope": "two holes only; holder pocket and optical-center datum not provided"
+    },
+    {
+      "key": "flow_PCB_outline",
+      "classification": "P",
+      "value": [
+        27.94,
+        21.079
+      ],
+      "unit": "mm",
+      "source_ids": [
+        "hardware/src/products/flow-deck-2/datasheet/flow-deck-v2-mechanics.png"
+      ],
+      "scope": "plane drawing only; no optical-center/body depth"
+    },
+    {
+      "key": "mono_module_holder_dimension",
+      "classification": "P",
+      "value": {
+        "nominal": 5.0,
+        "tolerance": 0.1
+      },
+      "unit": "mm",
+      "source_ids": [
+        "hardware/src/products/ai-deck-mono-camera/datasheet/ai-deck-mono-camera-mechanics.png"
+      ],
+      "scope": "module-only dimension, no assembled transform"
+    },
+    {
+      "key": "mono_module_height",
+      "classification": "P",
+      "value": {
+        "nominal": 5.32,
+        "tolerance": 0.3
+      },
+      "unit": "mm",
+      "source_ids": [
+        "hardware/src/products/ai-deck-mono-camera/datasheet/ai-deck-mono-camera-mechanics.png"
+      ],
+      "scope": "module-only total height; optical projection center not specified"
+    },
+    {
+      "key": "female_connector_dimensions_without_SMD_pads",
+      "classification": "P",
+      "value": [
+        20.0,
+        2.0,
+        3.0
+      ],
+      "unit": "mm",
+      "source_ids": [
+        "hardware/src/products/female-deck-connector/datasheet/index.md"
+      ],
+      "scope": "10 positions; not assembly board spacing"
+    },
+    {
+      "key": "pins_long_15_4_6",
+      "classification": "P",
+      "value": [
+        15.0,
+        4.0,
+        6.0
+      ],
+      "unit": "mm",
+      "source_ids": [
+        "pins-15-4-6mm.pdf"
+      ],
+      "scope": "pin length/spacer/pin length, Rev1; no scalar camera/body offset inferred"
+    },
+    {
+      "key": "pins_end_length_tolerances",
+      "classification": "P",
+      "value": [
+        0.1,
+        0.1
+      ],
+      "unit": "mm",
+      "source_ids": [
+        "pins-15-4-6mm.pdf"
+      ],
+      "scope": "15mm and6mm end lengths; not an assembly pose tolerance"
+    },
+    {
+      "key": "native_header_center_separation",
+      "classification": "D",
+      "value": 22.0,
+      "unit": "mm",
+      "source_ids": [
+        "template/ecad/template.kicad_pcb"
+      ],
+      "scope": "P2 at108.00092 minusP1 at86.00092; nominal2.0 template linked for2.x"
+    },
+    {
+      "key": "native_header_pin_pitch",
+      "classification": "D",
+      "value": 2.0,
+      "unit": "mm",
+      "source_ids": [
+        "template/ecad/template.kicad_pcb"
+      ],
+      "scope": "difference of native through-hole pad coordinates"
+    },
+    {
+      "key": "native_header_pin1_to_pin10_span",
+      "classification": "D",
+      "value": 18.0,
+      "unit": "mm",
+      "source_ids": [
+        "template/ecad/template.kicad_pcb"
+      ],
+      "scope": "9 intervals times2mm"
+    },
+    {
+      "key": "native_header_datum",
+      "classification": "D",
+      "value": [
+        139.001,
+        97.00092
+      ],
+      "unit": "mm",
+      "source_ids": [
+        "template/ecad/template.kicad_pcb"
+      ],
+      "scope": "defined H at native connector midpoint; NOT CoM, IMU or body origin"
+    },
+    {
+      "key": "template_design_PCB_thickness",
+      "classification": "P",
+      "value": 1.6,
+      "unit": "mm",
+      "source_ids": [
+        "template/ecad/template.kicad_pcb"
+      ],
+      "scope": "template only; actual AI/Flow/main2.1 PCB thickness U"
+    },
+    {
+      "key": "nominal_mechanical_axes_rotation",
+      "classification": "D",
+      "value": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "unit": null,
+      "source_ids": [
+        "template/ecad/template.kicad_pcb",
+        "orientation-symbols.png"
+      ],
+      "scope": "FRONT/LEFT/UP axes on both sides, exactly per logos; axes-only ideal assembly. NOT actual camera/Flow optical rotation"
+    },
+    {
+      "key": "camera_mount_hardware",
+      "classification": "P",
+      "value": [
+        "two screws",
+        "FPC",
+        "foam pocket"
+      ],
+      "unit": null,
+      "source_ids": [
+        "camera-replace-guide.html"
+      ],
+      "scope": "qualitative stock mounting; no actual holder tolerance/optical-reference transform"
+    },
+    {
+      "key": "bmi088_gyro_zero_rate_offset_typical",
+      "classification": "P",
+      "value": [
+        -1.0,
+        1.0
+      ],
+      "unit": "deg/s",
+      "source_ids": [
+        "bmi088-ds001.pdf"
+      ],
+      "scope": "Rev1.9 Table5 p10;25C,nominalVDD,slow/fast cancellationoff. Typical, NOT max or calibrated residual"
+    },
+    {
+      "key": "bmi088_zero_rate_offset_temp_change_typical",
+      "classification": "P",
+      "value": [
+        -0.015,
+        0.015
+      ],
+      "unit": "deg/s/K",
+      "source_ids": [
+        "bmi088-ds001.pdf"
+      ],
+      "scope": "-40..85C,range2000; NOT a calibrated residual guarantee"
+    },
+    {
+      "key": "bmi088_output_noise_typical_rms",
+      "classification": "P",
+      "value": 0.1,
+      "unit": "deg/s",
+      "source_ids": [
+        "bmi088-ds001.pdf"
+      ],
+      "scope": "BW47Hz,noise density.014deg/s/sqrt(Hz); NOT runtime116Hz bandwidth noise bound"
+    },
+    {
+      "key": "bmi088_gyro_sensitivity_typical_2000",
+      "classification": "P",
+      "value": 16.384,
+      "unit": "LSB/(deg/s)",
+      "source_ids": [
+        "bmi088-ds001.pdf"
+      ],
+      "scope": "25C,range2000; not bias accuracy"
+    },
+    {
+      "key": "firmware_startup_gyro_bias_subtraction",
+      "classification": "C",
+      "value": true,
+      "unit": null,
+      "source_ids": [
+        "crazyflie-firmware/src/hal/src/sensors_bmi088_bmp3xx.c"
+      ],
+      "scope": "L309-334: processGyroBias, subtract raw bias, scale,align,LPF,estimator queue"
+    },
+    {
+      "key": "firmware_normal_bias_window",
+      "classification": "C",
+      "value": 512,
+      "unit": "raw samples",
+      "source_ids": [
+        "crazyflie-firmware/src/hal/src/sensors_bmi088_bmp3xx.c"
+      ],
+      "scope": "normal conditional compilation branch; actual aircraft build macro U"
+    },
+    {
+      "key": "firmware_normal_bias_variance_threshold",
+      "classification": "C",
+      "value": 100.0,
+      "unit": "raw count^2",
+      "source_ids": [
+        "crazyflie-firmware/src/hal/src/sensors_bmi088_bmp3xx.c"
+      ],
+      "scope": "each axis below threshold with tick constraint; stability gate, not bias error bound"
+    },
+    {
+      "key": "firmware_lightweight_bias_window",
+      "classification": "C",
+      "value": 1000,
+      "unit": "raw samples",
+      "source_ids": [
+        "crazyflie-firmware/src/hal/src/sensors_bmi088_bmp3xx.c"
+      ],
+      "scope": "GYRO_BIAS_LIGHT_WEIGHT branch; mean of first samples, stable startup required"
+    },
+    {
+      "key": "firmware_gyro_range",
+      "classification": "C",
+      "value": 2000.0,
+      "unit": "deg/s",
+      "source_ids": [
+        "crazyflie-firmware/src/hal/src/sensors_bmi088_bmp3xx.c"
+      ],
+      "scope": "driver chooses2000DPS; actual configured equipment revision/build U"
+    },
+    {
+      "key": "firmware_gyro_DPS_per_raw_LSB",
+      "classification": "D",
+      "value": 0.06103515625,
+      "unit": "deg/s/rawLSB",
+      "source_ids": [
+        "crazyflie-firmware/src/hal/src/sensors_bmi088_bmp3xx.c"
+      ],
+      "scope": "code scaling2*range/65536"
+    },
+    {
+      "key": "firmware_variance_threshold_std_conversion",
+      "classification": "D",
+      "value": 0.6103515625,
+      "unit": "deg/s",
+      "source_ids": [
+        "crazyflie-firmware/src/hal/src/sensors_bmi088_bmp3xx.c"
+      ],
+      "scope": "sqrt100 times scale; NOT post-calibration bias mean uncertainty"
+    },
+    {
+      "key": "firmware_gyro_bandwidth_and_ODR",
+      "classification": "C",
+      "value": {
+        "bandwidth_Hz": 116,
+        "ODR_Hz": 1000
+      },
+      "unit": null,
+      "source_ids": [
+        "crazyflie-firmware/src/hal/src/sensors_bmi088_bmp3xx.c"
+      ],
+      "scope": "configured code; Bosch BW47Hz noise condition differs"
+    },
+    {
+      "key": "firmware_IMU_alignment_default_angles",
+      "classification": "C",
+      "value": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit": "deg",
+      "source_ids": [
+        "crazyflie-firmware/src/platform/interface/platform_defaults.h",
+        "crazyflie-firmware/src/hal/src/sensors_bmi088_bmp3xx.c"
+      ],
+      "scope": "persistent imuPhi/Theta/Psi parameters; actual loaded angles U; not assembled extrinsic/position"
+    },
+    {
+      "key": "firmware_Flow_motion_axis_mapping",
+      "classification": "C",
+      "value": [
+        [
+          "dpixelx",
+          "-deltaY"
+        ],
+        [
+          "dpixely",
+          "-deltaX"
+        ]
+      ],
+      "unit": null,
+      "source_ids": [
+        "crazyflie-firmware/src/deck/drivers/src/flowdeck_v1v2.c"
+      ],
+      "scope": "stock sensor-mount convention in 2D measurements; no3D position derivation"
+    },
+    {
+      "key": "firmware_Flow_position_common_defaults",
+      "classification": "C",
+      "value": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit": "m",
+      "source_ids": [
+        "crazyflie-firmware/src/platform/interface/platform_defaults.h",
+        "crazyflie-firmware/src/modules/src/kalman_core/mm_flow.c"
+      ],
+      "scope": "persistent model position with omega cross r lever arm; NOT actual measured mount point0"
+    }
+  ],
+  "unresolved": {
+    "actual_hardware_allocation_revision": {
+      "classification": "U",
+      "value": null,
+      "reason": "2.1/AI1.1C1/Flowv2C conditional target; actual supplied revisions not allocated"
+    },
+    "actual_AI_above_or_under": {
+      "classification": "U",
+      "value": null,
+      "reason": "guide permits both; current supplied stack not resolved"
+    },
+    "actual_deck_stack_order_and_seating": {
+      "classification": "U",
+      "value": null,
+      "reason": "pin sizes/part envelope do not prove board placement/fully-seated datum"
+    },
+    "actual_AI_or_Flow_PCB_thickness": {
+      "classification": "U",
+      "value": null,
+      "reason": "template thickness cannot substitute for actual boards"
+    },
+    "camera_to_body_rotation": {
+      "classification": "U",
+      "value": null,
+      "reason": "holder seating/optical/image axes and actual body axes metrology incomplete"
+    },
+    "camera_to_body_position_m": {
+      "classification": "U",
+      "value": null,
+      "reason": "no complete datum chain from optical projection center to body/CoM"
+    },
+    "flow_to_body_rotation": {
+      "classification": "U",
+      "value": null,
+      "reason": "guide/2D firmware mapping does not determine actual optical mounting calibration"
+    },
+    "flow_to_body_position_m": {
+      "classification": "U",
+      "value": null,
+      "reason": "component center/depth plus deck/body stack unknown"
+    },
+    "ToF_to_body_position_m": {
+      "classification": "U",
+      "value": null,
+      "reason": "emitter/receiver reference and relative optical location/stack unresolved"
+    },
+    "IMU_to_body_position_m": {
+      "classification": "U",
+      "value": null,
+      "reason": "firmware angle settings do not identify assembled CoM relation"
+    },
+    "assembled_center_of_mass_m": {
+      "classification": "U",
+      "value": null,
+      "reason": "individual mass/envelope/native drawing insufficient for actual assembled CoM"
+    },
+    "actual_lowest_underside_and_foot_to_sensor_clearance_m": {
+      "classification": "U",
+      "value": null,
+      "reason": "3D stack/module/foot datums not connected"
+    },
+    "actual_camera_image_axes_flip_mirror": {
+      "classification": "U",
+      "value": null,
+      "reason": "module feature/support does not identify streaming configuration or calibrated extrinsics"
+    },
+    "actual_gyro_bias_macro_and_parameter_values": {
+      "classification": "U",
+      "value": null,
+      "reason": "no allocated hardware binary/parameter readback"
+    },
+    "actual_post_startup_gyro_residual_deg_s": {
+      "classification": "U",
+      "value": null,
+      "reason": "source subtraction and typical component offset do not establish residual specification"
+    }
+  },
+  "transform_convention": "p_A=R_AB*p_B+t_AB; T_BC=T_BH*T_HD*T_DM*T_MC, T_BF=T_BH*T_HDf*T_DfF",
+  "frame_definitions": {
+    "B": "actual body datum/CoM relation unresolved",
+    "H": "main PCB connector midpoint datum",
+    "D": "AI-deck connector datum",
+    "M": "holder datum unresolved",
+    "C": "optical projection/image axes unresolved",
+    "Df": "Flowdeck connector datum",
+    "F": "Flow optical reference unresolved"
+  },
+  "transform_chain": {
+    "camera": {
+      "partial_derived": "nominal connector plane registration/orientation",
+      "unresolved": [
+        "t_BH",
+        "stack_z",
+        "T_DM",
+        "T_MC"
+      ],
+      "full_SE3": null
+    },
+    "flow": {
+      "partial_derived": "under mounting and nominal connector plane registration/orientation",
+      "unresolved": [
+        "t_BH",
+        "stack_z",
+        "T_DfF"
+      ],
+      "full_SE3": null
+    }
+  },
+  "project_sensitivity_context": {
+    "classification": "S",
+    "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/project-sensitivity-context.json",
+    "gyro_residual_deg_s": [
+      0.0,
+      0.0,
+      0.03
+    ],
+    "gyro_noise_std_deg_s": 0.08,
+    "camera_position_body_m": [
+      0.02,
+      0.0,
+      0.015
+    ],
+    "flow_position_body_m": [
+      0.0,
+      0.0,
+      -0.005
+    ],
+    "IMU_position_body_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "not_manufacturer_values": true,
+    "startup_BMI088_driver_executed_in_reviewed_adapter": false,
+    "hardware_spec_interpretation": null
+  },
+  "primary_source_records": [
+    {
+      "id": "hardware/src/products/ai-deck-1_1/datasheet/index.md",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/ai-deck-1_1/datasheet/index.md",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/ai-deck-1_1/datasheet/index.md",
+      "sha256": "2330659543886d672a2512a917eb11f34f3dede756e773b5428dbf4631a33282"
+    },
+    {
+      "id": "hardware/src/products/ai-deck-1_1/datasheet/ai-deck-mechanics.png",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/ai-deck-1_1/datasheet/ai-deck-mechanics.png",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/ai-deck-1_1/datasheet/ai-deck-mechanics.png",
+      "sha256": "bb06f51e030552a862cdd7d5a4b1fe7a9367ed1b26ca179ac4163eae00f6398f"
+    },
+    {
+      "id": "hardware/src/products/ai-deck-mono-camera/datasheet/index.md",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/ai-deck-mono-camera/datasheet/index.md",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/ai-deck-mono-camera/datasheet/index.md",
+      "sha256": "91134997ef42f6057ea17a0fd7e140504bcbaee785c0a6f4c4edb8219a07dbf7"
+    },
+    {
+      "id": "hardware/src/products/ai-deck-mono-camera/datasheet/ai-deck-mono-camera-mechanics.png",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/ai-deck-mono-camera/datasheet/ai-deck-mono-camera-mechanics.png",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/ai-deck-mono-camera/datasheet/ai-deck-mono-camera-mechanics.png",
+      "sha256": "1326b5c77def881cca199a32999fddba67742b5e386b04e915ed6518500ef1e0"
+    },
+    {
+      "id": "hardware/src/products/flow-deck-2/datasheet/index.md",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/flow-deck-2/datasheet/index.md",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/flow-deck-2/datasheet/index.md",
+      "sha256": "66c25d2fb051d98a5fbfa117a6b20285e5452ddd087305d0c81e16adb1c376c2"
+    },
+    {
+      "id": "hardware/src/products/flow-deck-2/datasheet/flow-deck-v2-mechanics.png",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/flow-deck-2/datasheet/flow-deck-v2-mechanics.png",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/flow-deck-2/datasheet/flow-deck-v2-mechanics.png",
+      "sha256": "46ecf9211f0da47988ca0b6d16f426a5a6afa8539ac1c5a7cee09786b08db2ff"
+    },
+    {
+      "id": "hardware/src/products/crazyflie-2_1/datasheet/crazyflie_2_1-measurements.png",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/crazyflie-2_1/datasheet/crazyflie_2_1-measurements.png",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/crazyflie-2_1/datasheet/crazyflie_2_1-measurements.png",
+      "sha256": "b4c9412de006d73f36ccc436377da2549a99b6e164caa4e8ae8ee495f5b4000b"
+    },
+    {
+      "id": "bitcraze-mechanics/README.md",
+      "kind": "official_git_blob",
+      "commit": "c70aa74368e713734ddebbf14238fd6c3c2079c6",
+      "url": "https://github.com/bitcraze/bitcraze-mechanics/blob/c70aa74368e713734ddebbf14238fd6c3c2079c6/README.md",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/bitcraze-mechanics/README.md",
+      "sha256": "cb7c04577dab06a6c035c6962c7b5fecc7c34514b83ad42c98af314635ff0ff7"
+    },
+    {
+      "id": "crazyflie-simulation/docs/functional_areas/meshes.md",
+      "kind": "official_git_blob",
+      "commit": "7e93752dbc803af2488c1db46bb79b3da55f5d8c",
+      "url": "https://github.com/bitcraze/crazyflie-simulation/blob/7e93752dbc803af2488c1db46bb79b3da55f5d8c/docs/functional_areas/meshes.md",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/crazyflie-simulation/docs/functional_areas/meshes.md",
+      "sha256": "265342264fd98f04e88cee33083de1a215fcbb28a6bc478f966fb7325425f779"
+    },
+    {
+      "id": "crazyflie-simulation/simulator_files/webots/protos/Crazyflie.proto",
+      "kind": "official_git_blob",
+      "commit": "7e93752dbc803af2488c1db46bb79b3da55f5d8c",
+      "url": "https://github.com/bitcraze/crazyflie-simulation/blob/7e93752dbc803af2488c1db46bb79b3da55f5d8c/simulator_files/webots/protos/Crazyflie.proto",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/crazyflie-simulation/simulator_files/webots/protos/Crazyflie.proto",
+      "sha256": "15d61ba46f0647b5085ad54ae79377535ca8a2a23527ba274f9f3e86f6663e61"
+    },
+    {
+      "id": "aideck-gap8-examples/docs/guides/camera-replace.md",
+      "kind": "official_git_blob",
+      "commit": "d39d2ec5001f94bf774dbd1187ae4cf869a3094d",
+      "url": "https://github.com/bitcraze/aideck-gap8-examples/blob/d39d2ec5001f94bf774dbd1187ae4cf869a3094d/docs/guides/camera-replace.md",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/aideck-gap8-examples/docs/guides/camera-replace.md",
+      "sha256": "54a94a2cad1be8bf903ed5795b3026be2e10918218b4d9fff581df8d895ccec6"
+    },
+    {
+      "id": "crazyflie-firmware/src/hal/src/sensors_bmi088_bmp3xx.c",
+      "kind": "official_git_blob",
+      "commit": "f6e0f0a3b526861328caf3296a7ecf00bb915d39",
+      "url": "https://github.com/bitcraze/crazyflie-firmware/blob/f6e0f0a3b526861328caf3296a7ecf00bb915d39/src/hal/src/sensors_bmi088_bmp3xx.c",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/crazyflie-firmware/src/hal/src/sensors_bmi088_bmp3xx.c",
+      "sha256": "c3093cde69776c84e8ee5b89600b108e8e94daae32722ac2e22048853a4f339a"
+    },
+    {
+      "id": "crazyflie-firmware/src/platform/interface/platform_defaults.h",
+      "kind": "official_git_blob",
+      "commit": "f6e0f0a3b526861328caf3296a7ecf00bb915d39",
+      "url": "https://github.com/bitcraze/crazyflie-firmware/blob/f6e0f0a3b526861328caf3296a7ecf00bb915d39/src/platform/interface/platform_defaults.h",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/crazyflie-firmware/src/platform/interface/platform_defaults.h",
+      "sha256": "c148995c77bc479abc819ac0d9cd5e1833565a31552aa16e61300546b9d1b1e1"
+    },
+    {
+      "id": "crazyflie-firmware/src/deck/drivers/src/flowdeck_v1v2.c",
+      "kind": "official_git_blob",
+      "commit": "f6e0f0a3b526861328caf3296a7ecf00bb915d39",
+      "url": "https://github.com/bitcraze/crazyflie-firmware/blob/f6e0f0a3b526861328caf3296a7ecf00bb915d39/src/deck/drivers/src/flowdeck_v1v2.c",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/crazyflie-firmware/src/deck/drivers/src/flowdeck_v1v2.c",
+      "sha256": "6e81daa5eeeeda576e291efabc92e949a41f7f5f9f1d45d2c77dd213997bcabe"
+    },
+    {
+      "id": "crazyflie-firmware/src/deck/drivers/src/zranger2.c",
+      "kind": "official_git_blob",
+      "commit": "f6e0f0a3b526861328caf3296a7ecf00bb915d39",
+      "url": "https://github.com/bitcraze/crazyflie-firmware/blob/f6e0f0a3b526861328caf3296a7ecf00bb915d39/src/deck/drivers/src/zranger2.c",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/crazyflie-firmware/src/deck/drivers/src/zranger2.c",
+      "sha256": "9d2343bf688c200e02372d6f6a36c96a3d060afb8a084982024a44494aed4ee1"
+    },
+    {
+      "id": "crazyflie-firmware/src/modules/src/kalman_core/mm_flow.c",
+      "kind": "official_git_blob",
+      "commit": "f6e0f0a3b526861328caf3296a7ecf00bb915d39",
+      "url": "https://github.com/bitcraze/crazyflie-firmware/blob/f6e0f0a3b526861328caf3296a7ecf00bb915d39/src/modules/src/kalman_core/mm_flow.c",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/crazyflie-firmware/src/modules/src/kalman_core/mm_flow.c",
+      "sha256": "1365472549ff33d315c4864c21af34a0135a6432a35e6eede30da15e9ab41c42"
+    },
+    {
+      "id": "crazyflie-firmware/src/modules/src/kalman_core/mm_tof.c",
+      "kind": "official_git_blob",
+      "commit": "f6e0f0a3b526861328caf3296a7ecf00bb915d39",
+      "url": "https://github.com/bitcraze/crazyflie-firmware/blob/f6e0f0a3b526861328caf3296a7ecf00bb915d39/src/modules/src/kalman_core/mm_tof.c",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/crazyflie-firmware/src/modules/src/kalman_core/mm_tof.c",
+      "sha256": "0cd4c17664a456091d6113e742feb0bde239b98e4fd8efdcd7adccf28dbcb7c8"
+    },
+    {
+      "id": "expansion-guide.html",
+      "kind": "official_download",
+      "url": "https://www.bitcraze.io/documentation/system/platform/cf2-expansiondecks/",
+      "resolved_url": "https://www.bitcraze.io/documentation/system/platform/cf2-expansiondecks/",
+      "content_type": "text/html",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/expansion-guide.html",
+      "sha256": "58f6f95f076b5bc06b8d1222e90d568b4b5dfdb961ef01f8259f0c3cd1da2a4f",
+      "bytes": 71594
+    },
+    {
+      "id": "camera-replace-guide.html",
+      "kind": "official_download",
+      "url": "https://www.bitcraze.io/documentation/repository/aideck-gap8-examples/master/guides/camera-replace/",
+      "resolved_url": "https://www.bitcraze.io/documentation/repository/aideck-gap8-examples/master/guides/camera-replace/",
+      "content_type": "text/html",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/camera-replace-guide.html",
+      "sha256": "7f1e54ad1febf19931f29dc7bc632d196f731465d3933021710c65200756101f",
+      "bytes": 34293
+    },
+    {
+      "id": "pins-15-4-6mm.pdf",
+      "kind": "official_download",
+      "url": "https://www.bitcraze.io/documentation/hardware/long_pins_15_4_6mm/long_pins_15_4_6mm-datasheet.pdf",
+      "resolved_url": "https://www.bitcraze.io/documentation/hardware/long_pins_15_4_6mm/long_pins_15_4_6mm-datasheet.pdf",
+      "content_type": "application/pdf",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/pins-15-4-6mm.pdf",
+      "sha256": "db8c35069d44c059e722e757952e07ebb321e5972594077dc8a300c6dda7db18",
+      "bytes": 119164
+    },
+    {
+      "id": "ai-deck-1_1.pdf",
+      "kind": "official_download",
+      "url": "https://www.bitcraze.io/documentation/hardware/ai_deck_1_1/ai_deck_1_1-datasheet.pdf",
+      "resolved_url": "https://www.bitcraze.io/documentation/hardware/ai_deck_1_1/ai_deck_1_1-datasheet.pdf",
+      "content_type": "application/pdf",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/ai-deck-1_1.pdf",
+      "sha256": "5522bb82341d0be10831248da19211f31ddc4ae9b2dc4d07a85b8e229cff42c9",
+      "bytes": 231381
+    },
+    {
+      "id": "flow-deck-2.pdf",
+      "kind": "official_download",
+      "url": "https://www.bitcraze.io/documentation/hardware/flow_deck_2/flow_deck_2-datasheet.pdf",
+      "resolved_url": "https://www.bitcraze.io/documentation/hardware/flow_deck_2/flow_deck_2-datasheet.pdf",
+      "content_type": "application/pdf",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/flow-deck-2.pdf",
+      "sha256": "8ee1773c5d1e26dab9b2b97ee95a936440345fcc4dba45efb3ab8a0cc2c9fcaa",
+      "bytes": 185804
+    },
+    {
+      "id": "bmi088-ds001.pdf",
+      "kind": "official_download",
+      "url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf",
+      "resolved_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf",
+      "content_type": "application/pdf",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/bmi088-ds001.pdf",
+      "sha256": "53ab734dba49ac202fa6182fc2b545df6c6d7459c9fec6e851a1209e6bac417e",
+      "bytes": 1368590
+    },
+    {
+      "id": "orientation-symbols.png",
+      "kind": "official_download",
+      "url": "https://www.bitcraze.io/images/documentation/overview/orientation-symbols.png",
+      "resolved_url": "https://www.bitcraze.io/images/documentation/overview/orientation-symbols.png",
+      "content_type": "image/png",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/orientation-symbols.png",
+      "sha256": "ae3fac6c2a9745a34b7354882284a649a1616775e44cbb06811580ede9fc256d",
+      "bytes": 133987
+    },
+    {
+      "id": "stack-one-top-one-bottom.png",
+      "kind": "official_download",
+      "url": "https://www.bitcraze.io/images/documentation/overview/exp_squetch_1top1bottom.png",
+      "resolved_url": "https://www.bitcraze.io/images/documentation/overview/exp_squetch_1top1bottom.png",
+      "content_type": "image/png",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/stack-one-top-one-bottom.png",
+      "sha256": "d95d16de40569dcf865a57ae76b9822f6ad58ad1ac37c12b8dec95159afdaa4e",
+      "bytes": 24352
+    },
+    {
+      "id": "template-commit.json",
+      "kind": "official_download",
+      "url": "https://api.github.com/repos/bitcraze/crazyflie2-exp-template-electronics/commits/master",
+      "resolved_url": "https://api.github.com/repos/bitcraze/crazyflie2-exp-template-electronics/commits/master",
+      "content_type": "application/json; charset=utf-8",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/template-commit.json",
+      "sha256": "723c112c60bae8398288e2c16db9309b44b910fcb4484e0a339e9c779b8184c0",
+      "bytes": 4993
+    },
+    {
+      "id": "template-tree.json",
+      "kind": "official_download",
+      "url": "https://api.github.com/repos/bitcraze/crazyflie2-exp-template-electronics/git/trees/d407886d21958346fb94a4e9fc28c5b41eb0f408?recursive=1",
+      "resolved_url": "https://api.github.com/repos/bitcraze/crazyflie2-exp-template-electronics/git/trees/d407886d21958346fb94a4e9fc28c5b41eb0f408?recursive=1",
+      "content_type": "application/json; charset=utf-8",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/template-tree.json",
+      "sha256": "6421d94b96ae47e8465e21a8094e5008609c7eb27a46328f38866429c8d888ab",
+      "bytes": 4723
+    },
+    {
+      "id": "template/LICENSE.md",
+      "kind": "official_download",
+      "url": "https://raw.githubusercontent.com/bitcraze/crazyflie2-exp-template-electronics/d407886d21958346fb94a4e9fc28c5b41eb0f408/LICENSE.md",
+      "resolved_url": "https://raw.githubusercontent.com/bitcraze/crazyflie2-exp-template-electronics/d407886d21958346fb94a4e9fc28c5b41eb0f408/LICENSE.md",
+      "content_type": "text/plain; charset=utf-8",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/template/LICENSE.md",
+      "sha256": "fc608f0546a393339cee71c46da762ee60da2b38b5203393412b4c6f9427f9fe",
+      "bytes": 159,
+      "commit": "d407886d21958346fb94a4e9fc28c5b41eb0f408"
+    },
+    {
+      "id": "template/README.md",
+      "kind": "official_download",
+      "url": "https://raw.githubusercontent.com/bitcraze/crazyflie2-exp-template-electronics/d407886d21958346fb94a4e9fc28c5b41eb0f408/README.md",
+      "resolved_url": "https://raw.githubusercontent.com/bitcraze/crazyflie2-exp-template-electronics/d407886d21958346fb94a4e9fc28c5b41eb0f408/README.md",
+      "content_type": "text/plain; charset=utf-8",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/template/README.md",
+      "sha256": "53359bed75bcc459e12ea2aa6f4fa6ee24985b86f36a19f88d563dad6b04c684",
+      "bytes": 215,
+      "commit": "d407886d21958346fb94a4e9fc28c5b41eb0f408"
+    },
+    {
+      "id": "template/docs/index.md",
+      "kind": "official_download",
+      "url": "https://raw.githubusercontent.com/bitcraze/crazyflie2-exp-template-electronics/d407886d21958346fb94a4e9fc28c5b41eb0f408/docs/index.md",
+      "resolved_url": "https://raw.githubusercontent.com/bitcraze/crazyflie2-exp-template-electronics/d407886d21958346fb94a4e9fc28c5b41eb0f408/docs/index.md",
+      "content_type": "text/plain; charset=utf-8",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/template/docs/index.md",
+      "sha256": "dc1812ab5fabcb2fb609217755ba3ea155e21627f207904d45e06231a53b4c9a",
+      "bytes": 1124,
+      "commit": "d407886d21958346fb94a4e9fc28c5b41eb0f408"
+    },
+    {
+      "id": "template/ecad/template.kicad_pcb",
+      "kind": "official_download",
+      "url": "https://raw.githubusercontent.com/bitcraze/crazyflie2-exp-template-electronics/d407886d21958346fb94a4e9fc28c5b41eb0f408/ecad/template.kicad_pcb",
+      "resolved_url": "https://raw.githubusercontent.com/bitcraze/crazyflie2-exp-template-electronics/d407886d21958346fb94a4e9fc28c5b41eb0f408/ecad/template.kicad_pcb",
+      "content_type": "text/plain; charset=utf-8",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/template/ecad/template.kicad_pcb",
+      "sha256": "d9cc1d5ae5c1acc74a2fba0001a07eca7476acef5cb93ca89994769e53e1a74f",
+      "bytes": 224776,
+      "commit": "d407886d21958346fb94a4e9fc28c5b41eb0f408"
+    },
+    {
+      "id": "hardware/src/products/female-deck-connector/datasheet/index.md",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/female-deck-connector/datasheet/index.md",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/female-deck-connector/datasheet/index.md",
+      "sha256": "43bdba97fd580dd87e1af9fca2b47fa2ef432a5af88a6b6142ea50d79c6a3980"
+    },
+    {
+      "id": "hardware/src/products/female-deck-connector/datasheet/female-connector-mechanics.png",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/female-deck-connector/datasheet/female-connector-mechanics.png",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/female-deck-connector/datasheet/female-connector-mechanics.png",
+      "sha256": "8314f4d92b0f58efa2b882d6daccf3a893365294af9735bc61f1d6cc3da30806"
+    },
+    {
+      "id": "hardware/src/products/short-and-medium-pins/datasheet/index.md",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/short-and-medium-pins/datasheet/index.md",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/short-and-medium-pins/datasheet/index.md",
+      "sha256": "1b0f10844327873dd6309c260b639cfd1f59f41dc5cd85d6031f16fd135b4840"
+    },
+    {
+      "id": "hardware/src/products/short-and-medium-pins/datasheet/short-and-medium-pins-mechanics.png",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/short-and-medium-pins/datasheet/short-and-medium-pins-mechanics.png",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/short-and-medium-pins/datasheet/short-and-medium-pins-mechanics.png",
+      "sha256": "c7a226687b7f36d20579f70c8bc72bd49d1866d0b4ced995cfb918f31b401b57"
+    },
+    {
+      "id": "hardware/src/products/long-pins_15-4-6mm/datasheet/long-pins-15-4-6-mechanics.png",
+      "kind": "official_git_blob",
+      "commit": "8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "url": "https://github.com/bitcraze/hardware/blob/8207400d3e6090ea1dce2b22ddaa25243f718db1/src/products/long-pins_15-4-6mm/datasheet/long-pins-15-4-6-mechanics.png",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/sources/hardware/src/products/long-pins_15-4-6mm/datasheet/long-pins-15-4-6-mechanics.png",
+      "sha256": "3dae21bc97a4b3532813932f5015ec55ed3c1e8d05cdee87b95c23d89b6c2307"
+    },
+    {
+      "id": "bitcraze-org-page1",
+      "kind": "official_repository_inventory",
+      "url": "https://api.github.com/orgs/bitcraze/repos?per_page=100&page=1",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/inventories/bitcraze-org-page1.json",
+      "sha256": "b5023e310cc3d15e4ccf50453a4635a4d86ccf476ffaead3c1508bfe890bf0ca"
+    },
+    {
+      "id": "bitcraze-org-page2",
+      "kind": "official_repository_inventory",
+      "url": "https://api.github.com/orgs/bitcraze/repos?per_page=100&page=2",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/inventories/bitcraze-org-page2.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "bitcraze-org-page3",
+      "kind": "official_repository_inventory",
+      "url": "https://api.github.com/orgs/bitcraze/repos?per_page=100&page=3",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/inventories/bitcraze-org-page3.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "cf1-electronics-commit.json",
+      "kind": "official_download",
+      "url": "https://api.github.com/repos/bitcraze/crazyflie-electronics/commits/master",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/cf1-electronics-commit.json",
+      "sha256": "51c93381a412d77f78bc8f700ab2bb63961bc6b1539df72b682852ca1ddeb1e1"
+    },
+    {
+      "id": "cf1-electronics-README.md",
+      "kind": "official_download",
+      "url": "https://raw.githubusercontent.com/bitcraze/crazyflie-electronics/5e8d0fcf343c9e1517c617a8fbd9576d63f45370/README.md",
+      "path": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/downloads/cf1-electronics-README.md",
+      "sha256": "ea5d7cfec710e28440996d464be20e50ca9b3039b71e081dd0293a8182f7c606"
+    }
+  ],
+  "survey_scope": {
+    "official_public_org_repository_count": 78,
+    "inventories": "artifacts/mission3/manufacturer-mount-evidence/20261008-heisenberg/inventories",
+    "pinned_repositories": [
+      "hardware@8207400d3e6090ea1dce2b22ddaa25243f718db1",
+      "bitcraze-mechanics@c70aa74368e713734ddebbf14238fd6c3c2079c6",
+      "crazyflie-simulation@7e93752dbc803af2488c1db46bb79b3da55f5d8c",
+      "aideck-gap8-examples@d39d2ec5001f94bf774dbd1187ae4cf869a3094d",
+      "crazyflie2-exp-template-electronics@d407886d21958346fb94a4e9fc28c5b41eb0f408"
+    ],
+    "complete_AI_holder_Flow_optical_to_body_assembly_CAD_confirmed": false,
+    "global_nonexistence_claim": false,
+    "exclusions": [
+      "Crazyflie1.0 electronics native CAD",
+      "manufacturer low-poly simulator sensor positions as metrology",
+      "mockup/old-generation/unknown provenance models as2.1 assembly spec",
+      "third-party scalar dynamics or mount values"
+    ]
+  },
+  "required_to_close_gaps": [
+    "same-revision native main/deck/holder datum chain",
+    "specified stack order/seating reference",
+    "optical projection/image-axis calibration reference",
+    "body origin/assembledCoM relation",
+    "startup calibration branch/parameter values and supported residual evidence"
+  ],
+  "policy_attribution": "4/8cm fusion guards were conservative test policy selected by main developer from manufacturer component docs; not user-specified thresholds",
+  "write_scope": "new manufacturer-mount-gap.md, new mission3-manufacturer-mount-evidence.json, this new artifact subtree only; historical code/logs/signatures not changed"
+}

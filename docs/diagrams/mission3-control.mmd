@@ -1,0 +1,77 @@
+%% 미션3 추정·제어 데이터 흐름과 참값 차단 경계 (독립 검토자 설계안, 2026-10-08)
+%% 설계안이다. 기체 동역학·장착 변환·접촉 모델은 미확정이며 이 그림이 검증을 대신하지 않는다.
+%% Flow/ToF의 조립 덱 FoV·최소 유효 거리는 Bitcraze 공식 근거에서 미확정(U)이다. 출처 분류: control-review.md 4.3절
+%% 참값: 실행 중 제어 입력 금지. 실행 종료 후 평가 결과로 제어를 고치는 것은 허용하며, 새 해시와 새 holdout seed로만 집계한다.
+flowchart LR
+    subgraph AIR["기체: 무개조 Crazyflie 2.1, 카메라·Flow deck 장착 변환 null"]
+        CAM["AI-deck 단색 카메라<br/>mono8 320×320, 공칭 87°<br/>K·왜곡·장착 null"]
+        IMU["BMI088 IMU"]
+        FLOW["Flow deck 광류 센서<br/>아래 표면에 대한 상대 광류<br/>조립 덱 FoV · 최소 유효 높이: U"]
+        TOF["Flow deck ToF<br/>원뿔 안 최근접 표면까지 거리<br/>조립 덱 FoV · 최소 거리: U"]
+        GATEFW["Flow·ToF 반영 게이트<br/>소프트웨어 변경안<br/>실기와 SITL이 같은 코드 경로여야 함"]
+        EKF["펌웨어 EKF<br/>Flow·ToF를 정지 바닥 z=0으로 해석<br/>ToF 기울기 보정 7.5°는 코드 상수"]
+        PID["펌웨어 위치·속도·자세 제어"]
+        MOT["모터"]
+    end
+
+    subgraph PC["PC 상위 계산: 실행 중 제어기가 읽을 수 있는 것은 이 상자 안뿐"]
+        DET["ArUco 검출 + IPPE 두 해<br/>최소 변·재투영·모호성 검사"]
+        COARSE["COARSE_ACQUIRE<br/>ID + 방위 일치, 탐색 운동만<br/>코드 리뷰 대기"]
+        REL["차량 기준 상대 자세<br/>캡처 시각의 기체 자세로 회전<br/>실기 캡처 시각 null"]
+        VEH["차량 운동 추정<br/>패드 위치 회귀 속도 · 진행방향 · 각속도"]
+        CLS["직선 판정 융합<br/>정지 지도 남은 길이 + 각속도<br/>+ 곡선 종료 사건 기준 진행거리"]
+        OWN["자기 운동 추정<br/>IMU · Flow · ToF"]
+        SURF["표면 가설<br/>바닥 · 패드 · 혼합 · 모호<br/>잔차와 영상 근거만, geom ID 금지"]
+        REST["상대 상태와 공분산<br/>패드 기준 위치·속도·높이"]
+        CTRL["FF: 추정 차량 속도<br/>FB: 상대 위치·속도, 제한된 적분"]
+        SAFE["게이트<br/>영상 나이 · 광축 깊이 0.30m · 지지 여유<br/>직선 여유 · 블라인드 상한 · 링크"]
+        CMD["명령 인터페이스<br/>속도·높이 setpoint, stop"]
+    end
+
+    subgraph EVAL["독립 평가기: 실행 종료 후 읽기 전용"]
+        TRUTH["plant 참값<br/>차량 상태 · 곡선 여부 · 접촉 쌍 · 모터"]
+        REV["착륙 주장 루브릭"]
+    end
+
+    OFFL["오프라인 개선 주기<br/>평가 결과로 개발 seed에서 제어 수정<br/>새 코드 해시 → 새 holdout seed로만 집계<br/>이전 실행 분모 보존"]
+
+    CAM -->|"영상 + 캡처 시각"| DET
+    DET -->|"ID·방위만"| COARSE
+    COARSE -->|"탐색 운동"| SAFE
+    DET -->|"pose 검사 통과"| REL
+    REL --> VEH
+    VEH --> CLS
+    REL --> REST
+    IMU --> OWN
+    FLOW --> OWN
+    TOF --> OWN
+    OWN --> SURF
+    SURF --> OWN
+    OWN --> REST
+    VEH -->|"추정 차량 속도"| CTRL
+    REST --> CTRL
+    REST --> SAFE
+    CLS --> SAFE
+    CTRL --> SAFE
+    SAFE --> CMD
+    CMD -->|"무선 링크 또는 SITL"| PID
+    FLOW --> GATEFW
+    TOF --> GATEFW
+    GATEFW --> EKF
+    IMU --> EKF
+    EKF --> PID
+    PID --> MOT
+    TRUTH --> REV
+    CMD -.->|"명령·추정 로그"| REV
+    TRUTH -.->|"실행 중 금지: 제어 입력 · 설정"| CTRL
+    REV -->|"실행 종료 후"| OFFL
+    OFFL -.->|"실행 사이에만, 코드·설정 변경으로"| CTRL
+
+    classDef hw fill:#eaf4ed,stroke:#3d7a50,color:#183047
+    classDef pc fill:#eaf2fc,stroke:#4a6b8a,color:#183047
+    classDef ev fill:#fff5e2,stroke:#a07020,color:#4a3510
+    classDef pending fill:#fff5e2,stroke:#a07020,stroke-dasharray:4 3,color:#4a3510
+    class CAM,IMU,FLOW,TOF,GATEFW,EKF,PID,MOT hw
+    class DET,REL,VEH,CLS,OWN,SURF,REST,CTRL,SAFE,CMD pc
+    class TRUTH,REV,OFFL ev
+    class COARSE pending

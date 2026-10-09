@@ -1,0 +1,42 @@
+{
+  "recorded_at": "2026-09-30T14:50:49.433453+09:00",
+  "project_root": ".",
+  "os": "Ubuntu 22.04.5 LTS",
+  "python": "3.10.12",
+  "gazebo_sim": "8.15.0",
+  "gazebo_plugin_build_type": "Debug",
+  "python_packages": {
+    "mujoco": "3.14.0",
+    "numpy": "2.2.6",
+    "Jinja2": "3.1.6",
+    "cflib": "0.1.34rc1",
+    "tomli": "2.4.1"
+  },
+  "sources": {
+    "CrazySim": {
+      "path": "src/CrazySim",
+      "url": "https://github.com/gtfactslab/CrazySim.git",
+      "commit": "3ec8b55da4bff887da542a9f314da825460e65be"
+    },
+    "crazyflie-firmware": {
+      "path": "src/CrazySim/crazyflie-firmware",
+      "url": "https://github.com/llanesc/crazyflie-firmware.git",
+      "commit": "aa6571dc465f06f7d1f9aaf7b0b861fbcd1b3d67"
+    },
+    "crazyflie-simulation": {
+      "path": "src/CrazySim/crazyflie-firmware/tools/crazyflie-simulation",
+      "url": "https://github.com/llanesc/crazyflie-simulation.git",
+      "commit": "89d8cf79fb722bf4bd7e363ade7d90d6c45d6d5d"
+    },
+    "drone-models": {
+      "path": "src/CrazySim/crazyflie-firmware/tools/crazyflie-simulation/simulator_files/mujoco/drone-models",
+      "url": "https://github.com/utiasDSL/drone-models.git",
+      "commit": "512c864ffa55081ef4e80fadde2e861f22f45943"
+    },
+    "crazyflie-lib-python": {
+      "path": "src/crazyflie-lib-python",
+      "url": "https://github.com/bitcraze/crazyflie-lib-python.git",
+      "commit": "3c1cb0d024fef6f45d08f0ad236a22ac395dd924"
+    }
+  }
+}

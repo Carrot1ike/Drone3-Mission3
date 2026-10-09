@@ -1,0 +1,243 @@
+{
+  "contract_version": "mission3-evaluation/1",
+  "evaluator_sha256": "731aa757514d6028af1743147630804896e42f7e030e7cf13e9e7d131da00da0",
+  "consumer_restriction": "post-run review only: never an input to controller, estimator, plant or runtime tuning; offline improvements require a new code hash and new holdout seeds",
+  "official_competition_score": false,
+  "run_dir": "artifacts/mission3/automation/20261009-193646-264501/d050-r01/run",
+  "run_id": "run",
+  "run_kind": "mission3_closed_loop",
+  "evidence_level": "L2",
+  "run_author": "main-flight-adapter",
+  "entry_id": 1,
+  "seed": 1001,
+  "split": "training",
+  "series_id": "20261009-193646-264501",
+  "code_sha256": {
+    "scripts/run_mission3_physical.py": "9ebbc145d5b6e9bbf75b6047e232a9e38f2f738ec0dfc314572a56eb1cacf7ca",
+    "scripts/mission3/test_onboard_range_gate.py": "6fb282b95c8cb6a567f8555bca7431a684c45c26c518cd2a9b97e49a8a023466",
+    "scripts/mission3/test_approach_reference.py": "64eefaa53ee0c82cc2ce130e21c85296c8347c61737a2e77fcb333c3dee96dc6",
+    "scripts/mission3/firmware.py": "1a461c5ce547e1789fd804dfc29fdc1111c2f4be70b4a69673814c92b3ce58fc",
+    "scripts/mission3/flow_texture.py": "0292bb8cb7948199c7c3379ec35538f1a277858658bd83f291be234532eb3e74",
+    "scripts/mission3/scene.py": "533cd38610765125125dab567b67ba6c1df2ec77628ab9a9a166a0b090cc8c87",
+    "scripts/mission3/controller.py": "b2359cd03f2a6d2d717d9dc118bb875b6ff551c786d0e253ed0a1a4f7c377910",
+    "scripts/mission3/__init__.py": "57b9c18f0d2717554c9ff5322015df0fdfc63870102e23c5e0edcd9366458481",
+    "scripts/mission3/test_search_translation_gaze.py": "e4c7d16191c1a177ccc0053d3fe2c466d57e40206681a6f595401511f7a2e21a",
+    "scripts/mission3/optics.py": "08e42abecbe2212b81c03b4775c87e00ce587062a55bd9afb1d5882b5a53e13a",
+    "scripts/mission3/test_straight_preparation.py": "bff3c81d82f12d60150b7e93806c7f1d2006547c00ca88192a6982e96e5ad8d9",
+    "scripts/mission3/height_bearing_geometry.py": "5b3a9a0f27a003889cb85373a85a33542a6579b16a5c01c6960f3336d0efe59d",
+    "scripts/mission3/test_touchdown.py": "ce0322c7a2b38f378cbf37ecfff26dc1aff2eb8c7735f2457dce60e23316e0d2",
+    "scripts/mission3/test_candidate_gaze.py": "4facc8302921a6d9fd3c2a45c336cf230158bef09b55e8dbd990813cd5cca789",
+    "scripts/mission3/touchdown.py": "b258eeea56689f03c7ff1c258c1703f666b514c3ff34761f10856d8f9b239f7b",
+    "scripts/mission3/test_relative_velocity.py": "30c35b03cd6e41177ca79066d1432fdfd5e52b0dc2aa0f76a030d6d7e8f8a0d4",
+    "scripts/mission3/vehicle_motion.py": "8930dc2b37bad9965f5237c1a7ae3011d027b4ca363ea919402bf4de034bb36b",
+    "scripts/mission3/vertical_fit.py": "afba09e5003b5f77d13916854cd54f015f73e76345f74408e2646bb59c1f2153",
+    "scripts/mission3/test_height_bearing_geometry.py": "caa8a17b81ef09bc85fe8c5c3b17abb2a6f58a826c44bdc857b9f86eb7d5625d",
+    "scripts/mission3/test_metric_height_quality.py": "d4abb63c5b14d73a56665fc0dcc32629dd911602cd61d5508192e54ed825f9c3",
+    "scripts/mission3/test_search.py": "5375e43b9f5e1845dd67f594a14c133dad8b146353d7d5a11d0acd211424fbfa",
+    "scripts/mission3/test_terminal_adapter.py": "684b6406b0b92dec5721d4b7396fe6be44861ab2e8c01f95ac558ae78d818a03",
+    "scripts/mission3/evaluation.py": "731aa757514d6028af1743147630804896e42f7e030e7cf13e9e7d131da00da0",
+    "scripts/mission3/test_coarse_direction.py": "97f0aeed3b4843a053003da8769000cab046ba598522ed5cdd670542435ebeb7",
+    "scripts/mission3/vision.py": "11d751c4e4197469c2ab69797224922e708ffefc3a36f830d18928f058b3e757",
+    "scripts/mission3/uncertainty.py": "fb2bf490da436d76a767a2cb931008c9a81995ece7d23153365e20fabc109bb2",
+    "scripts/mission3/test_support_constraints.py": "ea0f91562da1cae545872ba3a036b6761923a4d7fd012859d2b7b7ab3172d398",
+    "scripts/mission3/passage.py": "89f5d5de09e5302ba78f70790bfc7bc1ddaf14790dae42bcc4189632027b473e",
+    "scripts/mission3/test_abort_delivery.py": "91cbfe2b1ecf559e0e55348bc13adf5ba081f328b1aa06266279156039a6add1",
+    "scripts/mission3/conditional_contact.py": "901a12b1b30e799a21d31f1dc927c581b1e5b63beeb45722694d90cebfd3f07b",
+    "scripts/mission3/handoff.py": "431f45a97794f5424fdd2bdab6a067504e016e1b225bc7bf9dc388a5a269aeb1",
+    "scripts/mission3/test_entry_hold.py": "d51a8697eaa8713a2bff90de92691c501973633b5d2f0df9f4572f33003423e3",
+    "scripts/mission3/flight_controller.py": "1ab2c27ebf8096a0d0b11ae9a4ffc8ea7aea123a13dd62601f62350d5a9f3190",
+    "scripts/mission3/test_map_constraint_geometry.py": "23822d2ed5dd3cc7a448a5a1fad0b1e291ddab6518d23f8cc659a7e3273589d9",
+    "scripts/mission3/test_position_bridge.py": "9175b37d8dd357530cba5c9e32bb9ff3ce1e8069e47b9db50aabdc14ecc8f103",
+    "scripts/mission3/test_attitude_context.py": "81e34bcd5af1b761f4186ad04660198580b1638d0fafe24560ddc26faa57cb3f",
+    "scripts/mission3/test_detector_profile.py": "f42843389d65709f5126995bf1f213d894dd668c5734a7a6f1de56a7e24c7843",
+    "scripts/mission3/test_terminal_recovery.py": "ca7278c6d693ee946a53dc195a1930ce2af6aa8bce1a1d37430b7c7ed62919aa",
+    "scripts/mission3/test_uncertainty.py": "f402ff5f5c83482887c4b84063502a464160274584c4f44a564aac583f6c1df8",
+    "scripts/mission3/estimator.py": "797cd49ae941889b10cc934567cab0fe67fe6701086109268728fe6e153699fe",
+    "scripts/mission3/map_constraint_geometry.py": "0e4adc18d80838ec14da161cf1a928ddc59a08bfee8e26cb56e3d44fe33697a3",
+    "scripts/mission3/test_accel_residual.py": "68c5157fe99236d1ade28dda5af047295c073385947505742f907752637b665d",
+    "scripts/mission3/test_coarse_turn.py": "95f6afa6762a7ef6ec1ac419e670ab712afddae623ef528f4539e5da52ef5b7f",
+    "scripts/mission3/sensor_time.py": "66a70fc11c5ca20a305a34bb08c672b90c389dd663197de441be953ae09f335f",
+    "scripts/mission3/track.py": "8191e00bbeeb88b518b4955d8ad56c378865f5720dbd59cbed241b85fb2a3907",
+    "scripts/mission3/settings.py": "db8e8deb9d0fb9b15dcae149d92ddbd9ec9d8b27c978cbf120d9ddde053e2e9b",
+    "scripts/mission3/test_flow_texture.py": "bee636d8f1fa23b7f4c2f34b5fc56d2dfde9f0bb29affcc84cc9fcb06bd5e0aa",
+    "scripts/mission3/test_abort_adapter.py": "1b61a3d745cfc589e69cc59e76303edd7bed867ec8dde877d8249c3130572928",
+    "scripts/mission3/abort_delivery.py": "a75e5e3dff632f3a3b186d6fb6ed09002bcf3ac7dd754ee3cfe6c144661fbc27",
+    "scripts/mission3/test_vertical_fit.py": "2b20411de71eacce4bbcd675760aac666b29c08bf212f9ae38eee07f2c0fb42b",
+    "scripts/mission3/test_experiment_identity.py": "4b762cc20e752a70d84cafb30031921a78d1cbcfde214cb9287e6fcf2b54f6f1",
+    "scripts/mission3/recording.py": "157ee9c188a9f705ccfc2a01b6191943e7ac1a6244867db1ff0966b6e3ec4961",
+    "scripts/mission3/position_bridge.py": "293807ba26348869665cceee863fbabb99b8bd0105c1a5307c80b68d0dcab6c4",
+    "scripts/mission3/test_handoff.py": "d1df685392ec269610395a4e76817bdda6e76d04bc7c547168d88b6e508cf211",
+    "scripts/mission3/physical_estimator.py": "30cb9636f49b6c486474c5ff005e5b5e7095fb31ef4cb5ae3250125945c3cd25",
+    "scripts/mission3/test_straight.py": "b2bede5fdbf7e37b85a09f6f66cd077f473f95f53afc58270dccfcf91c2cd323",
+    "scripts/mission3/test_evaluation.py": "a0950a5e7640072fd8020195f174c8e238cdaa4ee7044536f1d085142dccea81",
+    "scripts/mission3/test_uncertainty_observation.py": "26354c84f0b484d906f0570cfac763842119e28faea2dbd148444d862506dc5c",
+    "scripts/mission3/test_optics.py": "340967112925ab2c850ed869ffdb05dcc36c9d6acff1a9d6eebaeca165e58193",
+    "scripts/mission3/test_search_reverse_speed.py": "999dc068439e434ceb6f589afbb54760238b5aaa2f3fcffe1c2ddc2952401312",
+    "scripts/mission3/test_physical.py": "c2214aa8b1357cd6fa1278862e9a39891e2ba58ca415d8150c4b2330147f7671",
+    "scripts/mission3/test_recording.py": "0b43fbdf6d3128f5d2b82b4e4804d90790c8b4ba9a81e0cec92601c0c3fe9c43",
+    "scripts/mission3/physical_scene.py": "7caf675156cefb7f2f2a6058ec69d447b8e8cde0cacc19479ebcc103256de935",
+    "scripts/mission3/approach_reference.py": "cca336cb4f5673059eeb29d5f5da8127e6dbcb0e61aa184c694a4c00ffc36c27",
+    "scripts/mission3/test_contracts.py": "9e56fe3c16980061a7d0949aa2d07c56f20c5d9029de6b544e5a0f0589226990",
+    "scripts/mission3/test_sensor_chronology.py": "e181556c64cd9947be868a8f0400331ac098be6fbc0e764e514ec7fc8129970d",
+    "scripts/mission3/firmware_host.c": "bab0f8154a809d7f9a8c0796424d08eae6cc70209398317ad57842fd7ee13990",
+    "scripts/mission3/flight_controller_host.c": "f6f370dd38b12a9ce9ec5a138edf02f00ff2f59f78b2796b59bcf696098bb737",
+    "scripts/mission3/position_bridge_host.c": "d67b6dc1fb0c7e8ca7bcc714db3dd8ce4df3b88eca0f628a861569bbd6b9e45f",
+    "scripts/yaw_core.py": "f23c0d260aaab1cb59c13ae6673209c993d2567246bd7e8c1d06e8d3ebe23786",
+    "scripts/aruco_pose.py": "12683b544759ba147cd6b5071257e7988c09645560ae68feaee9d6f8b7f39687",
+    "scripts/mission3_rpyt_protocol.py": "72eb89c6ef42d7d6cf32f5dbbcab54ea39cc318a5791e32d48533c0f7711e550"
+  },
+  "config_sha256": "e59ca2cd92672253594c13b2ee0a4c52dccd8f42e7646b447fc4cad2ccb4ff2e",
+  "missing_logs": [],
+  "corrupt_logs": [],
+  "score": null,
+  "checks": {
+    "manifest": {
+      "status": "pass",
+      "fail_reasons": [],
+      "ineligible_reasons": []
+    },
+    "camera_contract": {
+      "status": "pass",
+      "fail_reasons": [],
+      "ineligible_reasons": [],
+      "frames": 136
+    },
+    "controller_isolation": {
+      "status": "pass",
+      "fail_reasons": [],
+      "ineligible_reasons": []
+    },
+    "physics_evidence": {
+      "status": "pass",
+      "fail_reasons": [],
+      "ineligible_reasons": []
+    },
+    "closed_loop_mission": {
+      "status": "pass",
+      "fail_reasons": [],
+      "ineligible_reasons": []
+    },
+    "log_integrity": {
+      "status": "pass",
+      "fail_reasons": [],
+      "ineligible_reasons": []
+    },
+    "motors_off": {
+      "status": "fail",
+      "fail_reasons": [
+        "no_pad_contact"
+      ],
+      "ineligible_reasons": [],
+      "motor_off_time_s": null
+    },
+    "collision": {
+      "status": "pass",
+      "fail_reasons": [],
+      "ineligible_reasons": []
+    },
+    "touchdown": {
+      "status": "fail",
+      "fail_reasons": [
+        "no_pad_contact"
+      ],
+      "ineligible_reasons": [],
+      "first_touchdown_time_s": null
+    },
+    "hold_support": {
+      "status": "fail",
+      "fail_reasons": [
+        "no_motor_off_window"
+      ],
+      "ineligible_reasons": [],
+      "hold_s": 3.0,
+      "hold_end_s": null
+    },
+    "vehicle_motion": {
+      "status": "ineligible",
+      "fail_reasons": [],
+      "ineligible_reasons": [
+        "no_touchdown_hold_window"
+      ],
+      "nominal_speed_m_s": 0.3,
+      "static_pad": null
+    },
+    "descent_straight": {
+      "status": "ineligible",
+      "fail_reasons": [],
+      "ineligible_reasons": [
+        "no_touchdown_hold_window"
+      ],
+      "descent_start_s": null
+    },
+    "mission_time": {
+      "status": "ineligible",
+      "fail_reasons": [],
+      "ineligible_reasons": [
+        "no_touchdown_hold_window"
+      ]
+    }
+  },
+  "simulation_contact_success": {
+    "status": "fail",
+    "fail_reasons": [
+      "no_pad_contact",
+      "no_motor_off_window"
+    ],
+    "ineligible_reasons": [
+      "no_touchdown_hold_window"
+    ],
+    "scope": "mission3_closed_loop",
+    "note": "시뮬레이션 접촉 판정. 기체 파라미터가 조건부이면 제조사 일치 성공이 아니다"
+  },
+  "manufacturer_profile_matches": {
+    "status": "fail",
+    "fail_reasons": [
+      "profile_source:assembled_mass_kg=sensitivity_assumption",
+      "profile_null:assembled_center_of_mass_m",
+      "profile_source:assembled_inertia_kg_m2=sensitivity_assumption",
+      "profile_null:pwm_to_thrust_model",
+      "profile_source:motor_response_model=sensitivity_assumption",
+      "profile_source:aerodynamic_model=sensitivity_assumption",
+      "profile_null:camera_K",
+      "profile_null:camera_distortion",
+      "profile_null:R_body_camera",
+      "profile_source:camera_position_body_m=sensitivity_assumption",
+      "profile_null:camera_capture_timestamp",
+      "profile_source:flow_deck_position_body_m=sensitivity_assumption",
+      "profile_null:flow_fov_deg",
+      "profile_null:flow_min_height_m",
+      "profile_null:tof_fov_deg",
+      "profile_null:tof_min_distance_m",
+      "profile_source:landing_contact_geometry=sensitivity_assumption"
+    ],
+    "ineligible_reasons": []
+  },
+  "qualified_mission_success": {
+    "status": "fail",
+    "fail_reasons": [
+      "no_pad_contact",
+      "no_motor_off_window",
+      "profile_source:assembled_mass_kg=sensitivity_assumption",
+      "profile_null:assembled_center_of_mass_m",
+      "profile_source:assembled_inertia_kg_m2=sensitivity_assumption",
+      "profile_null:pwm_to_thrust_model",
+      "profile_source:motor_response_model=sensitivity_assumption",
+      "profile_source:aerodynamic_model=sensitivity_assumption",
+      "profile_null:camera_K",
+      "profile_null:camera_distortion",
+      "profile_null:R_body_camera",
+      "profile_source:camera_position_body_m=sensitivity_assumption",
+      "profile_null:camera_capture_timestamp",
+      "profile_source:flow_deck_position_body_m=sensitivity_assumption",
+      "profile_null:flow_fov_deg",
+      "profile_null:flow_min_height_m",
+      "profile_null:tof_fov_deg",
+      "profile_null:tof_min_distance_m",
+      "profile_source:landing_contact_geometry=sensitivity_assumption"
+    ],
+    "ineligible_reasons": [
+      "no_touchdown_hold_window"
+    ]
+  },
+  "physical_success_counted": false
+}

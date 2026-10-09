@@ -1,0 +1,29 @@
+%% 현재 adapter 경로. GEOMETRY_READY 단독은 착륙이 아니다.
+flowchart TD
+    H["HANDOFF_IN<br/>known entry/forward, initial height1m<br/>previous mission estimator continuation U"] --> WAIT["WAIT_FIXED_GAZE15s"]
+    WAIT -->|"미검출"| EXPLORE["EXPLORE<br/>known static map observation point"]
+    EXPLORE --> WATCH["WATCH<br/>fixed position + small gaze sweep"]
+    WAIT -->|"decoded ID/bearing"| COARSE["COARSE_ACQUIRE<br/>bounded own-distance/time exploration only"]
+    EXPLORE --> COARSE
+    WATCH --> COARSE
+    COARSE -->|"fresh metric pose"| ACQ["ACQUIRE"]
+    COARSE -->|"loss/distance bound"| WATCH
+    ACQ --> LINE["LINEUP<br/>rear standoff .65m"]
+    LINE --> LOWER["LOWER_ALIGN<br/>camera visibility height S"]
+    LOWER --> APPROACH["APPROACH"]
+    APPROACH --> TRACK["TRACK<br/>relative speed + heading + position gates"]
+    TRACK -->|"fresh pose, estimated straight, remaining margin"| BLINDA["BLIND_APPROACH<br/>last reliable capture budget"]
+    BLINDA --> BLINDD["BLIND_DESCEND<br/>qualified contained pad Flow"]
+    BLINDD --> GEO["GEOMETRY_READY<br/>physical handoff above pad11cm S<br/>not contact"]
+    GEO --> TOUCH["TOUCHDOWN_DESCEND<br/>near Flow/metric ToF disabled<br/>bounded IMU propagation"]
+    TOUCH --> PROBE["SUPPORT_PROBE<br/>calibrated command force vs IMU<br/>conditional support candidate"]
+    PROBE --> OFF["MOTOR_OFF_HOLD<br/>PWM0 + IMU stable3s"]
+    OFF --> OUT["RESULT_OUT<br/>LANDED_PENDING_REVIEW"]
+    OUT --> REVIEW["Offline actual contact/four-foot/3s review<br/>manufacturer-qualified count separately"]
+    BLINDA -->|"age/surface/straight/uncertainty violation"| REC["BLIND_RECOVER<br/>limited FF backoff + climb"]
+    BLINDD --> REC
+    TOUCH --> REC
+    REC --> RISE["BLIND_RISE<br/>drop FF, brake xy, climb to safe estimated height"]
+    RISE --> ABORT["ABORT_OUT<br/>failure preserved"]
+    OFF -->|"sensor support unconfirmed"| ABORT
+    WATCH -->|"search budget"| ABORT

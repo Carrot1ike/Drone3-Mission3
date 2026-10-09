@@ -1,0 +1,27 @@
+%% 2026-10-08 현재 코드 경로. S/U를 제조사 일치로 승격하지 않는다.
+flowchart LR
+    IMG["AI-deck 합성 sensor<br/>native mono8 320×320<br/>공칭 FOV / lens candidate S / actual K,D U"] --> DET["ArUco ID · IPPE · capture 자세 제약"]
+    DET -->|"ID + bearing만"| COARSE["유한 탐색 접근<br/>정밀 차량 state/하강 금지"]
+    DET -->|"pose gate 통과"| VEH["차량 패드·방향·속도 추정<br/>영상 회귀 또는 상대 kinematics S"]
+    SENSOR["IMU1kHz · Flow100Hz · ToF40Hz<br/>finite patch·noise·mount S"] --> SELF["자기 상태·표면 가설<br/>바닥/이동 패드/혼합/모호"]
+    GATE["부품 운영 범위의 보수 gate<br/>Flow <80mm 융합 제외<br/>ToF <40mm 정밀 높이 제외"] --> SELF
+    MAP["알려진 arena/entry/static track<br/>live 차량 phase·속도 없음"] --> PHASE["WAIT/SEARCH/ACQUIRE/LINEUP/APPROACH/TRACK/BLIND"]
+    VEH --> PHASE
+    SELF --> PHASE
+    COARSE --> PHASE
+    PHASE --> FF["FF 추정 차량 속도<br/>FB 상대 위치·속도·방향"]
+    FF --> LIMIT["속도·가속도·yawrate 제한<br/>영상 age·직선 여유·uncertainty<br/>실패 시 bounded 후퇴·상승"]
+    LIMIT --> PID["공식 C PID·mixer·전압 보정<br/>센서 기반 추정 state 입력"]
+    SELF --> PID
+    PID --> PWM["명령 PWM"]
+    PWM --> PLANT["조건부 motor lag/curve<br/>MuJoCo 자유 기체·접촉"]
+    PWM --> SUPPORT["공중 force-model/IMU 식별<br/>collective probe·지지 residual"]
+    SENSOR --> SUPPORT
+    PHASE --> SUPPORT
+    SUPPORT --> OFF["motoroff 후보<br/>IMU 안정성3초"]
+    OFF --> PID
+    PLANT --> SENSOR
+    PLANT --> IMG
+    PLANT -->|"오프라인만"| REVIEW["독립 평가<br/>접촉·네 발·PWM0·3초·직선·score<br/>실패 분모·source SHA"]
+    OFF -->|"추정/명령 로그"| REVIEW
+    REVIEW --> NEXT["새 코드/설정 + 별도 seed 재시험<br/>조건부 접촉과 제조사 일치 집계 분리"]

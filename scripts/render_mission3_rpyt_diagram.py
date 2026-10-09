@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+"""현재 검증 중인 PC-RPYT 경로를 편집 가능한 SVG/PNG로 표시한다."""
+from render_control_diagram import Drawing,BLUE,GREEN,AMBER,MUTED
+
+
+def main():
+    d=Drawing(1700,1640,"미션3 PC-RPYT 경로 · 조건부 물리 검증")
+    d.text(55,30,"미션 3 · PC 계산과 기체 제어의 경계",36,anchor="start")
+    d.text(55,88,"마커 발견 → 후방 정렬 → 추종·접근 → 제한된 최종 착륙 / FF + FB",25,anchor="start")
+    d.text(55,133,"native mono8 320×320 · 공칭 화각87° · 패드20×20cm/높이30cm · 차량0.25m/s는 환경에만 입력",21,MUTED,"start")
+    d.rect(40,205,1100,1160,"#f6f9fe","#c6d5e5")
+    d.rect(1190,205,465,1160,"#f6faf7","#c7d8cc")
+    d.text(590,222,"PC · 관찰된 정보로 추정·명령 계산",26)
+    d.text(1422,222,"기체 공식 코드 host 실행",24)
+    d.node(70,285,320,170,"AI-deck 영상","가상 native mono8 320×320\n렌즈 K/D·mount 합성 후보 S\n실기 ROI·촬영 timestamp U",BLUE,22)
+    d.node(430,285,310,170,"ArUco 상대 관측","IPPE·오차·깊이≥.32m gate S\n거부 시 이전 영상 시각 유지\ncoarse bearing은 탐색만",BLUE,21)
+    d.node(780,285,325,170,"차량 운동 추정","영상 상대 pose + 자기 운동\n패드·방향·속도·회전율\n실제 차량 상태 입력 금지",BLUE,22)
+    d.arrow([(390,370),(430,370)]);d.arrow([(740,370),(780,370)])
+    d.node(70,530,320,170,"가상 body IMU·Flow·ToF","Flow100Hz / ToF40Hz S시간\nToF 대각27° P · patch 응답 S\nbody IMU→PC 평균100Hz S",GREEN,21)
+    d.node(430,530,310,170,"PC 독립 IMU 자세","공식 core의 별도 상태 문맥\nraw IMU100Hz만 전파\n기체 EKF·deck 보정과 분리",BLUE,22)
+    d.node(780,530,325,170,"표면·자기 운동 추정","바닥에서 수평 IMU 잔차 fit S\n이동·혼합 표면 갱신 금지\nFlow8cm · ToF4cm/무늬 gate",BLUE,21)
+    d.arrow([(390,615),(430,615)]);d.arrow([(740,615),(780,615)])
+    d.arrow([(215,530),(215,492),(940,492),(940,530)],dashed=True)
+    d.arrow([(585,530),(585,455)],dashed=True)
+    d.node(70,785,1035,155,"단계·인계·제한 게이트","센서1m 인계 → WAIT15초 → 가까운 지도 관측점 → 마커 획득\nLINEUP70cm 추종 → 직선·준비거리 확인 → LOWER_ALIGN40cm → 접근\n최종6초 예측·IMU 인계 / 부분 지지 뒤 복구 기울기 실패 반례",BLUE,21)
+    d.arrow([(942,455),(1120,455),(1120,760),(942,760),(942,785)])
+    d.arrow([(942,700),(942,785)])
+    d.node(70,1020,480,155,"FF + FB 속도·yaw 명령","FF = 영상으로 추정한 차량 속도\nFB = 상대 위치·속도·방향 오차\n명령 속도·가속도·회전율 제한",BLUE,22)
+    d.node(605,1020,500,155,"접촉 후보 · 종료 판단","최근 보정·추정 상판 높이 조건\n최종6초·추력 probe·IMU 지지 잔차\nPWM0 뒤 IMU3초 / 공중 오판 한계",AMBER,21)
+    d.arrow([(310,940),(310,1020)]);d.arrow([(855,940),(855,1020)])
+    d.node(70,1240,1035,105,"PC 공식 velocity PID → RPYT packet100Hz","roll·pitch·yawrate·legacy collective / zero unlock·zero stop·명령 모드 검증",BLUE,23)
+    d.arrow([(310,1175),(310,1240)])
+    d.arrow([(855,1175),(855,1240)],dashed=True)
+    d.node(1220,285,405,170,"기체 전체 EKF","공식 Flow/ToF·IMU core\n높은 이동 패드를 바닥으로 해석\n그 위치·속도는 PC로 되먹이지 않음",GREEN,22)
+    d.node(1220,545,405,170,"기체 decoder·자세 PID","공식 RPYT decoder / 자세·각속도\nPID500Hz → mixer/PWM1kHz\n실제 radio·RTOS supervisor 미재현",GREEN,22)
+    d.node(1220,815,405,170,"MuJoCo 자유 기체","조건부 PWM→추력·토크·motor lag\n힘으로 움직이고 실제 상판 접촉\n기체 pose 강제 이동 없음",GREEN,22)
+    d.node(1220,1110,405,205,"현실과의 차이를 명시","실기 K/D·deck 장착·CoM·관성 U\n모터/전압/접촉·센서 전달 모델 S\nFlow 무늬 gate ≠ 실제 SQUAL\n공식 알고리즘 ≠ 제조사 완성 기체",AMBER,22)
+    d.arrow([(1422,455),(1422,545)]);d.arrow([(1422,715),(1422,815)])
+    d.arrow([(1105,1292),(1170,1292),(1170,630),(1220,630)])
+    d.arrow([(1220,900),(1150,900),(1150,477),(215,477),(215,530)],dashed=True)
+    d.node(55,1430,1590,160,"실행 후 독립 검토 · 제어와 격리","참 위치·접촉 쌍·네 발 법선력·PWM0·3초 지지·직선·실패 분모·내부 점수·source SHA\n조건부 모델의 방향별 연구 시험과 제조사 일치 qualified 집계는 별도 / 각 성공 후보는 독립 검토\nP 제조사 공개 사실 · C 공식 소프트웨어 상수/알고리즘 · S 민감도 가정 · U 미확정",AMBER,24)
+    d.arrow([(1422,1315),(1422,1430)],dashed=True)
+    d.save("mission3-rpyt-control")
+
+
+if __name__=="__main__":main()

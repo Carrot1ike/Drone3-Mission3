@@ -1,0 +1,41 @@
+{
+  "scope": "offline audit; actual pose is evaluation only, never controller input",
+  "limits_are": "provisional software trial settings, not manufacturer maximum or hardware proof",
+  "command_limits": {
+    "max_speed_m_s": 0.4,
+    "max_accel_m_s2": 0.15,
+    "max_yaw_rate_deg_s": 10.0,
+    "max_yaw_accel_deg_s2": 20.0,
+    "max_climb_speed_m_s": 0.1,
+    "max_descent_speed_m_s": 0.06
+  },
+  "max_command_speed_m_s": 0.10001504812386776,
+  "max_command_climb_m_s": 0.1,
+  "max_command_descent_m_s": 0.04493904333891112,
+  "max_command_yaw_deg_s": 9.197354537918395,
+  "max_command_accel_all_m_s2": 4.881547832677766,
+  "max_command_accel_normal_m_s2": 0.15000000000000047,
+  "max_command_yaw_accel_all_deg_s2": 20.000000000000007,
+  "max_command_yaw_accel_normal_deg_s2": 20.000000000000007,
+  "explicit_safety_overrides": [
+    {
+      "t": 18.5599999999997,
+      "phase": "ABORT",
+      "command_accel_m_s2": 4.881547832677766,
+      "command_yaw_accel_deg_s2": 0.0
+    }
+  ],
+  "max_actual_speed_m_s": 0.35623033216364863,
+  "max_actual_horizontal_speed_m_s": 0.06054630701141002,
+  "first_image_guidance_time_s": 16.11999999999672,
+  "pre_image_max_actual_entry_xy_drift_m": 0.0023928077019502994,
+  "phases": [
+    "HANDOFF_PREROLL",
+    "WAIT",
+    "ACQUIRE",
+    "RECOVER",
+    "ABORT"
+  ],
+  "unobserved_track_station_phase_present": false,
+  "command_envelope_pass": true
+}

@@ -1,0 +1,817 @@
+{
+  "scope": "Read-only copies from the reviewed latest straight batch; no new flight or review",
+  "files": [
+    {
+      "path": "results/mission3/straight-20261009/all-16-results.csv",
+      "copied_from": "artifacts/mission3/team-share-20261009/all-16-results.csv",
+      "bytes": 4859,
+      "sha256": "a7ce532bb052e1ae3cb786b2384dbe1ad6c0547b51766e744f4210dedd0f8396",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/camera-time-ranges.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/camera-time-ranges.json",
+      "bytes": 3355,
+      "sha256": "ca4f7d2fe8f24a8190334babcace1bb528518ed91690feb117af6f8dc535005a",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d050-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d050-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "e5c0dbd51587307e18423e5226a98e9eb1a8a337d198c1f5bf05bca6095b59a9",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d050-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d050-r01/command-limits-audit.json",
+      "bytes": 1392,
+      "sha256": "697ed077113c1b1d5ab2344703550f4b46825f3cea608e473ae38f5e7ad757a9",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d050-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d050-r01/config.json",
+      "bytes": 8761,
+      "sha256": "b475d8ee4f6f5aa7738b232b1661162f4e67625f070cfb020f1b2078912f930a",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d050-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d050-r01/controller-settings.json",
+      "bytes": 8607,
+      "sha256": "d51b90d2ebdb256eed99122bf4fe3bed54963874c3755bcd3322757c1a56b098",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d050-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d050-r01/experiment.json",
+      "bytes": 20632,
+      "sha256": "15169557991c566d5db57c751d573d6af8de0ae55cee7250230b70b072884c18",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d050-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d050-r01/offline-evaluation.json",
+      "bytes": 13305,
+      "sha256": "7f8f3fb55adfa3c84cac227e7471026b84a0d9c77abc43d5b73956222014156e",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d050-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d050-r01/run_manifest.json",
+      "bytes": 17776,
+      "sha256": "6b9f62d08e2b4e8ccd8e27bc6b82bde19c251b62ccbced78aae23bb457bd5b60",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d055-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d055-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "6b0d6a679c28e20317d344a84659b491531a408b147483fa082a724df8bcac6c",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d055-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d055-r01/command-limits-audit.json",
+      "bytes": 1515,
+      "sha256": "3f19943a414c72ca57260e2a71ef79a98e4883c5cc675d3f7cb2e8f36e9a140d",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d055-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d055-r01/config.json",
+      "bytes": 8763,
+      "sha256": "a9a3c729d28f711f52f1a492df70177e8f542a05b3a494debe96e42404b1f87e",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d055-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d055-r01/controller-settings.json",
+      "bytes": 8608,
+      "sha256": "18fcf64bbc7f85ab2874f0a7a91927e45fdf19491455b2aae049c1b02a55b86c",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d055-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d055-r01/experiment.json",
+      "bytes": 20634,
+      "sha256": "2d21ba0be58e91ac0dbe336406cf8b0740afb68158ef4d255fe725d4e399c608",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d055-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d055-r01/offline-evaluation.json",
+      "bytes": 13241,
+      "sha256": "8f720d292b4288c8f6a2e49c7e6dbd9e6b33526e455bf4732ab4ed0bd93d783c",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d055-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d055-r01/run_manifest.json",
+      "bytes": 17771,
+      "sha256": "9b98a0b4e478e76509492d972b810d6dc859c7d23a42a7d2504f91274a0726f5",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d060-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d060-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "5361a29c9fb17b5a0bf51713a6e81dd7df1fa881c41261a3840eb49855f04c0d",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d060-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d060-r01/command-limits-audit.json",
+      "bytes": 1512,
+      "sha256": "6a234a2752009c8800cc8881e03afc5ffcd4ab080b09aca15d8af3e1bca75d11",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d060-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d060-r01/config.json",
+      "bytes": 8761,
+      "sha256": "9bff60e9afcc2d1daa14f28dddc181aac83b5ddb5f7af8f2abeff03d2c8f052d",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d060-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d060-r01/controller-settings.json",
+      "bytes": 8607,
+      "sha256": "45c17d624af747f1497e28c2952f7ce8e2f14ec9411a85df9e6ec8b632800e52",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d060-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d060-r01/experiment.json",
+      "bytes": 20632,
+      "sha256": "33c939527f2b91eed07c55a4bccdeb624ddd56d8714dd6a2f1659599abe5b3f5",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d060-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d060-r01/offline-evaluation.json",
+      "bytes": 13237,
+      "sha256": "af140dea8cdd21f57ceb3582229e92aacbaeabaca1caba1bb071168a7cd25d9c",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d060-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d060-r01/run_manifest.json",
+      "bytes": 17768,
+      "sha256": "c50fb271f81e829cc1ba68fb40d678ae85c6d816b47c6d9b864f6678f9323c06",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d065-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d065-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "c6275461f0c16451cd4deff4891badb13f8469f108a83b958eb274bceb28685a",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d065-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d065-r01/command-limits-audit.json",
+      "bytes": 1512,
+      "sha256": "0df0011f24f5ebdd63b25e4d6a7e7e6c5d03259dc9503d947cef00237b9a30b6",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d065-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d065-r01/config.json",
+      "bytes": 8763,
+      "sha256": "87913445e5211a0134bd6e13acbe30e0f6775b5c617a47aa1e0d165ba134b87a",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d065-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d065-r01/controller-settings.json",
+      "bytes": 8608,
+      "sha256": "d7b211a432ce7b0aa6ff89bfcf198c39c9da174dd77517bfec3dc2e122fbd0ff",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d065-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d065-r01/experiment.json",
+      "bytes": 20634,
+      "sha256": "5f0020395b5f38c83def88169ac732b4da7864210ee246c17237afec5cb6ff4f",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d065-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d065-r01/offline-evaluation.json",
+      "bytes": 13236,
+      "sha256": "4560ed9d3f59a22c9a5336aaf19dc11901766598f944864c6f644e0f8496dd03",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d065-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d065-r01/run_manifest.json",
+      "bytes": 17769,
+      "sha256": "a1ccd1762b208dd71773f89bb2866c7861f82419c79bad0fdb0ad7e0687dfef0",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d070-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d070-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "96821e38ececa460553315eff1df0b17889c981dc64e2925b6ab9f537609a93f",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d070-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d070-r01/command-limits-audit.json",
+      "bytes": 1511,
+      "sha256": "4f09f41a782db4b431458dd3f9420d01c987600bfa3a07a2d517ab09c90e418e",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d070-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d070-r01/config.json",
+      "bytes": 8761,
+      "sha256": "1641cbda40e39b0a141c156270366cb44048ee1c7e88d0311ad3614cf7ca75b7",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d070-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d070-r01/controller-settings.json",
+      "bytes": 8607,
+      "sha256": "3475c4ec103381b8fb526becc36467c200830f0846df10538393a324978a643b",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d070-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d070-r01/experiment.json",
+      "bytes": 20632,
+      "sha256": "8244180bb09dc721a33777ef77c6815733d782d677cca29c181e65965365e94e",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d070-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d070-r01/offline-evaluation.json",
+      "bytes": 13237,
+      "sha256": "28ec9732030a31b91f629dadd9184edb0f813a89547d04895c84be816bf3eff5",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d070-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d070-r01/run_manifest.json",
+      "bytes": 17768,
+      "sha256": "89d4a34ac3d88c931f5e6ac0d7497585a64e5d691ccf638ad045860bb44043d6",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d075-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d075-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "96f8f100c615433dba9862c712296dba31396d14f76e5c41a436f51d3b586ac8",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d075-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d075-r01/command-limits-audit.json",
+      "bytes": 1513,
+      "sha256": "55600b28e4319e43a47e4d58688040b2865b583b684182d4cfe5250820f42c31",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d075-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d075-r01/config.json",
+      "bytes": 8763,
+      "sha256": "43a530810924c8808c23e2f8945c272d9f3c751d5578ae47b2a502938ad7837e",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d075-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d075-r01/controller-settings.json",
+      "bytes": 8608,
+      "sha256": "fab9c489a1dc4351914f26fca8977fd92bb7905708e3b82e7581ddb57e849e53",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d075-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d075-r01/experiment.json",
+      "bytes": 20634,
+      "sha256": "fec3fd3e617bc6ff4c7c17fd7713184f8c216c2516e1358d18a9bfd00c5e8e55",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d075-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d075-r01/offline-evaluation.json",
+      "bytes": 13238,
+      "sha256": "50a58ebd44aa5cf02c31445bc6830cd67807895e303c18851b37a46664349b7f",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d075-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d075-r01/run_manifest.json",
+      "bytes": 17769,
+      "sha256": "1d55c7c14c3e943b053bd5684ab0fd84bb27898894bd226fc793e311bb90fde4",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d080-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d080-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "f453b01b847d9c968aabc07c84dfbde416537121d00a2ffe14e46f1dfd19df5d",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d080-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d080-r01/command-limits-audit.json",
+      "bytes": 1510,
+      "sha256": "5a70d7b9cb8e008640d2bebfa5a9f8f31d7bfe20cbad82d0eed10acb78e6fabf",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d080-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d080-r01/config.json",
+      "bytes": 8761,
+      "sha256": "11ec6e36fb24f5e1a839e53f3a7c0a917f91ed4a5496d97339ce900d869d69b1",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d080-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d080-r01/controller-settings.json",
+      "bytes": 8607,
+      "sha256": "8a273d7a34c29f09167f49aaa39498c27a52981533c9082b409bf2e334a00f83",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d080-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d080-r01/experiment.json",
+      "bytes": 20632,
+      "sha256": "e555ed7855f3bc2c83c304a6fbfd6fc8d5bc9767a9e9e7567acd03d5b4f3dc84",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d080-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d080-r01/offline-evaluation.json",
+      "bytes": 13237,
+      "sha256": "e785c658296c3de153b5d0b5e1e3ea064c472982aede46ae2bf45097dd97840e",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d080-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d080-r01/run_manifest.json",
+      "bytes": 17769,
+      "sha256": "496e8aeffc8e958fd12bb92eb8ec8a123d0b02133f680627c5e253ca40317f9d",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d085-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d085-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "826af0d391611dbbe14347dc97f933b6c0049f660ff1d174514a794b9365640e",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d085-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d085-r01/command-limits-audit.json",
+      "bytes": 1533,
+      "sha256": "792556b8721b29580f20f137e3b1e57a5ea6035a9c57db2d85f56f80d977c4f6",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d085-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d085-r01/config.json",
+      "bytes": 8763,
+      "sha256": "c2aed0994f9401678932fa7c7f75390028015444e723bad809153657b14cb003",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d085-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d085-r01/controller-settings.json",
+      "bytes": 8608,
+      "sha256": "dfd0aa05bce92c4064b16bda0a2a9ad90a76f1e20b4aec23122c72e65ff52457",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d085-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d085-r01/experiment.json",
+      "bytes": 20634,
+      "sha256": "b37ede69a4feb7743672325d20f0fa6adb919d51d29f28843e2eb4ba0b8eea62",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d085-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d085-r01/offline-evaluation.json",
+      "bytes": 13236,
+      "sha256": "fa9d459608eeb2cce291f9c650cbfe2a9d7cd9af4517dcc0417da7df28a108e9",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d085-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d085-r01/run_manifest.json",
+      "bytes": 17769,
+      "sha256": "5dbf383b5b468b1c854944380eed064817bc7cc90eb94e275b70a9c540a41704",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d090-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d090-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "1203bae0a85d7af6b22b372cccad24a36f4355041f1a6021ab03345967ffcb87",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d090-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d090-r01/command-limits-audit.json",
+      "bytes": 1534,
+      "sha256": "48fd2fdc9a8996540de0eac0e8ac9f683bf82a71a3c657ac88a7af657680184f",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d090-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d090-r01/config.json",
+      "bytes": 8761,
+      "sha256": "2a82769a377a927b0286544d26644cce53ae18668c99c403ac033ba34c0c8499",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d090-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d090-r01/controller-settings.json",
+      "bytes": 8607,
+      "sha256": "e9862d0ee106908ee4da5149cfe3544f9d286208ff3a9525259ef73365456396",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d090-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d090-r01/experiment.json",
+      "bytes": 20632,
+      "sha256": "d8428472d077ebeb7d628f16c3e9426382885f1e4c25e61051487ed361e44fcf",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d090-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d090-r01/offline-evaluation.json",
+      "bytes": 13237,
+      "sha256": "7d204439c9c8756133ba26990f1b3963d3d98c2e0b93a94f321823a50b448b4f",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d090-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d090-r01/run_manifest.json",
+      "bytes": 17770,
+      "sha256": "9f6594042efd14b949aaadf7d6f8f323e58421328e9dfe7a560319cd922be2c5",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d095-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d095-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "f20d4cc20197ca71a908fa47b9c6060e5d713b6fad853eebc57406abe053da0e",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d095-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d095-r01/command-limits-audit.json",
+      "bytes": 1536,
+      "sha256": "8bb003ae71847a969ebacb545343e25d58845d0ae30e32e4c21d34ee69409e9f",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d095-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d095-r01/config.json",
+      "bytes": 8763,
+      "sha256": "65b407bce5cdf160fb95359ec128b6ea7e3d86c692a2a44fd2292e4a4870fc99",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d095-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d095-r01/controller-settings.json",
+      "bytes": 8608,
+      "sha256": "4f48ee2c08a0d76331e478f1f48de463190e82eac0e815f7575206c3028ed0c9",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d095-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d095-r01/experiment.json",
+      "bytes": 20634,
+      "sha256": "3699d62f9db822c7382078d7224e39fed34ed476a140b5336c55e0eeee5e55fe",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d095-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d095-r01/offline-evaluation.json",
+      "bytes": 13241,
+      "sha256": "669cbcbfca7e9c5da719d590d6c4dc791586ea3c6c198a3a536c7a6bcb05d915",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d095-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d095-r01/run_manifest.json",
+      "bytes": 17767,
+      "sha256": "b9283ae853af298fa88a4a817e6e8a064bbdfcd6a2e5ce2254cad336214c97a8",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d100-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d100-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "d1e0ba48677481bc2489bb0ade962df9b8f7c1887e2d81ae8f9ca9a546182f3d",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d100-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d100-r01/command-limits-audit.json",
+      "bytes": 1537,
+      "sha256": "38c0ed69e1f8fb3e529ffda6f62557be88a3f50da2acb35a40e99e6ed19ab2b9",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d100-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d100-r01/config.json",
+      "bytes": 8761,
+      "sha256": "6e66c4ace31828955f63ae8e522216d82a7e2663166969229d24ab13d7bea11d",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d100-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d100-r01/controller-settings.json",
+      "bytes": 8607,
+      "sha256": "8dcde84b2b5ab0ade9b209dca358e3b21b01f774c1129ec772e88fa28d6b8d00",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d100-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d100-r01/experiment.json",
+      "bytes": 20632,
+      "sha256": "960653dfe831fb6dc49c1de4cbfc906eab1df7a754e8badb9660e477cbec8e45",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d100-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d100-r01/offline-evaluation.json",
+      "bytes": 13239,
+      "sha256": "1a0f5618871c3d7c62a3cefa33fcc44f784c41ba3230c319e3105aa94f11be99",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d100-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d100-r01/run_manifest.json",
+      "bytes": 17770,
+      "sha256": "a50c96bd0c3ce0c4c87a87aa21a37293def2102bf010c846b5b5e11bd1c6964d",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d105-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d105-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "6b0d6a679c28e20317d344a84659b491531a408b147483fa082a724df8bcac6c",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d105-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d105-r01/command-limits-audit.json",
+      "bytes": 1533,
+      "sha256": "8134308e7dc2bb7826eb396e44fd9e0ece530664ce0a27e9914b6c0f84e976e9",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d105-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d105-r01/config.json",
+      "bytes": 8763,
+      "sha256": "9d183566e2e9118b18eccabda9df37216381a116e47226b9a10943f2bc0ebcf1",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d105-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d105-r01/controller-settings.json",
+      "bytes": 8608,
+      "sha256": "0900a38a16a734b0764b885bf13664a943641df29bb04c01a84da48ae8ff13cc",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d105-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d105-r01/experiment.json",
+      "bytes": 20634,
+      "sha256": "c3fcf30f629a311c19c9a65d046cc7f4aaa8f6056059ce3a38cf26662b193d19",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d105-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d105-r01/offline-evaluation.json",
+      "bytes": 13239,
+      "sha256": "a589e00f71da9430dde3a09e3ab206088654fb24970378f9e545cefe6d4d523b",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d105-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d105-r01/run_manifest.json",
+      "bytes": 17770,
+      "sha256": "a63ce58ceaf2d8f958f25c498f2fda4e75a130afaddd983d4538c6e0b3887a61",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d110-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d110-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "aa1fa50daf16bed5ec7e296d70476f1a194a87227e6cf0d05fbe23a5af8f787e",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d110-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d110-r01/command-limits-audit.json",
+      "bytes": 1534,
+      "sha256": "69cf6c8232b906a6c0a98624dfd80befbb154c33ee1aa49c2261d9e73fc87ae2",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d110-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d110-r01/config.json",
+      "bytes": 8761,
+      "sha256": "8d43bafbce41567a72e0b0338a88633bc621028e9b006a6791e8ea6724fb4531",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d110-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d110-r01/controller-settings.json",
+      "bytes": 8607,
+      "sha256": "a7fdb3fc875e9bb498d32ae77d8f1dba182dc74e2d1a5002a49acb6df4d60397",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d110-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d110-r01/experiment.json",
+      "bytes": 20632,
+      "sha256": "c4cd127e2cee3a1fd804930bf8ccb5f0d2366a1e1b23dd582aad8096463612d5",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d110-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d110-r01/offline-evaluation.json",
+      "bytes": 13237,
+      "sha256": "d83f840ebe166ad2717e640767ca4622db6971d7e42b3a6c346fc1b2195b8a68",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d110-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d110-r01/run_manifest.json",
+      "bytes": 17769,
+      "sha256": "ea95fe0daf5cf11b000156ce3bd34c1213cce924cbc0718ef99329b8f91e17c4",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d115-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d115-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "f38423f3a6b559dc64f6b0c4995986ded0cc212b1d0cbcbb3875fe89f94c6b91",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d115-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d115-r01/command-limits-audit.json",
+      "bytes": 1714,
+      "sha256": "9d5f4a3b5c50e298398eaa88c7651cf046c6f00a93f1aed2fa9e2bc701ae089d",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d115-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d115-r01/config.json",
+      "bytes": 8763,
+      "sha256": "68010f17829c01fbf674d8109e107355f3edf168e1d13847bd3ffe1bf52bc669",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d115-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d115-r01/controller-settings.json",
+      "bytes": 8608,
+      "sha256": "83669b8a62cb4e49a21371d5d32a3f32bda3c490358f5fa23291354fa000a519",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d115-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d115-r01/experiment.json",
+      "bytes": 20634,
+      "sha256": "3a3a92b028c7de4fb8ee8450afdb64be6b8066fe861c5af8f2a3b79dd919e1c7",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d115-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d115-r01/offline-evaluation.json",
+      "bytes": 13585,
+      "sha256": "2852cc722b317baf31e90255fa9b533fe9397e8466b962a652d5e5fe3ef34a9a",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d115-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d115-r01/run_manifest.json",
+      "bytes": 17791,
+      "sha256": "77886e2b94f913cf925161308fdc6410c7eec2a94b2674ff9e52a299643d879f",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d120-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d120-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "5f4403d9e23023a5dc6f1442a551f274b4bb3e96baf465866778811686ba072a",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d120-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d120-r01/command-limits-audit.json",
+      "bytes": 1533,
+      "sha256": "9681fa60006e383b63dec84a0d4ad05833b92319d68e294c324a6e979595af4b",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d120-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d120-r01/config.json",
+      "bytes": 8761,
+      "sha256": "c5b6112e9b5515ede53112a78edcd107d81db6f5d6a3ae936d93cbfe7443f2b9",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d120-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d120-r01/controller-settings.json",
+      "bytes": 8607,
+      "sha256": "4865c3e2c7792f77130a44b1118ccb9437d06531a55762abbe5645cc0cc949c0",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d120-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d120-r01/experiment.json",
+      "bytes": 20632,
+      "sha256": "70783d44fe1aec3b85fea7bd202d4be66004d69df202768be0160c1733384389",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d120-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d120-r01/offline-evaluation.json",
+      "bytes": 13239,
+      "sha256": "ab807e56b8d670cfde06ac7becb08d698279c3a447ab53c7842b69bb0a8956d5",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d120-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d120-r01/run_manifest.json",
+      "bytes": 17769,
+      "sha256": "f631da9e7a418a50749f38eda6da9c9f49f024a8807ff62a26e72c7d8beb2152",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d125-r01/camera-serialization-validation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d125-r01/camera-serialization-validation.json",
+      "bytes": 240,
+      "sha256": "b0ad6bea8a396f26217a370c9e268d13afd5ce5f1f0aa334e597aaf2d8dbdfbd",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d125-r01/command-limits-audit.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d125-r01/command-limits-audit.json",
+      "bytes": 1534,
+      "sha256": "4b7ee2ae74e71811b9290b768ddf181d5c659721782f8d6e6081d9dd90c2a43b",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d125-r01/config.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d125-r01/config.json",
+      "bytes": 8763,
+      "sha256": "22b49c4a008d5ff3da1a1b9030199b5f8e04bd6786072c49fc60cb92b94fd852",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d125-r01/controller-settings.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d125-r01/controller-settings.json",
+      "bytes": 8608,
+      "sha256": "aaa8ef0feaf2ced46128befa5a81da8cbf8161b67afeb17e11f0e3ef459a889b",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d125-r01/experiment.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d125-r01/experiment.json",
+      "bytes": 20634,
+      "sha256": "6b6d313c5651c1b35e08fb5eb6ae8ea067e0883599eeac5d0cb02f776af209ff",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d125-r01/offline-evaluation.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d125-r01/offline-evaluation.json",
+      "bytes": 13241,
+      "sha256": "89c8f66dc6bce02834a5bcce15b862b63805bf10f64c88d8cf9afb121b654a6b",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/evidence/d125-r01/run_manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/evidence/d125-r01/run_manifest.json",
+      "bytes": 17768,
+      "sha256": "63c474b98c529bb21bb4cc73c6747a66114ab6436ca39ea98d1e5bed61504b43",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/raw-archive-manifest.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/raw-archive-manifest.json",
+      "bytes": 277140,
+      "sha256": "7d8bf40cd2ad0be54ca2d5f706a8a359f57a5d7157d070e91a626a37464e65f4",
+      "copy_byte_exact": true
+    },
+    {
+      "path": "results/mission3/straight-20261009/reviewed-results.json",
+      "copied_from": "artifacts/mission3/team-share-20261009/reviewed-results.json",
+      "bytes": 26278,
+      "sha256": "1240be39bcb4fdf3bf176dce3e7f6d2ba8ce0750ea50d5277caa2c5ea9096a0f",
+      "copy_byte_exact": true
+    }
+  ]
+}

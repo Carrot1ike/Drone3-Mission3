@@ -1,0 +1,14 @@
+%% 과거 회전 탐색 비교 조건. 현재 기본은 passby-landing.mmd.
+flowchart TD
+    start["초기 시선 ↔ 차량 뒤쪽 선: 작은 각 70°\nmono8 320×320, 차량은 발견 전 정지"] --> search["SEARCH: 위치·높이 유지, -12°/s 탐색"]
+    search -->|"유효한 영상 마커 발견"| acquire["ACQUIRE: 마커를 영상 중앙으로 추적\n차량 0.3m/s 이동 시작, FF 거리 유지"]
+    search -->|"35초 미발견"| abort["ABORT: 가상 운동학 시험 종료"]
+    acquire -->|"방위 오차 ≤3°, 0.3초"| align["ALIGN: 차량 진행 방향과 yaw 정렬"]
+    align -->|"yaw 오차 ≤2°, 1초"| lineup["LINEUP: 거리 유지하며 횡방향 정렬"]
+    lineup -->|"횡오차 ≤1.5cm, 상대 횡속도 ≤2.5cm/s\nyaw ≤2°, 신선한 영상, 1초 유지"| approach["APPROACH: FF + 상대 위치·속도 피드백으로 접근"]
+    approach --> track["TRACK: 영상 추종 안정 2초 확인"]
+    track --> descend["DESCEND: 영상 조건 충족 시 하강\n부족하면 하강 정지"]
+    descend --> ready["SETTLE → COMPLETE\n상판 위 약 3cm의 가상 광학점 안정 조건\n물리 접촉 착륙 아님"]
+    acquire -. "발견 이후 관측 2초 손실" .-> abort
+    lineup -. "발견 이후 관측 2초 손실" .-> abort
+    descend -. "발견 이후 관측 2초 손실" .-> abort

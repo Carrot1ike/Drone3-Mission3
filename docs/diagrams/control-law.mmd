@@ -1,0 +1,21 @@
+flowchart LR
+    EST["동일 세계 좌표계의 상태 추정<br/>기체 위치 · 차량 운동 · 마커→착륙점 변환"]
+    REF["단계별 수평 목표 p_target"]
+    FF["차량 운동 예측<br/>v_ff = v_vehicle_hat"]
+    ERROR["위치 오차<br/>e = p_target - p_drone_hat"]
+    FB["피드백 보정<br/>v_correction = Kp × e"]
+    SUM(("+"))
+    LIMIT["v_command = v_ff + v_correction<br/>좌표 기준 확인 · 목표 제한"]
+    PLANT["CFLib → 기체 내부 제어 → 기체 운동"]
+    MEASURE["영상 · 센서 측정"]
+    EST -->|"추정 차량 운동"| FF
+    EST -->|"추정 기체 위치"| ERROR
+    EST --> REF
+    REF --> ERROR
+    ERROR --> FB
+    FB --> SUM
+    FF --> SUM
+    SUM --> LIMIT
+    LIMIT -->|"세계 속도 명령: 일관된 세계 추정이 있을 때"| PLANT
+    PLANT --> MEASURE
+    MEASURE --> EST

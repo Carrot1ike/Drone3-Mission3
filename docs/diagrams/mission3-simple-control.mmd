@@ -1,0 +1,17 @@
+%% 미션3 현재 경로의 간단 요약. 실제 통신/실기 검증 완료를 뜻하지 않는다.
+flowchart LR
+  S["센서 입력<br/>AI-deck 흑백 320×320<br/>IMU · Flow · ToF"] --> E["상태 추정<br/>마커 상대 위치·방향<br/>차량 속도·기체 운동"]
+  subgraph PC["PC · 상태 추정과 상위 제어"]
+    E --> C["FF + FB 착륙 제어<br/>FF: 추정 차량 속도<br/>FB: 상대 위치·속도·yaw 오차<br/>속도 목표 → 자세·추력 명령"]
+    E --> P["단계 판단<br/>대기 → 인식 → 일직선 정렬 → 접근 → 착륙"]
+    P --> C
+  end
+  subgraph CF["기체"]
+    I["기체 내부 제어<br/>자세·각속도 안정화<br/>모터 출력 계산"] --> D["기체 운동<br/>차량 추종·접근<br/>하강·패드 접촉"]
+  end
+  C --> I
+  D -->|"영상·센서 측정 갱신"| S
+  classDef pc fill:#eaf2fc,stroke:#687e91,color:#183047;
+  classDef aircraft fill:#eaf4ed,stroke:#687e91,color:#183047;
+  class E,P,C pc;
+  class S,I,D aircraft;

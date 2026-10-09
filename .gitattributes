@@ -1,0 +1,12 @@
+* text=auto
+*.py text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+*.sh text eol=lf
+*.bash text eol=lf
+*.md text eol=lf
+*.mmd text eol=lf
+*.png binary
+*.pdf binary
+# 시험 증거 사본은 SHA 검증을 위해 줄바꿈 변환도 하지 않는다.
+results/** -text

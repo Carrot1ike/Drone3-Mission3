@@ -1,0 +1,235 @@
+{
+  "camera": {
+    "width": 320,
+    "height": 320,
+    "encoding": "mono8",
+    "horizontal_fov_deg": 87.0,
+    "vertical_fov_deg": 87.0,
+    "source": "https://www.bitcraze.io/documentation/hardware/ai_deck_mono_camera/ai_deck_mono_camera-datasheet.pdf",
+    "focus_distance_m": 0.35,
+    "published_depth_of_field_near_m": 0.3,
+    "calibrated_K": null,
+    "calibrated_distortion": null,
+    "body_transform": null,
+    "observer_optics_sensitivity": {
+      "K": [
+        [
+          182.6897594648856,
+          0.0,
+          160.0
+        ],
+        [
+          0.0,
+          182.6897594648856,
+          160.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "distortion": [
+        -0.08561321102835054,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "horizontal_fov_deg": 87.0,
+      "vertical_fov_deg": 87.0,
+      "diagonal_fov_deg": 115.0,
+      "source_class": "sensitivity candidate derived from published angular boundary values; not measured lens K/D"
+    }
+  },
+  "arena": {
+    "length_m": 30.0,
+    "width_m": 5.0,
+    "net_height_m": 5.0,
+    "indoor": true,
+    "wind_m_s": [
+      0,
+      0,
+      0
+    ],
+    "floor": "provisional matte tiled surface",
+    "net_mesh_m": 0.5,
+    "net_thread_radius_m": 0.002,
+    "net_parameters_are_experiment_assumptions": true
+  },
+  "track": {
+    "kind": "straight",
+    "start_world_xy_m": [
+      1.0,
+      2.5
+    ],
+    "end_world_xy_m": [
+      29.0,
+      2.5
+    ],
+    "center_world_xy_m": [
+      15.0,
+      2.5
+    ],
+    "straight_length_m": 28.0,
+    "layout_is_prior_not_visual_detection": true
+  },
+  "marker": {
+    "dictionary": "DICT_4X4_50",
+    "id": 0,
+    "code_side_m": 0.15,
+    "board_side_m": 0.2,
+    "quiet_zone_each_side_m": 0.025,
+    "printed_face": "rear-facing upright",
+    "known_marker_to_pad_vehicle_m": [
+      0.25,
+      0.0,
+      0.1
+    ]
+  },
+  "landing_geometry": {
+    "pad_height_m": 0.3,
+    "pad_length_m": 0.2,
+    "pad_width_m": 0.2,
+    "source_class": "user-confirmed environment dimensions, allowed static prior"
+  },
+  "entry": {
+    "height_m": 1.0,
+    "prior_information": "user-confirmed entry and heading; x east,y north; north toward east20deg = east toward north70deg. No vehicle live state.",
+    "coordinate_choices_are_experimental": false,
+    "initial_position_std_m": 0.1,
+    "initial_yaw_std_deg": 2.0,
+    "positions": [
+      {
+        "id": 1,
+        "xy_m": [
+          2.0,
+          1.55
+        ],
+        "heading_deg": 70.0
+      }
+    ],
+    "inject_initial_uncertainty": false
+  },
+  "observer": {
+    "min_side_px": 18.0,
+    "max_rmse_px": 1.5,
+    "coarse_bearing_min_side_px": 7.0,
+    "tracking_min_side_px": 12.0,
+    "max_candidate_heading_gap_deg": 12.0,
+    "min_cost_separation_px": 0.4,
+    "max_position_innovation_m": 0.35,
+    "max_heading_innovation_deg": 20.0,
+    "max_track_cross_innovation_m": 2.0,
+    "known_track_constraint": "known eastbound finite straight map; pose/direction/velocity still image and sensor estimates",
+    "flow_footprint_half_angle_hypothesis_deg": 21.0,
+    "footprint_is_sensitivity_assumption": true,
+    "position_filter_gain": 0.55,
+    "velocity_filter_gain": 0.2,
+    "heading_filter_gain": 0.1,
+    "image_max_age_s": 0.35,
+    "descent_max_age_s": 0.15,
+    "velocity_fit_window_s": 1.0,
+    "heading_fit_window_s": 3.0,
+    "specification_class": "software experimental thresholds, not manufacturer performance",
+    "detector_profile": "small_code_cell8_subpix",
+    "vertical_range_velocity_model": "imu_compensated",
+    "vertical_range_velocity_window_s": 1.2,
+    "vertical_fit_basis": "S causal range producer-stamp/IMU interval-average scalar compensation. No identified vertical acceleration bias; optics/quality/timing remain U. Development comparison after saved-input sensitivity; no manufacturer performance claim.",
+    "motion_uncertainty": {
+      "initial_velocity_std_m_s": 0.03,
+      "initial_gyro_bias_std_deg_s": 0.05,
+      "initial_accel_bias_std_m_s2": 0.005,
+      "accel_sample_std_m_s2": 0.02,
+      "gyro_sample_std_deg_s": 0.08,
+      "gyro_bias_walk_deg_s_sqrt_s": 0.001,
+      "accel_bias_walk_m_s2_sqrt_s": 0.0001,
+      "floor_flow_velocity_std_m_s": 0.02,
+      "source_class": "conditional error budget assumptions; no calibrated confidence probability"
+    },
+    "straight_gyro_bias_observer": {
+      "confirm_s": 1.5,
+      "integral_gain_per_s2": 0.002,
+      "bias_limit_deg_s": 0.2,
+      "source_class": "conditional known-map/marker software yaw bias observer; no live vehicle heading datum"
+    },
+    "floor_accel_bias_observer": {
+      "integral_gain_per_s2": 4.0,
+      "bias_limit_m_s2": 0.15,
+      "source_class": "S software observer: effective heading-frame horizontal IMU/tilt/model residual fitted only by qualified stationary-floor velocity innovation; not chip calibration",
+      "gain_basis": "current100Hz floorvelocitygain .134 gives residual adaptation timescale approx(.134/.01)/4=3.35s; no actual hardwarenoise confidence"
+    },
+    "metric_pose_min_depth_m": 0.32,
+    "metric_pose_depth_basis": "S estimatedmetricpose margin.02m above publishednearDOF.30m:1.5pixelgate/90pixelcode approximatelydepth10mm error for two-edge3pixel span, plusmargin; unknownactualK/D/blur so no calibrationconfidence. Reject marginalnewpose ratherthan overwriteearlier reliablefix."
+  },
+  "control": {
+    "wait_fixed_gaze_s": 15.0,
+    "mission_timeout_s": 105.0,
+    "max_speed_m_s": 0.4,
+    "max_accel_m_s2": 0.15,
+    "max_yaw_rate_deg_s": 10.0,
+    "search_yaw_rate_deg_s": 8.0,
+    "cruise_world_height_m": 1.0,
+    "search_lateral_sweep_m": 2.0,
+    "search_sweep_period_s": 56.0,
+    "search_gaze_sweep_deg": 35.0,
+    "search_gaze_period_s": 14.0,
+    "coarse_approach_speed_m_s": 0.35,
+    "coarse_loss_hold_s": 5.0,
+    "lineup_standoff_m": 0.65,
+    "lineup_hold_s": 1.0,
+    "lineup_cross_tolerance_m": 0.025,
+    "lineup_along_tolerance_m": 0.05,
+    "lineup_heading_tolerance_deg": 4.0,
+    "lineup_relative_speed_m_s": 0.07,
+    "xy_kp_per_s": 0.65,
+    "xy_kd": 0.35,
+    "height_kp_per_s": 0.8,
+    "track_hold_s": 2.0,
+    "track_xy_gate_m": 0.035,
+    "track_speed_gate_m_s": 0.06,
+    "geometry_terminal_optical_height_m": 0.11,
+    "descent_speed_m_s": 0.035,
+    "loss_hold_s": 0.35,
+    "loss_reacquire_s": 2.0,
+    "straight_max_yaw_rate_deg_s": 1.5,
+    "straight_confirm_s": 1.5,
+    "net_clearance_m": 1.0,
+    "odometry_uncertainty_limit_m": 1.0,
+    "post_motor_off_hold_s": 3.0,
+    "terminal_policy": "last_fix_bridge",
+    "last_fix_standoff_m": 0.3,
+    "last_fix_min_side_px": 24.0,
+    "last_fix_min_depth_m": 0.3,
+    "terminal_max_prediction_s": 12.0,
+    "terminal_xy_kp_per_s": 1.6,
+    "terminal_xy_gate_m": 0.025,
+    "terminal_recovery_back_speed_m_s": 0.12,
+    "terminal_recovery_climb_speed_m_s": 0.08,
+    "specification_class": "experimental command limits, no certified aircraft capability claim",
+    "search_station_policy": "entry_hold",
+    "max_yaw_accel_deg_s2": 20.0,
+    "max_climb_speed_m_s": 0.1,
+    "max_descent_speed_m_s": 0.06,
+    "search_motion_policy": "stationary",
+    "search_pretranslate_scan_s": 15.0,
+    "search_forward_extent_m": 8.0,
+    "search_lateral_extent_m": 0.75,
+    "search_translation_speed_m_s": 0.15,
+    "search_corner_radius_m": 0.12,
+    "search_gaze_policy": "continuous_yaw",
+    "search_sector_amplitude_deg": 70.0,
+    "search_sector_period_s": 56.0,
+    "terminal_flow_loss_slew_brake": true,
+    "search_translation_gaze_policy": "continue_scan",
+    "undetected_policy": "fixed_gaze",
+    "lower_align_world_height_m": 0.4,
+    "terminal_inertial_handoff_enabled": true,
+    "terminal_inertial_handoff_max_age_s": 3.0,
+    "last_fix_margin_basis": "S geometry: floor cone at bodyz .4 approx .405*tan21=.155m; padhalf .1 + tracking tolerance .035 -> .290m, rounded .30. Actual deckcone/mount U; camera depth nominal .53m vs published minfocus .30m",
+    "search_station_basis": "user-confirmed entry hold; no movement or yaw search before decoded-marker guidance",
+    "lineup_lowering_requires_straight": true,
+    "lineup_preparation_budget_s": 12.0,
+    "lineup_preparation_basis": "S model preparation budget: log(.30/.025)/.8=3.11s height convergence +1s hold +log(.35/.035)/.65=3.54s approach +2s track hold +2.35s allowance=12s. Add existing12s terminal and3s motor-off hold plus existing.5m straight margin. Curve or downstream insufficient distance retains.70m LINEUP, preserving qualified-floor freeflight calibration instead of increasing45s age. Not hardware timing guarantee."
+  }
+}

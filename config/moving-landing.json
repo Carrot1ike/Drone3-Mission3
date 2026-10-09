@@ -1,0 +1,16 @@
+{
+  "scope": "native mono 320x320 and nominal camera-optical-center geometry only; moving flight and physical landing not validated",
+  "hardware_profile": "config/provided-hardware.json",
+  "flight_model_ready": false,
+  "controller_settings_status": "optical kinematics and ROS loop implemented and tested; supplied-aircraft dynamics and contact not validated",
+  "camera": {"width": 320, "height": 320, "encoding": "mono8", "vertical_fov_deg": 87.0, "fov_source": "https://www.bitcraze.io/documentation/hardware/ai_deck_mono_camera/ai_deck_mono_camera-datasheet.pdf", "camera_mount": "manufacturer standard; numerical extrinsic unresolved", "R_body_camera_cv": null, "camera_position_body_m": null},
+  "vehicle": {"speed_m_s": 0.3, "initial_pad_center_m": [0.35, 0.0, 0.20], "pad_width_m": 0.30, "pad_length_m": 0.30, "pad_thickness_m": 0.03, "marker_offset_from_pad_m": [0.45, 0.0, 0.15], "trajectory": "stationary until PC start request, then constant +X speed"},
+  "marker": {"id": 0, "dictionary": "DICT_4X4_50", "length_m": 0.15, "quiet_margin_m": 0.025},
+  "spawn": {"y_m": 0.025, "yaw_deg": 5.0},
+  "observer": {"max_rmse_px": 1.5, "min_side_px": 24.0, "max_candidate_yaw_gap_deg": 3.0, "min_cost_separation_px": 0.25, "visual_gain": 0.25, "max_innovation_deg": 20.0, "assumed_image_delay_s": 0.05, "max_visual_age_s": 0.40, "max_imu_age_s": 0.20, "relative_alpha": 0.35, "relative_beta": 0.035, "max_pose_innovation_m": 0.15},
+  "control": {"height_m": 0.50, "takeoff_s": 3.0, "land_s": 3.0, "kp_per_s": 0.8, "yaw_damping": 0.3, "deadband_deg": 1.0, "max_rate_deg_s": 15.0, "ros_to_physical_yaw_sign": -1, "ready_timeout_s": 25.0, "max_command_gap_s": 0.25, "loss_abort_s": 2.0, "cruise_height_above_pad_m": 0.30, "xy_kp_per_s": 0.7, "xy_kd": 0.5, "max_velocity_m_s": 0.55, "max_accel_m_s2": 0.50, "height_gain": 0.8, "surface_transition_s": 0.20, "align_hold_s": 1.0, "track_hold_s": 2.0, "track_error_m": 0.045, "track_relative_velocity_m_s": 0.065, "descent_m_s": 0.035, "descent_position_gate_m": 0.065, "descent_velocity_gate_m_s": 0.10, "touchdown_height_m": 0.035, "touchdown_hold_s": 0.30, "post_touchdown_hold_s": 3.0, "mission_timeout_s": 65.0},
+  "simulation": {"flow_surface_velocity": "subtract velocity of downward ray hit surface", "pacing": "absolute wall deadline per simulation timestep", "vehicle_control_port": 5211, "seed": 42},
+  "evaluation": {"max_touchdown_center_error_m": 0.07, "max_touchdown_relative_speed_m_s": 0.10, "min_contact_dwell_s": 1.0, "max_post_landing_error_m": 0.09, "min_final_vehicle_distance_m": 2.0},
+  "optical_evaluation": {"max_center_error_m": 0.07, "max_relative_speed_m_s": 0.10, "terminal_height_m": 0.03, "height_tolerance_m": 0.015, "min_vehicle_travel_m": 2.0, "terminal_window_s": 1.0, "min_valid_observation_fraction": 0.50, "feedback_only_min_final_offset_m": 0.20, "scope": "internal optical kinematics checks; no physical touchdown or competition acceptance"},
+  "test": {"ff_enabled": true, "surface_compensation_enabled": true, "image_dropout_phase": "", "image_dropout_s": 0.0}
+}
