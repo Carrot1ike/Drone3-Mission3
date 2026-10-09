@@ -1,25 +1,29 @@
 {
-  "scope": "Published assets verified against GitHub-reported sizes and SHA256 digests",
+  "scope": "Privacy-derived exports; verified SHA256; old signatures apply to original only",
   "assets": [
     {
       "filename": "mission3-team-share-privacy-20261010.zip",
-      "bytes": 49618686,
-      "sha256": "f3d757d8fccbe0487caade5c27d9ea183894b8cafe68ef2597f5dbfa1f08e2ba",
+      "bytes": 48983275,
+      "sha256": "066b527762692024e1d41acfc6ac88ddca193fd669ca61a50694f41ebbf823d9",
+      "modified_files": 5,
+      "excluded_libraries": 3,
+      "unchanged_media_files": 49,
       "download_url": "https://github.com/Carrot1ike/Drone3-Mission3/releases/download/mission3-straight-20261009/mission3-team-share-privacy-20261010.zip",
       "upload_state": "uploaded",
-      "local_original": "artifacts/mission3/mission3-team-share-privacy-20261010.zip",
-      "release_asset_id": 624862797
+      "original_archive_sha256": "f3d757d8fccbe0487caade5c27d9ea183894b8cafe68ef2597f5dbfa1f08e2ba"
     },
     {
       "filename": "mission3-straight-16-privacy-20261010.zip",
-      "bytes": 544757354,
-      "sha256": "159c70fbc3ac31cbb4a4d2f4c9fd4a9fb9a40c472508e6acc135430dd5d21d2a",
+      "bytes": 490637779,
+      "sha256": "15828bd7d8d96aa5b9f038ec0baa8dc4aead68d95d17c2988e47aba71a538dd6",
+      "modified_files": 149,
+      "excluded_libraries": 51,
+      "unchanged_media_files": 246,
       "download_url": "https://github.com/Carrot1ike/Drone3-Mission3/releases/download/mission3-straight-20261009/mission3-straight-16-privacy-20261010.zip",
       "upload_state": "uploaded",
-      "local_original": "artifacts/mission3/mission3-straight-16-privacy-20261010.zip",
-      "release_asset_id": 624863052
+      "original_archive_sha256": "159c70fbc3ac31cbb4a4d2f4c9fd4a9fb9a40c472508e6acc135430dd5d21d2a"
     }
   ],
   "release_url": "https://github.com/Carrot1ike/Drone3-Mission3/releases/tag/mission3-straight-20261009",
-  "published_at": "2026-10-09T12:08:23Z"
+  "privacy_export_date": "2026-10-10"
 }
