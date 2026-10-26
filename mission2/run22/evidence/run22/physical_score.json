@@ -1,0 +1,675 @@
+{
+  "ordered_sections": [
+    "entry_gate12",
+    "ring1",
+    "ring2",
+    "ring3",
+    "two_block_passage",
+    "s_wall1",
+    "s_wall2",
+    "exit_gate23"
+  ],
+  "ordered_events": [
+    {
+      "name": "entry_gate12",
+      "start_sim_time_s": 12.28499999999863,
+      "start_host_monotonic": 430.698893233,
+      "rear_clear_sim_time_s": 13.94499999999771,
+      "rear_clear_host_monotonic": 432.358857002,
+      "session": "0x96d124f7a16e8f56",
+      "control_interval": 0,
+      "plane_crossing": {
+        "sim_time_s": 13.009009144410467,
+        "host_monotonic": 431.4229227053414
+      },
+      "geometry_pass": true,
+      "violations": [],
+      "min_swept_clearance_m": 0.6197048494592916,
+      "rear_clearance_beyond_slab_m": 0.08088095788717897
+    },
+    {
+      "name": "ring1",
+      "start_sim_time_s": 45.26499999998521,
+      "start_host_monotonic": 463.678834641,
+      "rear_clear_sim_time_s": 45.88499999998376,
+      "rear_clear_host_monotonic": 464.298908079,
+      "session": "0x96d124f7a16e8f56",
+      "control_interval": 0,
+      "plane_crossing": {
+        "sim_time_s": 45.50908321973562,
+        "host_monotonic": 463.9229052318461
+      },
+      "geometry_pass": true,
+      "violations": [],
+      "min_swept_clearance_m": 0.3133865916032443,
+      "rear_clearance_beyond_slab_m": 0.08313569138994303
+    },
+    {
+      "name": "ring2",
+      "start_sim_time_s": 57.74499999995612,
+      "start_host_monotonic": 476.159013448,
+      "rear_clear_sim_time_s": 58.38499999995463,
+      "rear_clear_host_monotonic": 476.798826494,
+      "session": "0x96d124f7a16e8f56",
+      "control_interval": 0,
+      "plane_crossing": {
+        "sim_time_s": 58.00177534466042,
+        "host_monotonic": 476.41561637606424
+      },
+      "geometry_pass": true,
+      "violations": [],
+      "min_swept_clearance_m": 0.38756716260051827,
+      "rear_clearance_beyond_slab_m": 0.08379864624213801
+    },
+    {
+      "name": "ring3",
+      "start_sim_time_s": 72.38499999998157,
+      "start_host_monotonic": 490.798884998,
+      "rear_clear_sim_time_s": 73.10499999998501,
+      "rear_clear_host_monotonic": 491.518829614,
+      "session": "0x96d124f7a16e8f56",
+      "control_interval": 0,
+      "plane_crossing": {
+        "sim_time_s": 72.65842305210772,
+        "host_monotonic": 491.07223479468513
+      },
+      "geometry_pass": true,
+      "violations": [],
+      "min_swept_clearance_m": 0.322267500309694,
+      "rear_clearance_beyond_slab_m": 0.08968245697595201
+    },
+    {
+      "name": "two_block_passage",
+      "start_sim_time_s": 91.84500000007449,
+      "start_host_monotonic": 510.258858456,
+      "rear_clear_sim_time_s": 93.96500000008461,
+      "rear_clear_host_monotonic": 512.378828827,
+      "session": "0x96d124f7a16e8f56",
+      "control_interval": 0,
+      "plane_crossing": {
+        "sim_time_s": 92.81377318405205,
+        "host_monotonic": 511.22758509819226
+      },
+      "geometry_pass": true,
+      "violations": [],
+      "min_swept_clearance_m": 0.5768904123960061,
+      "rear_clearance_beyond_slab_m": 0.08336371340409343
+    },
+    {
+      "name": "s_wall1",
+      "start_sim_time_s": 132.6450000002693,
+      "start_host_monotonic": 551.05881667,
+      "rear_clear_sim_time_s": 133.78500000027475,
+      "rear_clear_host_monotonic": 552.198880998,
+      "session": "0x96d124f7a16e8f56",
+      "control_interval": 0,
+      "plane_crossing": {
+        "sim_time_s": 133.12931045048444,
+        "host_monotonic": 551.5431402851198
+      },
+      "geometry_pass": true,
+      "violations": [],
+      "min_swept_clearance_m": 0.6476590142533584,
+      "rear_clearance_beyond_slab_m": 0.08069367346931955
+    },
+    {
+      "name": "s_wall2",
+      "start_sim_time_s": 175.725000000475,
+      "start_host_monotonic": 594.13879731,
+      "rear_clear_sim_time_s": 176.94500000048083,
+      "rear_clear_host_monotonic": 595.358811081,
+      "session": "0x96d124f7a16e8f56",
+      "control_interval": 0,
+      "plane_crossing": {
+        "sim_time_s": 176.25092202808742,
+        "host_monotonic": 594.6647593346244
+      },
+      "geometry_pass": true,
+      "violations": [],
+      "min_swept_clearance_m": 0.5820097494668869,
+      "rear_clearance_beyond_slab_m": 0.08718354420599361
+    },
+    {
+      "name": "exit_gate23",
+      "start_sim_time_s": 223.48500000070305,
+      "start_host_monotonic": 641.89883656,
+      "rear_clear_sim_time_s": 224.48500000070783,
+      "rear_clear_host_monotonic": 642.898873649,
+      "session": "0x96d124f7a16e8f56",
+      "control_interval": 0,
+      "plane_crossing": {
+        "sim_time_s": 223.902946004901,
+        "host_monotonic": 642.3167628339344
+      },
+      "geometry_pass": true,
+      "violations": [],
+      "min_swept_clearance_m": 0.6389023191141882,
+      "rear_clearance_beyond_slab_m": 0.0869474624411346
+    }
+  ],
+  "section_results": [
+    {
+      "name": "entry_gate12",
+      "plane_crossings": [
+        {
+          "sim_time_s": 13.009009144410467,
+          "host_monotonic": 431.4229227053414
+        }
+      ],
+      "transits": [
+        {
+          "name": "entry_gate12",
+          "start_sim_time_s": 12.28499999999863,
+          "start_host_monotonic": 430.698893233,
+          "rear_clear_sim_time_s": 13.94499999999771,
+          "rear_clear_host_monotonic": 432.358857002,
+          "session": "0x96d124f7a16e8f56",
+          "control_interval": 0,
+          "plane_crossing": {
+            "sim_time_s": 13.009009144410467,
+            "host_monotonic": 431.4229227053414
+          },
+          "geometry_pass": true,
+          "violations": [],
+          "min_swept_clearance_m": 0.6197048494592916,
+          "rear_clearance_beyond_slab_m": 0.08088095788717897
+        }
+      ],
+      "unfinished_transit": false,
+      "full_rear_clearance_pass": true
+    },
+    {
+      "name": "ring1",
+      "plane_crossings": [
+        {
+          "sim_time_s": 45.50908321973562,
+          "host_monotonic": 463.9229052318461
+        }
+      ],
+      "transits": [
+        {
+          "name": "ring1",
+          "start_sim_time_s": 45.26499999998521,
+          "start_host_monotonic": 463.678834641,
+          "rear_clear_sim_time_s": 45.88499999998376,
+          "rear_clear_host_monotonic": 464.298908079,
+          "session": "0x96d124f7a16e8f56",
+          "control_interval": 0,
+          "plane_crossing": {
+            "sim_time_s": 45.50908321973562,
+            "host_monotonic": 463.9229052318461
+          },
+          "geometry_pass": true,
+          "violations": [],
+          "min_swept_clearance_m": 0.3133865916032443,
+          "rear_clearance_beyond_slab_m": 0.08313569138994303
+        }
+      ],
+      "unfinished_transit": false,
+      "full_rear_clearance_pass": true
+    },
+    {
+      "name": "ring2",
+      "plane_crossings": [
+        {
+          "sim_time_s": 58.00177534466042,
+          "host_monotonic": 476.41561637606424
+        }
+      ],
+      "transits": [
+        {
+          "name": "ring2",
+          "start_sim_time_s": 57.74499999995612,
+          "start_host_monotonic": 476.159013448,
+          "rear_clear_sim_time_s": 58.38499999995463,
+          "rear_clear_host_monotonic": 476.798826494,
+          "session": "0x96d124f7a16e8f56",
+          "control_interval": 0,
+          "plane_crossing": {
+            "sim_time_s": 58.00177534466042,
+            "host_monotonic": 476.41561637606424
+          },
+          "geometry_pass": true,
+          "violations": [],
+          "min_swept_clearance_m": 0.38756716260051827,
+          "rear_clearance_beyond_slab_m": 0.08379864624213801
+        }
+      ],
+      "unfinished_transit": false,
+      "full_rear_clearance_pass": true
+    },
+    {
+      "name": "ring3",
+      "plane_crossings": [
+        {
+          "sim_time_s": 72.65842305210772,
+          "host_monotonic": 491.07223479468513
+        }
+      ],
+      "transits": [
+        {
+          "name": "ring3",
+          "start_sim_time_s": 72.38499999998157,
+          "start_host_monotonic": 490.798884998,
+          "rear_clear_sim_time_s": 73.10499999998501,
+          "rear_clear_host_monotonic": 491.518829614,
+          "session": "0x96d124f7a16e8f56",
+          "control_interval": 0,
+          "plane_crossing": {
+            "sim_time_s": 72.65842305210772,
+            "host_monotonic": 491.07223479468513
+          },
+          "geometry_pass": true,
+          "violations": [],
+          "min_swept_clearance_m": 0.322267500309694,
+          "rear_clearance_beyond_slab_m": 0.08968245697595201
+        }
+      ],
+      "unfinished_transit": false,
+      "full_rear_clearance_pass": true
+    },
+    {
+      "name": "two_block_passage",
+      "plane_crossings": [
+        {
+          "sim_time_s": 92.81377318405205,
+          "host_monotonic": 511.22758509819226
+        }
+      ],
+      "transits": [
+        {
+          "name": "two_block_passage",
+          "start_sim_time_s": 91.84500000007449,
+          "start_host_monotonic": 510.258858456,
+          "rear_clear_sim_time_s": 93.96500000008461,
+          "rear_clear_host_monotonic": 512.378828827,
+          "session": "0x96d124f7a16e8f56",
+          "control_interval": 0,
+          "plane_crossing": {
+            "sim_time_s": 92.81377318405205,
+            "host_monotonic": 511.22758509819226
+          },
+          "geometry_pass": true,
+          "violations": [],
+          "min_swept_clearance_m": 0.5768904123960061,
+          "rear_clearance_beyond_slab_m": 0.08336371340409343
+        }
+      ],
+      "unfinished_transit": false,
+      "full_rear_clearance_pass": true
+    },
+    {
+      "name": "s_wall1",
+      "plane_crossings": [
+        {
+          "sim_time_s": 133.12931045048444,
+          "host_monotonic": 551.5431402851198
+        }
+      ],
+      "transits": [
+        {
+          "name": "s_wall1",
+          "start_sim_time_s": 132.6450000002693,
+          "start_host_monotonic": 551.05881667,
+          "rear_clear_sim_time_s": 133.78500000027475,
+          "rear_clear_host_monotonic": 552.198880998,
+          "session": "0x96d124f7a16e8f56",
+          "control_interval": 0,
+          "plane_crossing": {
+            "sim_time_s": 133.12931045048444,
+            "host_monotonic": 551.5431402851198
+          },
+          "geometry_pass": true,
+          "violations": [],
+          "min_swept_clearance_m": 0.6476590142533584,
+          "rear_clearance_beyond_slab_m": 0.08069367346931955
+        }
+      ],
+      "unfinished_transit": false,
+      "full_rear_clearance_pass": true
+    },
+    {
+      "name": "s_wall2",
+      "plane_crossings": [
+        {
+          "sim_time_s": 176.25092202808742,
+          "host_monotonic": 594.6647593346244
+        }
+      ],
+      "transits": [
+        {
+          "name": "s_wall2",
+          "start_sim_time_s": 175.725000000475,
+          "start_host_monotonic": 594.13879731,
+          "rear_clear_sim_time_s": 176.94500000048083,
+          "rear_clear_host_monotonic": 595.358811081,
+          "session": "0x96d124f7a16e8f56",
+          "control_interval": 0,
+          "plane_crossing": {
+            "sim_time_s": 176.25092202808742,
+            "host_monotonic": 594.6647593346244
+          },
+          "geometry_pass": true,
+          "violations": [],
+          "min_swept_clearance_m": 0.5820097494668869,
+          "rear_clearance_beyond_slab_m": 0.08718354420599361
+        }
+      ],
+      "unfinished_transit": false,
+      "full_rear_clearance_pass": true
+    },
+    {
+      "name": "exit_gate23",
+      "plane_crossings": [
+        {
+          "sim_time_s": 223.902946004901,
+          "host_monotonic": 642.3167628339344
+        }
+      ],
+      "transits": [
+        {
+          "name": "exit_gate23",
+          "start_sim_time_s": 223.48500000070305,
+          "start_host_monotonic": 641.89883656,
+          "rear_clear_sim_time_s": 224.48500000070783,
+          "rear_clear_host_monotonic": 642.898873649,
+          "session": "0x96d124f7a16e8f56",
+          "control_interval": 0,
+          "plane_crossing": {
+            "sim_time_s": 223.902946004901,
+            "host_monotonic": 642.3167628339344
+          },
+          "geometry_pass": true,
+          "violations": [],
+          "min_swept_clearance_m": 0.6389023191141882,
+          "rear_clearance_beyond_slab_m": 0.0869474624411346
+        }
+      ],
+      "unfinished_transit": false,
+      "full_rear_clearance_pass": true
+    }
+  ],
+  "continuity_checks": [
+    {
+      "through_section": "entry_gate12",
+      "observed": true,
+      "reasons": [],
+      "start_host_monotonic": 430.698893233,
+      "end_host_monotonic": 432.358857002,
+      "physical_samples": 84,
+      "emitted_command_rows": 82,
+      "emitted_command_coverage_complete": true,
+      "airborne_continuous": true,
+      "motor_power_continuous": true,
+      "source_identities": [
+        [
+          10867508021805616982,
+          1904012400202751866,
+          1
+        ]
+      ],
+      "source_epochs": [
+        0
+      ],
+      "source_epoch_changes": [],
+      "source_epoch_missing_rows": 0,
+      "source_epoch_semantics": "host_command_gate_generation_diagnostic_only",
+      "watchdog_hold_rows": 0,
+      "fresh_requalification_after_hold": [],
+      "gate_abort_events": []
+    },
+    {
+      "through_section": "ring1",
+      "observed": true,
+      "reasons": [],
+      "start_host_monotonic": 430.698893233,
+      "end_host_monotonic": 464.298908079,
+      "physical_samples": 1681,
+      "emitted_command_rows": 1655,
+      "emitted_command_coverage_complete": true,
+      "airborne_continuous": true,
+      "motor_power_continuous": true,
+      "source_identities": [
+        [
+          10867508021805616982,
+          1904012400202751866,
+          1
+        ]
+      ],
+      "source_epochs": [
+        0
+      ],
+      "source_epoch_changes": [],
+      "source_epoch_missing_rows": 0,
+      "source_epoch_semantics": "host_command_gate_generation_diagnostic_only",
+      "watchdog_hold_rows": 0,
+      "fresh_requalification_after_hold": [],
+      "gate_abort_events": []
+    },
+    {
+      "through_section": "ring2",
+      "observed": true,
+      "reasons": [],
+      "start_host_monotonic": 430.698893233,
+      "end_host_monotonic": 476.798826494,
+      "physical_samples": 2306,
+      "emitted_command_rows": 2270,
+      "emitted_command_coverage_complete": true,
+      "airborne_continuous": true,
+      "motor_power_continuous": true,
+      "source_identities": [
+        [
+          10867508021805616982,
+          1904012400202751866,
+          1
+        ]
+      ],
+      "source_epochs": [
+        0
+      ],
+      "source_epoch_changes": [],
+      "source_epoch_missing_rows": 0,
+      "source_epoch_semantics": "host_command_gate_generation_diagnostic_only",
+      "watchdog_hold_rows": 0,
+      "fresh_requalification_after_hold": [],
+      "gate_abort_events": []
+    },
+    {
+      "through_section": "ring3",
+      "observed": true,
+      "reasons": [],
+      "start_host_monotonic": 430.698893233,
+      "end_host_monotonic": 491.518829614,
+      "physical_samples": 3042,
+      "emitted_command_rows": 2994,
+      "emitted_command_coverage_complete": true,
+      "airborne_continuous": true,
+      "motor_power_continuous": true,
+      "source_identities": [
+        [
+          10867508021805616982,
+          1904012400202751866,
+          1
+        ]
+      ],
+      "source_epochs": [
+        0
+      ],
+      "source_epoch_changes": [],
+      "source_epoch_missing_rows": 0,
+      "source_epoch_semantics": "host_command_gate_generation_diagnostic_only",
+      "watchdog_hold_rows": 0,
+      "fresh_requalification_after_hold": [],
+      "gate_abort_events": []
+    },
+    {
+      "through_section": "two_block_passage",
+      "observed": true,
+      "reasons": [],
+      "start_host_monotonic": 430.698893233,
+      "end_host_monotonic": 512.378828827,
+      "physical_samples": 4085,
+      "emitted_command_rows": 4021,
+      "emitted_command_coverage_complete": true,
+      "airborne_continuous": true,
+      "motor_power_continuous": true,
+      "source_identities": [
+        [
+          10867508021805616982,
+          1904012400202751866,
+          1
+        ]
+      ],
+      "source_epochs": [
+        0
+      ],
+      "source_epoch_changes": [],
+      "source_epoch_missing_rows": 0,
+      "source_epoch_semantics": "host_command_gate_generation_diagnostic_only",
+      "watchdog_hold_rows": 0,
+      "fresh_requalification_after_hold": [],
+      "gate_abort_events": []
+    },
+    {
+      "through_section": "s_wall1",
+      "observed": true,
+      "reasons": [],
+      "start_host_monotonic": 430.698893233,
+      "end_host_monotonic": 552.198880998,
+      "physical_samples": 6076,
+      "emitted_command_rows": 5981,
+      "emitted_command_coverage_complete": true,
+      "airborne_continuous": true,
+      "motor_power_continuous": true,
+      "source_identities": [
+        [
+          10867508021805616982,
+          1904012400202751866,
+          1
+        ]
+      ],
+      "source_epochs": [
+        0
+      ],
+      "source_epoch_changes": [],
+      "source_epoch_missing_rows": 0,
+      "source_epoch_semantics": "host_command_gate_generation_diagnostic_only",
+      "watchdog_hold_rows": 0,
+      "fresh_requalification_after_hold": [],
+      "gate_abort_events": []
+    },
+    {
+      "through_section": "s_wall2",
+      "observed": true,
+      "reasons": [],
+      "start_host_monotonic": 430.698893233,
+      "end_host_monotonic": 595.358811081,
+      "physical_samples": 8234,
+      "emitted_command_rows": 8107,
+      "emitted_command_coverage_complete": true,
+      "airborne_continuous": true,
+      "motor_power_continuous": true,
+      "source_identities": [
+        [
+          10867508021805616982,
+          1904012400202751866,
+          1
+        ]
+      ],
+      "source_epochs": [
+        0
+      ],
+      "source_epoch_changes": [],
+      "source_epoch_missing_rows": 0,
+      "source_epoch_semantics": "host_command_gate_generation_diagnostic_only",
+      "watchdog_hold_rows": 0,
+      "fresh_requalification_after_hold": [],
+      "gate_abort_events": []
+    },
+    {
+      "through_section": "exit_gate23",
+      "observed": true,
+      "reasons": [],
+      "start_host_monotonic": 430.698893233,
+      "end_host_monotonic": 642.898873649,
+      "physical_samples": 10611,
+      "emitted_command_rows": 10449,
+      "emitted_command_coverage_complete": true,
+      "airborne_continuous": true,
+      "motor_power_continuous": true,
+      "source_identities": [
+        [
+          10867508021805616982,
+          1904012400202751866,
+          1
+        ]
+      ],
+      "source_epochs": [
+        0
+      ],
+      "source_epoch_changes": [],
+      "source_epoch_missing_rows": 0,
+      "source_epoch_semantics": "host_command_gate_generation_diagnostic_only",
+      "watchdog_hold_rows": 0,
+      "fresh_requalification_after_hold": [],
+      "gate_abort_events": []
+    }
+  ],
+  "all_log_nonfloor_contact_samples": 0,
+  "lifecycle_complete": true,
+  "host_stage": "DONE",
+  "host_error": null,
+  "ground_landing": {
+    "passed": false,
+    "reasons": [
+      "hard or unobserved touchdown: preceding/contact vertical speed exceeds bound or evidence missing"
+    ],
+    "limits": {
+      "minimum_rest_sim_s": 0.2,
+      "max_gt_gap_sim_s": 0.1,
+      "max_speed_m_s": 0.1,
+      "max_tilt_deg": 10.0,
+      "max_rest_displacement_m": 0.02,
+      "max_touchdown_vertical_speed_m_s": 0.25,
+      "max_motor_off_rpm": 100.0
+    },
+    "exit_rear_clear_host_monotonic": 642.898873649,
+    "assessment_cutoff_host_monotonic": 650.072226004,
+    "post_exit_gt_samples": 360,
+    "touchdown_events": [
+      {
+        "sim_time_s": 230.6570000007373,
+        "host_monotonic": 649.070872232,
+        "preceding_sample_gap_sim_s": 0.012000000000057298,
+        "contact_vz_m_s": -0.48348841456553715,
+        "preceding_vz_m_s": -0.46726587379038703,
+        "soft_touchdown_observed": false
+      }
+    ],
+    "explicit_stop_host_monotonic": 648.994792356,
+    "explicit_stop_rows": 1,
+    "powered_before_stop": true,
+    "stable_rest_sim_s": 0.6000000000028649,
+    "terminal_sample": {
+      "sim_time_s": 231.65700000074207,
+      "host_monotonic": 650.070883985,
+      "force_bearing_floor_contact": true,
+      "position_world_m": [
+        -18.94862818437895,
+        -0.5397760575042179,
+        0.019938798432005425
+      ],
+      "actual_speed_m_s": 1.185827070982776e-12,
+      "tilt_deg": 0.0,
+      "max_motor_rpm": 0.09170406608191575
+    },
+    "stable_rest_start_sim_s": 231.0570000007392,
+    "stable_rest_end_sim_s": 231.65700000074207
+  },
+  "full_course_success": true,
+  "evaluation_only": true,
+  "evaluation_layout": "reshuffled_822026",
+  "wall_opening_inferred_from_scene": true,
+  "geometry_scorer": "unchanged tools/eval_mission2_course.py section_transits",
+  "command_continuity": "same original scorer continuous_flight_evidence"
+}

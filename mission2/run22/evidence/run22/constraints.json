@@ -1,0 +1,54 @@
+{
+  "map_input_to_controller": false,
+  "obstacle_dimension_priors": [
+    "ring diameter",
+    "exit opening width 1.8m"
+  ],
+  "removed_priors": [
+    "arena width",
+    "start lateral position",
+    "block dimensions",
+    "wall dimensions",
+    "wall passing directions"
+  ],
+  "retained_assumptions": [
+    "camera intrinsics",
+    "associated ego state and camera height above flat floor",
+    "stage order and counts: 3 rings, blocks, 2 walls, exit",
+    "takeoff to 1m and entry preparation 1.5m forward",
+    "upright obstacles and visible floor contacts",
+    "same image appearance detector and fixed control gains/speeds/tolerances"
+  ],
+  "control_contract": "original cflib send_hover_setpoint body vx/vy, yawrate, EKF absolute Z",
+  "firmware_change": "Explicitly reauthorized historical kalman.ringPass v2; no new firmware edits",
+  "layout": "reshuffled_822026",
+  "controller_sha256": {
+    "__init__.py": "046ce790abc66e74cdd9cff99942878464c71434b2b20cb44d2c308ac01e7035",
+    "annotated_video.py": "129fcbec6390b9db9659f1baca6cda890f1330615abf2d01aa59e1a0cc45d988",
+    "build_firmware.py": "7d4483a8c828ef5716b1d84cf031458a9338afad8a0c8094f9602b7c38fa2a62",
+    "commands.py": "f3ef8e23eb368cad813c4ed070c1879d813a3d14aecae5abd69b459f7d81b278",
+    "exit_track.py": "436a8faa5ef6224659c06333fa345f47b58584eadf8504b9f8297f01900585e3",
+    "floor_odometry.py": "74db8365aa868c6af7acebaa67dabbeafbbc8d6156d7f076c1792c226608510d",
+    "live.py": "96cf456a7214ef4e2a9c19eb18ac17156cbd443e51b2c493b29a742256a83b0e",
+    "main.py": "3e3e2abf61887834aae37fbe5c89912a844f8585618e88a3c278617850c7446b",
+    "mission.py": "f66c3a560ec9cfae47725385a6e1f40cdd9b1875f898381365a36f481d375d46",
+    "passages.py": "83bc325e1cf196edf586ca7cda2ed104df998cc926ac370b09987c407462b465",
+    "review.py": "59091fd886f22ee1acbc86ac663c9d898c73d835c8962401c48c557242fbda15",
+    "ring_scan.py": "25c7abbe43e51512542a76efb1a09b771f4cdbca61301c54ea2cbd50d6978850",
+    "ring_track.py": "9f3b04cebffbbe7db8378597c536f24340bd4be7dfa55576df054af5f3ab60b1",
+    "telemetry_video.py": "addbce278787737fcf687837361017627146bf57a6096b0ba6c6c3185230e837",
+    "telemetry_view.py": "d588253a98df0000b8e3f065755b2cbaeb2ac95ec3903ea99af9d4179ea70834",
+    "vision.py": "e01e45ed70872ebdaaa5ee251fd06493ead253111d82a58f25d8df7c9f98cf14",
+    "wall_scan.py": "c4291991370d78b1da84921089690cf3a052bfe140dfa6eeb95e946190b08079"
+  },
+  "firmware_sha256": "ba55095224817fe98f07a88b990bf9c9005e20ba0e6ebd2b8cb97f3f185f4f3a",
+  "purpose": "User requested faster scans and 0.20m clearance instead of 0.45m",
+  "exit_width_m": 1.8,
+  "comparison_baseline": "run21",
+  "host_duration_limit_s": 330,
+  "wall_scan_enabled": true,
+  "clearance_margin_m": 0.2,
+  "scan_rate_limit_deg_s": 30.0,
+  "scan_angle_gain": 0.8,
+  "scan_rate_damping": 0.6
+}

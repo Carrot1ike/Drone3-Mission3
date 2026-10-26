@@ -1,0 +1,40 @@
+--- a/src/modules/src/estimator/estimator_kalman.c
++++ b/src/modules/src/estimator/estimator_kalman.c
+@@ -127,6 +127,16 @@
+ // The robust implementations use around 10% more CPU VS the standard flavours
+ static bool robustTwr = false;
+ static bool robustTdoa = false;
++
++// Host explicitly marks the short straight flight through a ring.
++// Omit ONLY ToF EKF updates while the host executes this marked command.
++// Raw ToF telemetry, flow, IMU, attitude, PID and supervisor remain original.
++// Host clears the marker at straight-flight completion and before landing.
++static uint8_t ringPass = 0;
++static void ringPassChanged(void) {
++  DEBUG_PRINT("Ring pass ToF hold %u at %lu ms\n", (unsigned)ringPass,
++              (unsigned long)T2M(xTaskGetTickCount()));
++}
+ 
+ /**
+  * Quadrocopter State
+--- a/src/modules/src/estimator/estimator_kalman.c
++++ b/src/modules/src/estimator/estimator_kalman.c
+@@ -349,7 +349,7 @@
+         }
+         break;
+       case MeasurementTypeTOF:
+-        kalmanCoreUpdateWithTof(&coreData, &m.data.tof);
++        if (!ringPass) kalmanCoreUpdateWithTof(&coreData, &m.data.tof);
+         break;
+       case MeasurementTypeAbsoluteHeight:
+         kalmanCoreUpdateWithAbsoluteHeight(&coreData, &m.data.height);
+--- a/src/modules/src/estimator/estimator_kalman.c
++++ b/src/modules/src/estimator/estimator_kalman.c
+@@ -541,6 +541,7 @@
+  *     estimator
+  */
+ PARAM_GROUP_START(kalman)
++PARAM_ADD_WITH_CALLBACK(PARAM_UINT8, ringPass, &ringPass, ringPassChanged)
+ /**
+  * @brief Reset the kalman estimator
+  */

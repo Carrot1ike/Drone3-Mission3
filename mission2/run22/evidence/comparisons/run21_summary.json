@@ -1,0 +1,100 @@
+{
+  "run": "run21",
+  "layout": "reshuffled_822026",
+  "duration_s": 255.29455028600205,
+  "ordered_sections": [
+    "entry_gate12",
+    "ring1",
+    "ring2",
+    "ring3",
+    "two_block_passage",
+    "s_wall1",
+    "s_wall2",
+    "exit_gate23"
+  ],
+  "nonfloor_contacts": 0,
+  "full_course_success": true,
+  "landing": {
+    "passed": false,
+    "reasons": [
+      "hard or unobserved touchdown: preceding/contact vertical speed exceeds bound or evidence missing",
+      "terminal post-STOP floor rest with low speed/tilt and decayed motors shorter than 0.2s or unavailable"
+    ],
+    "limits": {
+      "minimum_rest_sim_s": 0.2,
+      "max_gt_gap_sim_s": 0.1,
+      "max_speed_m_s": 0.1,
+      "max_tilt_deg": 10.0,
+      "max_rest_displacement_m": 0.02,
+      "max_touchdown_vertical_speed_m_s": 0.25,
+      "max_motor_off_rpm": 100.0
+    },
+    "exit_rear_clear_host_monotonic": 28251.783594947,
+    "assessment_cutoff_host_monotonic": 28258.640106055,
+    "post_exit_gt_samples": 344,
+    "touchdown_events": [
+      {
+        "sim_time_s": 270.72800000051,
+        "host_monotonic": 28258.640038233,
+        "preceding_sample_gap_sim_s": 0.014999999999645297,
+        "contact_vz_m_s": -0.34629074565058543,
+        "preceding_vz_m_s": -0.2685037460903946,
+        "soft_touchdown_observed": false
+      }
+    ],
+    "explicit_stop_host_monotonic": 28258.585794573,
+    "explicit_stop_rows": 1,
+    "powered_before_stop": true,
+    "stable_rest_sim_s": 0.0,
+    "terminal_sample": {
+      "sim_time_s": 270.72800000051,
+      "host_monotonic": 28258.640038233,
+      "force_bearing_floor_contact": true,
+      "position_world_m": [
+        -19.16146756351304,
+        -0.48572515033386204,
+        0.01982944019283609
+      ],
+      "actual_speed_m_s": 0.34661936158929496,
+      "tilt_deg": 0.03921947059487046,
+      "max_motor_rpm": 11383.310778938046
+    },
+    "stable_rest_start_sim_s": null,
+    "stable_rest_end_sim_s": null
+  },
+  "host_stage": "DONE",
+  "host_error": null,
+  "input_fps": 12.663803423841701,
+  "command_interval_ms": {
+    "median": 20.317584998338134,
+    "p95": 20.482270749380405,
+    "max": 29.412099000182934
+  },
+  "wall_choices": {
+    "WALL_1": {
+      "-1": 163
+    },
+    "WALL_2": {
+      "1": 222
+    }
+  },
+  "controller_hashes": {
+    "exit_track.py": "436a8faa5ef6224659c06333fa345f47b58584eadf8504b9f8297f01900585e3",
+    "mission.py": "38e705660ff8133990b31e29e62c6a4e6039c3eb996f47b80a31e1ef098f89b0",
+    "__init__.py": "046ce790abc66e74cdd9cff99942878464c71434b2b20cb44d2c308ac01e7035",
+    "passages.py": "83bc325e1cf196edf586ca7cda2ed104df998cc926ac370b09987c407462b465",
+    "telemetry_video.py": "addbce278787737fcf687837361017627146bf57a6096b0ba6c6c3185230e837",
+    "ring_scan.py": "2fb54b47abeab366496be85d32e05186c1ef56656441554bd9d43a56d58d5534",
+    "ring_track.py": "9f3b04cebffbbe7db8378597c536f24340bd4be7dfa55576df054af5f3ab60b1",
+    "vision.py": "e01e45ed70872ebdaaa5ee251fd06493ead253111d82a58f25d8df7c9f98cf14",
+    "wall_scan.py": "c4291991370d78b1da84921089690cf3a052bfe140dfa6eeb95e946190b08079",
+    "main.py": "3e3e2abf61887834aae37fbe5c89912a844f8585618e88a3c278617850c7446b",
+    "commands.py": "f3ef8e23eb368cad813c4ed070c1879d813a3d14aecae5abd69b459f7d81b278",
+    "review.py": "59091fd886f22ee1acbc86ac663c9d898c73d835c8962401c48c557242fbda15",
+    "floor_odometry.py": "74db8365aa868c6af7acebaa67dabbeafbbc8d6156d7f076c1792c226608510d",
+    "annotated_video.py": "129fcbec6390b9db9659f1baca6cda890f1330615abf2d01aa59e1a0cc45d988",
+    "build_firmware.py": "7d4483a8c828ef5716b1d84cf031458a9338afad8a0c8094f9602b7c38fa2a62",
+    "telemetry_view.py": "79cc45007e09805ff7bcf62892159d16b144a28b229cdf08c112e544feea7cae",
+    "live.py": "96cf456a7214ef4e2a9c19eb18ac17156cbd443e51b2c493b29a742256a83b0e"
+  }
+}

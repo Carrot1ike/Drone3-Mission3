@@ -1,0 +1,37 @@
+# 로컬 의존성·빌드·전체 실험 원자료 (공유 결과는 results/에 선별)
+.venv/
+.venv-mission3/
+/src/
+/build/
+/logs/
+/artifacts/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# 대용량 영상·배포 묶음은 Release 첨부파일로 관리
+*.mp4
+*.avi
+*.mkv
+*.zip
+*.tar.gz
+*.so
+*.o
+
+# 개인 설정·인증 정보
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+*~
+
+# 사용자 제공 원본 규정·스케치: 로컬 보관, 공개 배포 범위 미확정
+/docs/references/
+/assets/reference/

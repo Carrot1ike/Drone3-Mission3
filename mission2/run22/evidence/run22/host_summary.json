@@ -1,0 +1,204 @@
+{
+  "started_monotonic": 419.158840993,
+  "finished_monotonic": 650.072226004,
+  "stage": "DONE",
+  "ring_cycles": 3,
+  "transitions": [
+    {
+      "from_stage": "TAKEOFF",
+      "to_stage": "ENTRY_FORWARD",
+      "time": 427.064256629,
+      "ring_index": 0
+    },
+    {
+      "from_stage": "ENTRY_FORWARD",
+      "to_stage": "SCAN_BRAKE",
+      "time": 433.943224072,
+      "ring_index": 0
+    },
+    {
+      "from_stage": "SCAN_BRAKE",
+      "to_stage": "SCAN",
+      "time": 435.44723075,
+      "ring_index": 0
+    },
+    {
+      "from_stage": "SCAN",
+      "to_stage": "FIND",
+      "time": 452.353671458,
+      "ring_index": 0
+    },
+    {
+      "from_stage": "FIND",
+      "to_stage": "ALIGN",
+      "time": 452.453788043,
+      "ring_index": 0
+    },
+    {
+      "from_stage": "ALIGN",
+      "to_stage": "STRAIGHT",
+      "time": 461.393610232,
+      "ring_index": 0
+    },
+    {
+      "from_stage": "STRAIGHT",
+      "to_stage": "BRAKE",
+      "time": 464.627486288,
+      "ring_index": 1
+    },
+    {
+      "from_stage": "BRAKE",
+      "to_stage": "FIND",
+      "time": 466.165425819,
+      "ring_index": 1
+    },
+    {
+      "from_stage": "FIND",
+      "to_stage": "ALIGN",
+      "time": 466.210480121,
+      "ring_index": 1
+    },
+    {
+      "from_stage": "ALIGN",
+      "to_stage": "STRAIGHT",
+      "time": 473.926900118,
+      "ring_index": 1
+    },
+    {
+      "from_stage": "STRAIGHT",
+      "to_stage": "BRAKE",
+      "time": 477.116370529,
+      "ring_index": 2
+    },
+    {
+      "from_stage": "BRAKE",
+      "to_stage": "FIND",
+      "time": 478.64232786,
+      "ring_index": 2
+    },
+    {
+      "from_stage": "FIND",
+      "to_stage": "ALIGN",
+      "time": 478.68633288,
+      "ring_index": 2
+    },
+    {
+      "from_stage": "ALIGN",
+      "to_stage": "STRAIGHT",
+      "time": 488.450091588,
+      "ring_index": 2
+    },
+    {
+      "from_stage": "STRAIGHT",
+      "to_stage": "BRAKE",
+      "time": 491.547400468,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "BRAKE",
+      "to_stage": "POST_RING_DESCENT",
+      "time": 493.090525057,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "POST_RING_DESCENT",
+      "to_stage": "BLOCK_GAP",
+      "time": 498.351444699,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "BLOCK_GAP",
+      "to_stage": "BLOCK_STRAIGHT",
+      "time": 503.644864382,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "BLOCK_STRAIGHT",
+      "to_stage": "WALL_SCAN_BRAKE",
+      "time": 513.633660214,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "WALL_SCAN_BRAKE",
+      "to_stage": "WALL_SCAN",
+      "time": 515.136479666,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "WALL_SCAN",
+      "to_stage": "WALL_1",
+      "time": 533.145458812,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "WALL_1",
+      "to_stage": "WALL_STRAIGHT",
+      "time": 544.572353012,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "WALL_STRAIGHT",
+      "to_stage": "WALL_SCAN_BRAKE",
+      "time": 552.893387709,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "WALL_SCAN_BRAKE",
+      "to_stage": "WALL_SCAN",
+      "time": 554.397532513,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "WALL_SCAN",
+      "to_stage": "WALL_2",
+      "time": 572.153368833,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "WALL_2",
+      "to_stage": "WALL_STRAIGHT",
+      "time": 587.813585,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "WALL_STRAIGHT",
+      "to_stage": "EXIT_SCAN_BRAKE",
+      "time": 595.936323435,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "EXIT_SCAN_BRAKE",
+      "to_stage": "EXIT_SCAN",
+      "time": 597.453289734,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "EXIT_SCAN",
+      "to_stage": "EXIT",
+      "time": 615.063339646,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "EXIT",
+      "to_stage": "EXIT_STRAIGHT",
+      "time": 635.470358404,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "EXIT_STRAIGHT",
+      "to_stage": "LAND",
+      "time": 643.436420109,
+      "ring_index": 3
+    },
+    {
+      "from_stage": "LAND",
+      "to_stage": "DONE",
+      "time": 648.990505218,
+      "ring_index": 3
+    }
+  ],
+  "error": null,
+  "physical_success": "requires independent scoring",
+  "tof_fusion": "historical kalman.ringPass during ring crossing",
+  "ring_pass_profile": true
+}

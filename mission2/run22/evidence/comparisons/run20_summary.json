@@ -1,0 +1,67 @@
+{
+  "run": "run20",
+  "layout": "reshuffled_822026",
+  "duration_s": 271.189491784,
+  "ordered_sections": [
+    "entry_gate12",
+    "ring1",
+    "ring2",
+    "ring3",
+    "two_block_passage",
+    "s_wall1"
+  ],
+  "nonfloor_contacts": 15534,
+  "full_course_success": false,
+  "landing": {
+    "passed": false,
+    "reasons": [
+      "ordered exit rear clearance not established"
+    ],
+    "limits": {
+      "minimum_rest_sim_s": 0.2,
+      "max_gt_gap_sim_s": 0.1,
+      "max_speed_m_s": 0.1,
+      "max_tilt_deg": 10.0,
+      "max_rest_displacement_m": 0.02,
+      "max_touchdown_vertical_speed_m_s": 0.25,
+      "max_motor_off_rpm": 100.0
+    },
+    "touchdown_events": [],
+    "stable_rest_sim_s": 0.0
+  },
+  "host_stage": "WALL_2",
+  "host_error": null,
+  "input_fps": 14.908394766343726,
+  "command_interval_ms": {
+    "median": 20.32148350008356,
+    "p95": 20.529662550688954,
+    "max": 28.67587200307753
+  },
+  "wall_choices": {
+    "WALL_1": {
+      "-1": 216
+    },
+    "WALL_2": {
+      "-1": 357,
+      "1": 6
+    }
+  },
+  "controller_hashes": {
+    "exit_track.py": "436a8faa5ef6224659c06333fa345f47b58584eadf8504b9f8297f01900585e3",
+    "mission.py": "3cc13d9f96f4027781a3ff9f95beba231d8189c112348b1b5ac074b202872b06",
+    "__init__.py": "046ce790abc66e74cdd9cff99942878464c71434b2b20cb44d2c308ac01e7035",
+    "passages.py": "83bc325e1cf196edf586ca7cda2ed104df998cc926ac370b09987c407462b465",
+    "telemetry_video.py": "addbce278787737fcf687837361017627146bf57a6096b0ba6c6c3185230e837",
+    "ring_scan.py": "2fb54b47abeab366496be85d32e05186c1ef56656441554bd9d43a56d58d5534",
+    "ring_track.py": "9f3b04cebffbbe7db8378597c536f24340bd4be7dfa55576df054af5f3ab60b1",
+    "vision.py": "e01e45ed70872ebdaaa5ee251fd06493ead253111d82a58f25d8df7c9f98cf14",
+    "main.py": "9e67bfca27ec90d52d4d92531f2004414c8727e77a8c2310244f79a85b7884a3",
+    "commands.py": "f3ef8e23eb368cad813c4ed070c1879d813a3d14aecae5abd69b459f7d81b278",
+    "review.py": "59091fd886f22ee1acbc86ac663c9d898c73d835c8962401c48c557242fbda15",
+    "floor_odometry.py": "74db8365aa868c6af7acebaa67dabbeafbbc8d6156d7f076c1792c226608510d",
+    "annotated_video.py": "129fcbec6390b9db9659f1baca6cda890f1330615abf2d01aa59e1a0cc45d988",
+    "build_firmware.py": "7d4483a8c828ef5716b1d84cf031458a9338afad8a0c8094f9602b7c38fa2a62",
+    "telemetry_view.py": "d19b614cfb30f1508866f62bfd6e6a438707bfac19179c9890e3f2a537ef3546",
+    "live.py": "96cf456a7214ef4e2a9c19eb18ac17156cbd443e51b2c493b29a742256a83b0e"
+  }
+}

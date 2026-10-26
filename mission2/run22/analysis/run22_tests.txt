@@ -1,0 +1,4 @@
+Focused checks after faster scan and 0.20m clearance changes
+Command: .venv/bin/python -m pytest -q tests/test_fresh_wall_scan.py tests/test_fresh_exit_track.py tests/test_fresh_ring_scan.py tests/test_fresh_ring_tracking.py tests/test_fresh_original_contract.py tests/test_fresh_passages.py
+Observed result: 35 passed in 0.59s
+Native validation is separately recorded in evidence/run22/scan_speed_validation.json.

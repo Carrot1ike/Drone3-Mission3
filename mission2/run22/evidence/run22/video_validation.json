@@ -1,0 +1,17 @@
+{
+  "expected_frames": 4619,
+  "decoded": {
+    "decoded_frames": 4619,
+    "fps": 20.0,
+    "duration_s": 230.95,
+    "size": [
+      1600,
+      960
+    ],
+    "fourcc": "h264"
+  },
+  "fps": 20.0,
+  "duration_s": 230.91338501099995,
+  "decision_image_exact": true,
+  "truth_only_for_external_and_score": true
+}

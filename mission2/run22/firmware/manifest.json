@@ -1,0 +1,9 @@
+{
+  "binary": "/home/razer/Documents/ChatGPT/Drone3/.local/firmware/fresh_ring_pass_v2/ON/cf2",
+  "binary_sha256": "ba55095224817fe98f07a88b990bf9c9005e20ba0e6ebd2b8cb97f3f185f4f3a",
+  "source": "/home/razer/Desktop/Drone3/virtual_aideck/runtime/build/ego_firmware",
+  "parameter": "kalman.ringPass",
+  "automatic_timeout": null,
+  "suppressed_measurement": "ToF EKF update only",
+  "baseline_modified": false
+}

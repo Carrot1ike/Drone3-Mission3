@@ -1,0 +1,31 @@
+{
+  "source_sim_fps": 40,
+  "flowdeck": true,
+  "firmware_udp_port": 20150,
+  "crtp_udp_port": 20050,
+  "camera_udp_port": 15200,
+  "cpx_tcp_port": 5000,
+  "network_poll_us": 100,
+  "state_link": {
+    "enabled": true,
+    "transport": "uart",
+    "baud_rate": 1000000,
+    "frame_association": true,
+    "frame_state_send": true,
+    "diagnostics": false,
+    "firmware_binary": "/home/razer/Documents/ChatGPT/Drone3/.local/firmware/fresh_ring_pass_v2/ON/cf2"
+  },
+  "arena": {
+    "scenario": "mission2"
+  },
+  "evaluation_pacing": {
+    "enabled": true,
+    "lag_budget_s": 0.15
+  },
+  "evaluation_setup": {
+    "schema": 1,
+    "name": "reshuffled_822026_faster_scan_20cm",
+    "scene_variant": "baseline",
+    "mission2_layout": "reshuffled_822026"
+  }
+}
